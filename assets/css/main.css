@@ -271,7 +271,7 @@
         display: inline-block;
 	}
 	
-	.top-center {
+	/* .top-center {
         position: absolute;
         z-index: 999;
         margin: 0 auto;
@@ -281,11 +281,11 @@
         top: 10%;
         color: #fff;
 		width: 60%;
-		/* font-size: 200%;
-		font-weight: 400; */
+		font-size: 200%;
+		font-weight: 400;
 		line-height: 1.1;
 		font-style: italic;
-    }
+    } */
 	
 /* Header */
 	#header {
