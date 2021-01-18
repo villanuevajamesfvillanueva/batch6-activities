@@ -3,7 +3,7 @@
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200");
 
 /* Reset */
-	html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, abbr, strong, ul, li, footer, header, section {
+	html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, strong, ul, li, footer, header, section {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -64,16 +64,6 @@
 		-webkit-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
-	}
-
-
-	strong, b {
-		color: #ffffff;
-		font-weight: 200;
-	}
-
-	em, i {
-		font-style: italic;
 	}
 
 	p {
