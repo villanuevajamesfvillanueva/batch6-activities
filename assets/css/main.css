@@ -2,6 +2,12 @@
 @import url(font-awesome.min.css);
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200");
 
+
+@font-face {
+	font-family: customFont;
+	src: url(./font-awesome.min.css) format("truetype");
+}
+
 /* Reset */
 	html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, strong, ul, li, footer, header, section {
 		margin: 0;
