@@ -268,7 +268,9 @@
 
 	.container{
         position: relative;
-        display: inline-block;
+		display: inline-block;
+		font-size: 200%;
+		font-weight: 400;
 	}
 	
 	/* .top-center {
