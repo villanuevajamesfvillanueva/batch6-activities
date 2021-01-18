@@ -28,9 +28,6 @@
 /* Basic */
 	body {
 		-ms-overflow-style: scrollbar;
-	}
-
-	body {
 		background-color: #000;
 		background-image: url("../../images/bg.jpg");
 		background-size: cover;
@@ -92,6 +89,9 @@
 		font-size: 1.35em;
 	}
 
+	strong {
+		color: #fff;
+	}
 
 /* Section/Article */
 	header p {
@@ -281,8 +281,8 @@
         top: 10%;
         color: #fff;
 		width: 60%;
-		font-size: 200%;
-		font-weight: 400;
+		/* font-size: 200%;
+		font-weight: 400; */
 		line-height: 1.1;
 		font-style: italic;
     }
