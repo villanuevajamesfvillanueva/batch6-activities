@@ -58,10 +58,7 @@
 	a {
 		color: inherit;
 		text-decoration: none;
-		-moz-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		
 	}
 
 	p {
@@ -158,8 +155,6 @@
 			border-radius: 4px;
 			display: block;
 		}
-
-	
 
 /* List */
 	ul {
@@ -310,7 +305,6 @@
 			}
 
 /* Footer */
-
 	#footer {
 		text-align: center;
 		padding: 4em 0 4em 0;
