@@ -1,8 +1,5 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-/* @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200"); */
-
-
 
 
 /* Reset */
@@ -99,7 +96,7 @@
 
 /* Section/Article */
 	header p {
-		color: rgba(255, 255, 255, 0.35);
+		color: rgba(255, 255, 255, 0.65);
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -328,6 +325,6 @@
 		}
 	
 	footer p {
-		color: rgba(255, 255, 255, 0.35);
+		color: rgba(255, 255, 255, 0.65);
 	}
 
