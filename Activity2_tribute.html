@@ -7,20 +7,19 @@
     <link rel="stylesheet" href="assets/css/Activity2_tribute.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
     <main id="main">
         <header>
             <div class="header">
-                <div id="portrait">
+                <div id="img-div">
                     <img src="images/Activity2/elon3_cropped.jpg" alt="Elon Musk (BW)">
                 </div>
 
-                <div id="portrait-desc">
+                <div id="img-caption">
                     <div id="quote">
-                        <q>The first step is to establish that something is possible; then probability will occur.</q>
+                        <q>The first step is to establish that something is <i>possible</i>; then <i>probability</i> will occur.</q>
                         <!-- <q>When something is important enough, you do it even if the odds are not in your favor.</q> -->
                     </div>
 
@@ -30,51 +29,279 @@
                     </div>
 
                     <div class="btns-header">
-                        <button class="btn">Early Life</button>
-                        <button class="btn">Business Career</button>
-                        <button class="btn">Personal Life</button>
+                        <button class="btn" onclick="location.href='index.html'" type="button">Early Life</button>
+                        <button class="btn" onclick="location.href='index.html'" type="button">Business Career</button>
+                        <button class="btn" onclick="location.href='index.html'" type="button">Personal Life</button>
+                        <!-- dont forget to change href for each -->
                     </div>
                 </div>
             </div>
         </header>
+
+        <!-- Remember to fix dates! -->
+        <ul class="timeline">
+            <!-- Item 1 -->
+          <li>
+            <div class="direction-r">
+              <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Co-Founds Zip2 Corp.</span>
+                <span class="time-wrapper"><span class="time">1995</span></span>
+              </div>
+              <div class="desc">At 24-years-old Musk develops Zip2 with his brother Kimbal using $28,000 from their father. The company generates online city guides for newspaper publishers.</div>
+            </div>
+          </li>
+          
+          <!-- Item 2 -->
+          <li>
+            <div class="direction-l">
+              <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Zip2 sells to Compaq for $307m.</span>
+                <span class="time-wrapper"><span class="time">1999</span></span>
+              </div>
+              <div class="desc">The sale, in cash and stock options, bags 27-year-old Musk 7%, or $22m. What do you do with that kind of money? You buy a McLaren F1, as seen in this archive interview with CNN.</div>
+            </div>
+          </li>
+        
+          <!-- Item 3 -->
+          <li>
+            <div class="direction-r">
+              <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Co-founds X.com</span>
+                <span class="time-wrapper"><span class="time">Mar 1999</span></span>
+              </div>
+              <div class="desc">With cash from the Zip2 sale, Musk uses $10m to start the online banking and financial services company X.com. It later merges with Confinity in 2000, before being renamed PayPal in 2001. Paypal revolutionizes payment in the online marketplace, growing with a huge viral marketing campaign.</div>
+            </div>
+          </li>
+
+        <!-- Item 4 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">SpaceX lifts off</span>
+                <span class="time-wrapper"><span class="time">Jun 2002</span></span>
+            </div>
+            <div class="desc">Musk founds Space Exploration Technologies (SpaceX) with the intention of decreasing the cost and increasing the accessibility of space travel.</div>
+            </div>
+        </li>
+
+          <!-- Item 5 -->
+          <li>
+            <div class="direction-r">
+              <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Ebay buys Paypal for $1.5b</span>
+                <span class="time-wrapper"><span class="time">Oct 2002</span></span>
+              </div>
+              <div class="desc">Musk pockets $165m from the deal as Paypal's largest shareholder.</div>
+            </div>
+          </li>
+
+          <!-- Item 6 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Musk becomes chair at Tesla Motors</span>
+                <span class="time-wrapper"><span class="time">Feb 2004</span></span>
+            </div>
+            <div class="desc">Musk joins the electric car company, named after Serbian inventor and engineer Nikola Tesla. As chairman of the board, Musk leads the Tesla’s first round of investment funding. Four years later he becomes CEO and product architect.</div>
+            </div>
+        </li>
+
+        <!-- Item 7 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Tesla Model S is unveiled</span>
+                <span class="time-wrapper"><span class="time">Mar 1, 2009</span></span>
+            </div>
+            <div class="desc">Tesla’s five door luxury electric hatchback launches with a 265-mile driving range and fuel economy equivalent to 89 miles per gallon of petrol. Deliveries begin in June 2012, and by 2015 the Model S is ranked the world’s best-selling plug-in electric car.</div>
+            </div>
+        </li>
+
+        <!-- Item 8 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">A first for SpaceX</span>
+                <span class="time-wrapper"><span class="time">Dec 8, 2010</span></span>
+            </div>
+            <div class="desc">Musk’s company becomes the first privately-owned enterprise to return a commercial spacecraft from a low-Earth orbit. The Dragon spacecraft takes off from Cape Canaveral and orbits at 17,000 mph as the first flight in NASA’s Commercial Orbital Transportation Services program. SpaceX spends almost $400m in the pursuit of the endeavour.</div>
+            </div>
+        </li>
+
+        <!-- Item 9 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">SpaceX delivers to the ISS</span>
+                <span class="time-wrapper"><span class="time">May 25, 2012</span></span>
+            </div>
+            <div class="desc">An unmanned Dragon spacecraft becomes the first private capsule to connect with the International Space Station, delivering 1,000 pounds of supplies. The capsule lands off the coast of California six days later in a mission labelled a “grand slam” by Musk.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 10 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Hyperloop open sourced</span>
+                <span class="time-wrapper"><span class="time">Aug 1, 2013</span></span>
+            </div>
+            <div class="desc">Working within SpaceX, Musk refocuses attention on an age-old idea: high-speed tube transport. Dubbed Hyperloop, Musk proposes a 350 mile route between Los Angeles and San Francisco, reaching a top speed of 760 mph. But the entrepreneur open sources the project for others to develop, releasing the Alpha plans online.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 11 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Musk invests in OpenAI</span>
+                <span class="time-wrapper"><span class="time">Dec 11, 2015</span></span>
+            </div>
+            <div class="desc">Along with other tech influencers including Peter Thiel, Sam Altman, Jessica Livingston and Reid Hoffman, Musk contributes towards $1b of investment in the artificial intelligence non-profit. Musk, a noted critic of AI, has called it “our biggest existential threat,” but OpenAI intends to develop the technology safely and share its research. Investing, Musk says, is his way “to keep an eye” on the industry’s development.</div>
+            </div>
+        </li>
+
+        <!-- Item 12 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">The Falcon 9 lands</span>
+                <span class="time-wrapper"><span class="time">Apr 8, 2016</span></span>
+            </div>
+            <div class="desc">SpaceX successfully lands its Falcon 9 on a drone ship at sea, after three failed attempts. The success marks a new era of reusable rockets, potentially reducing the cost of spaceflight. Previously rockets, worth tens of millions of dollars apiece, have been discarded after launch. The Falcon 9 is eventually used to send satellites in to space for firm Iridium.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 13 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">An engine destined for Mars</span>
+                <span class="time-wrapper"><span class="time">Sept 25, 2016</span></span>
+            </div>
+            <div class="desc">SpaceX successfully tests the Raptor engine at a facility in McGregor, Texas. The company hopes 42 of the engines combined will takes humans to Mars in the next 10 years, providing a safety net for the vehicle: “You could lose multiple engines and continue the mission safely,” says Musk.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 14 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">The Boring Company</span>
+                <span class="time-wrapper"><span class="time">Jan 2017</span></span>
+            </div>
+            <div class="desc">Musk launched The Boring Company, a company devoted to boring and building tunnels in order to reduce street traffic. He began with a test dig on the SpaceX property in Los Angeles</div>
+            </div>
+        </li>
+
+
+
+        <!-- Item 15 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Flinging a Tesla into space</span>
+                <span class="time-wrapper"><span class="time">Feb 2018</span></span>
+            </div>
+            <div class="desc">The company enjoyed another milestone moment with the successful test launch of the powerful Falcon Heavy rocket. Armed with additional Falcon 9 boosters, the Falcon Heavy was designed to carry immense payloads into orbit and potentially serve as a vessel for deep space missions. For the test launch, the Falcon Heavy was given a payload of Musk's cherry-red Tesla Roadster, equipped with cameras to "provide some epic views" for the vehicle's planned orbit around the sun.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 16 -->
+        <li>
+            <div class="direction-l">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Starlink</span>
+                <span class="time-wrapper"><span class="time">May 2019</span></span>
+            </div>
+            <div class="desc">SpaceX launched the first batch of 60 satellites in May 2019, and followed with another payload of 60 satellites that November. While this represented significant progress for the Starlink venture, the appearance of these bright orbiters in the night sky, with the potential of thousands more to come, worried astronomers who felt that a proliferation of satellites would increase the difficulty of studying distant objects in space.</div>
+            </div>
+        </li>
+
+
+        <!-- Item 17 -->
+        <li>
+            <div class="direction-r">
+            <div class="flag-wrapper">
+                <span class="hexa"></span>
+                <span class="flag">Richest person in the world</span>
+                <span class="time-wrapper"><span class="time">Jan 7, 2021</span></span>
+            </div>
+            <div class="desc">Elon Musk briefly became the richest person in the world, with a net worth of more than $185 billion because of increase in Tesla’s share price. Musk’s wealth surge over the past year marks the fastest rise to the top of the rich list in history.</div>
+            </div>
+        </li>
+
+        </ul>
+
+
+        
+ 
+        
         
 
+
+
+
+
+
+
+
+
+
+
+        <div class="content">
+            <section id="video-section">
+                <!-- video here -->
+            </section>
+    
+    
+            <section class="info">
+                <h2>Early Life</h2>
+            </section>
+                
         
-    
-
-        <div id="img-div">
-            <img src="" id="image" alt="">
+            <section class="info">
+                <h2>Business Career</h2>
+            </section>
+                
+        
+            <section class="info">
+                <h2>Other Efforts</h2>
+            </section>
+        
+            <section class="info">
+                <h2>Personal Life</h2>
+            </section>
+            <!-- Did you know -->
         </div>
-
-
-        <div id="img-caption">
-        </div>
-
-
-        <section>
-            <h2>Early Life</h2>
-        </section>
-            
-    
-        <section>
-            <h2>Business Career</h2>
-        </section>
-            
-    
-        <section>
-            <h2>Other Efforts</h2>
-        </section>
-    
-        <section>
-            <h2>Personal Life</h2>
-        </section>
-        <!-- Did you know -->
+        
         
         <footer>
             <div id="tribute-link"></div>
         </footer>
     </main>
 
-
+    
 </body>
 </html>
