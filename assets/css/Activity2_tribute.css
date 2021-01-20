@@ -1,0 +1,141 @@
+/* variables */
+:root {
+    --whitish: #e8e8e8;
+    --darkish: #4f524f;
+    --ligther-darkish: rgba(196, 200, 197, 0.9);
+}
+
+
+/* General */
+* {
+    margin: 0;
+	padding: 0;
+    border: 0;
+    font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+
+body {
+    
+}
+
+p {
+    margin: 0 0 2em 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, q {
+    color: var(--darkish);
+    font-weight: 200;
+    margin: 0 0 1em 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+
+/* Header */
+header {
+    display: flex;
+    padding: 0;
+    background: var(--whitish);
+    justify-content: center;
+    align-items: center;
+}
+
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+        #portrait {
+            width: 50%;
+        }
+
+            #portrait img {
+                width: 100%;
+            }
+
+        #portrait-desc {
+            width: 50%;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--whitish);   
+        }
+
+            #quote {
+                /* background: var(--whitish); */
+                font-size: 5rem;
+                line-height: 1;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            #title {
+                padding: 0;
+                text-align: center;
+            }
+
+                #title h1 {
+                    margin: 0;
+                    padding: 0;
+                    font-weight: 400;
+                    /* letter-spacing: 1rem; */
+                }
+
+                #title h2 {
+                    margin: 0;
+                    padding: 0;
+                }
+
+            #title::before {
+                content: '';
+                border-top: solid 1px var(--ligther-darkish);
+                width: 20em;
+                display: block;
+                margin: 0 auto 2em auto;
+            }
+
+            .btns-header {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 20rem;
+                height: 20rem;
+                margin-top: 30px;
+            }
+
+                .btn {
+                    width: 250px;
+                    height: 60px;
+                    border: 1px solid var(--ligther-darkish);
+                    border-radius: 8px;
+                    color: var(--darkish);
+                    background: var(--whitish);
+                    box-shadow: inset 0 0 0 0 var(--darkish);  /*what's this*/
+                    transition: ease-out 0.3s;
+                    outline: none;
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                }
+
+                .btn:hover {
+                    box-shadow: inset 200px 0 0 0 var(--darkish);
+                    cursor: pointer;
+                    color:var(--whitish);
+                }
+
+
+
+            
