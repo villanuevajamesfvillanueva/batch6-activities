@@ -18,10 +18,15 @@
     
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 body, main {
     background: var(--whitish);
     display: block;
+    
 }
 
 
@@ -62,7 +67,8 @@ header {
     .header {
         display: flex;
         align-items: center;
-        
+        /* background: red; */
+        height: 100vh;
     }
 
         #img-div {
@@ -78,7 +84,7 @@ header {
 
         #img-caption {
             width: 50%;
-            height: 75vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -177,7 +183,7 @@ body {
     font-size: 3rem;
     letter-spacing: 4px;
     text-align: center;
-    /* background: red; */
+    /* background: green; */
     margin: 0;
     padding: 0;
 }
@@ -194,6 +200,7 @@ body {
     background: var(--whitish);
     margin-top: 20px;
     margin-bottom: 100px;
+    /* background: blue; */
 }
 
 #early-life-title {
@@ -636,76 +643,77 @@ body {
 }
 
 /* back to top */
-.top-link {
-transition: all 0.25s ease-in-out;
-position: fixed;
-bottom: 0;
-right: 0;
-display: inline-flex;
-cursor: pointer;
-align-items: center;
-justify-content: center;
-margin: 0 3em 3em 0;
-border-radius: 50%;
-padding: .25em;
-width: 80px;
-height: 80px;
-background-color: white;
-}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    font-size: 18px;
+    border: 2px solid var(--ligther-darkish);
+    outline: none;
+    color: var(--darkish);
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 2em 2em 0;
+    padding: .25em;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align:middle;
+  }
   
-    .top-link svg {
+  #myBtn:hover {
+    background-color: var(--darkish);
+  }
+
+    #myBtn svg {
         fill: var(--darkish);
         width: 24px;
         height: 12px;
-    }
+        margin-top: 2rem;
+        }
 
-    .top-link .show {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .top-link:hover {
-        background-color: var(--ligther-darkish);
-    }
-
-    .top-link:hover svg {
-        fill: white;
-    }
-
-    .top-link .hide {
-        visibility: hidden;
-        opacity: 0;
-    }
+        #myBtn:hover svg {
+            fill: var(--whitish);
+        }
 
 
+
+
+        
         /* Text meant only for screen readers. */
         .screen-reader-text {
-        position: absolute;
-        clip-path: inset(50%);
-        margin: -1px;
-        border: 0;
-        padding: 0;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        word-wrap: normal !important;
-        clip: rect(1px, 1px, 1px, 1px);
-        }
+            position: absolute;
+            clip-path: inset(50%);
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            word-wrap: normal !important;
+            clip: rect(1px, 1px, 1px, 1px);
+            }
+    
+            .screen-reader-text:focus {
+                display: block;
+                top: 5px;
+                left: 5px;
+                z-index: 100000; 
+                clip-path: none;
+                background-color: white;
+                padding: 15px 23px 14px;
+                width: auto;
+                height: auto;
+                text-decoration: none;
+                line-height: normal;
+                color: #444;
+                font-size: 1em;
+                clip: auto !important;
+            }
 
-        .screen-reader-text:focus {
-            display: block;
-            top: 5px;
-            left: 5px;
-            z-index: 100000; 
-            clip-path: none;
-            background-color: white;
-            padding: 15px 23px 14px;
-            width: auto;
-            height: auto;
-            text-decoration: none;
-            line-height: normal;
-            color: #444;
-            font-size: 1em;
-            clip: auto !important;
-        }
+
+
+
         
