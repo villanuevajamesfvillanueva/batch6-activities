@@ -100,6 +100,20 @@ header {
                 margin-bottom: 2rem;
             }
 
+                #quote q {
+                    transition: text-shadow 0.2s ease;
+                    float: left;
+	                -webkit-transition: margin 0.5s ease-out;
+                    -moz-transition: margin 0.5s ease-out;
+                    -o-transition: margin 0.5s ease-out;      
+                }
+
+                #quote q:hover {
+                    text-shadow: 0px 15px 5px rgba(0,0,0,0.1),
+                            10px 20px 5px rgba(0,0,0,0.05);
+                    margin: 20px;
+                }
+
             #title {
                 padding: 0;
                 text-align: center;
@@ -165,7 +179,7 @@ body {
 }
 
     body::-webkit-scrollbar {
-        width: 0.25rem;
+        width: 0.3rem;
     }
 
     body::-webkit-scrollbar-track {
@@ -200,16 +214,13 @@ body {
     background: var(--whitish);
     margin-top: 20px;
     margin-bottom: 100px;
-    /* background: blue; */
 }
 
 #early-life-title {
     margin-top: 100px;
 }
 
-
     .slider {
-        /* display: flex; */
         width: 1280px;
         height: 720px;
         border-radius: 10px;
@@ -248,7 +259,6 @@ body {
                 padding: 10rem, 5rem;
             }
 
-
             .slide-text h5, .slide-text p {
                 margin-left: 1.5rem;
                 color: white;
@@ -273,6 +283,7 @@ body {
         margin-top: -15px;
         display: flex;
         justify-content: center;
+        
         
     }
 
@@ -315,9 +326,54 @@ body {
         margin-left: -120%;
     }
 
+    /* auto slide navigation */
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 1280px;
+        justify-content: center;
+        margin-top: 685px;
+    }
+
+        .navigation-auto div {
+            border: 2px solid white;
+            padding: 5px;
+            border-radius: 10px;
+            transition: 1s;
+        }
 
 
+            .navigation-auto div:not(:last-child) {
+                margin-right: 40px;
+            }
 
+            #radio1:checked ~ .navigation-auto .auto-btn1 {
+                background: white;
+            }
+
+            #radio2:checked ~ .navigation-auto .auto-btn2 {
+                background: white;
+            }
+
+            #radio3:checked ~ .navigation-auto .auto-btn3 {
+                background: white;
+            }
+
+            #radio4:checked ~ .navigation-auto .auto-btn4 {
+                background: white;
+            }
+
+            #radio5:checked ~ .navigation-auto .auto-btn5 {
+                background: white;
+            }
+
+            #radio6:checked ~ .navigation-auto .auto-btn6 {
+                background: white;
+            }
+
+            #radio7:checked ~ .navigation-auto .auto-btn7 {
+                background: white;
+            }
 /* timeline */
 .timeline {
     position: relative;

@@ -18,4 +18,11 @@ document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
 
-
+var counter = 1;
+setInterval(function(){
+  document.getElementById("radio" + counter).checked = true;
+  counter++;
+  if (counter > 7) {
+    counter = 1;
+  }
+}, 8000);
