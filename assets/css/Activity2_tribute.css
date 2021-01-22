@@ -944,7 +944,7 @@ body {
         
 
 /* Icon */
-.icons {
+/* .icons {
     margin-top: 5rem;
 }
 
@@ -1007,4 +1007,57 @@ ul.icons {
         .icon.style2:hover {
             background-color: var(--darkish);
             color: var(--whitish);
+        } */
+
+
+/* company logos */
+.companies {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items:baseline;
+    /* background: blue; */
+    margin: 5rem 0 2rem;
+}
+
+    .company-logo {
+        /* background: red; */
+        width: 200px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .company-logo img {
+        width: 150px;
+    }  
+
+        #openAI {
+            width: 100px;
+            padding-bottom: 1.5rem;
+        }
+
+        #spacex {
+            padding-bottom: 0.5rem;
+            padding-right: 2rem;
+            margin: 0;
+            width: 300px;
+        }
+
+        #solarcity {
+            padding-right: 1.5rem;
+            padding-bottom: 1.5rem ;
+        }
+
+        #hyperloop {
+            padding-bottom: 2rem;
+        }
+
+        #starlink {
+            padding-bottom: 0.5rem;
+        }
+
+        #neuralink {
+            padding-bottom: 0.6rem;
         }
