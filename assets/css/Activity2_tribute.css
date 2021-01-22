@@ -1,3 +1,4 @@
+@import url(font-awesome.min.css);
 /* variables */
 :root {
     --whitish: #e8e8e8;
@@ -25,6 +26,7 @@ html {
 body, main {
     background: var(--whitish);
     display: block;
+    -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -750,15 +752,93 @@ body {
 
 /* future goalzzz */
 #future-goals {
-    border: 1px solid red;
     margin-top: 7rem;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
 }
 
+.center {
+  height:70vh;
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.property-card {
+  height:32em;
+  width:22em;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  position:relative;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border: 1px solid var(--ligther-darkish);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* Top Half of card, image. */
+    .property-image {
+    height:12em;
+    width:22em;
+    position:Absolute;
+    top:0px;
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: red;
+    background-size:cover;
+    background-repeat:no-repeat;
+    }
+
+    .property-image img {
+        height: 32em;
+        width: inherit;
+    }
+
+    /* Bottom Card Section */
+    .property-description {
+    background-color: #FAFAFC;
+    height:20em;
+    width:22em;
+    position:absolute;
+    bottom: 0em;
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 0.5em 0;
+    text-align: center;
+    }
 
 
+    .property-description h5 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1;
+        font-family: 'Source Sans Pro', sans-serif;
+        padding: 1rem;
+    }
+
+    .property-description p {
+        padding: 0 1rem 0;
+    }
+
+        .property-card:hover .property-description {
+        height: 0em;
+        padding: 0px 1em;
+        }
+
+        .property-card:hover .property-image {
+        height: 32em;
+        }
 
 
 /* video section */
@@ -844,5 +924,73 @@ body {
         list-style-type: none;
     }
 
-
+    #last-line {
+        font-size: small;
+    }
         
+
+/* Icon */
+.icons {
+    margin-top: 5rem;
+}
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+    ul.icons li {
+        display: inline-block;
+        padding: 0 1em 0 0;
+    }
+
+        ul.icons li:last-child {
+            padding-right: 0;
+        }
+
+
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+    color: var(--darkish);  
+}
+
+    .icon::before {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-transform: none !important;
+    }
+
+    .icon > .label {
+        display: none;
+    }
+
+    .icon.style2 {
+        -moz-transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        border-radius: 100%;
+        display: inline-block;
+        padding: 0.5em;
+        border: solid 1px var(--ligther-darkish);
+        background-color: white;
+    }
+
+        .icon.style2::before {
+            display: block;
+            width: 1.25em;
+            height: 1.25em;
+            line-height: 1.25em;
+            font-size: 1.35em;
+        }
+
+        .icon.style2:hover {
+            background-color: var(--darkish);
+            color: var(--whitish);
+        }
