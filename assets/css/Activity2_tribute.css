@@ -635,7 +635,18 @@ body {
                         -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
                         box-shadow: 0 0 1px rgba(0,0,0,0.20);
                         z-index: 15;
+
+                        display: inline-block;
+                        transition-duration: 0.3s;
+                        transition-property: transform;
+                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                        transform: translateZ(0);
+                        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
                         }
+
+                        .desc:hover {
+                            transform: translateY(-10px);
+                          }
 
                             .direction-l .desc, .direction-r .desc {
                             position: relative;
