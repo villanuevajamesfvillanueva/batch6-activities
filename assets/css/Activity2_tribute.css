@@ -364,8 +364,6 @@ body {
         margin-top: -15px;
         display: flex;
         justify-content: center;
-        
-        
     }
 
     .manual-btn {
@@ -378,7 +376,6 @@ body {
 
     .manual-btn:not(:last-child) {
         margin-right: 40px;
-
     }
 
     .manual-btn:hover {
@@ -422,7 +419,6 @@ body {
             border-radius: 10px;
             transition: 1s;
         }
-
 
             .navigation-auto div:not(:last-child) {
                 margin-right: 40px;
