@@ -25,4 +25,4 @@ setInterval(function(){
   if (counter > 7) {
     counter = 1;
   }
-}, 7000);
+}, 8000);
