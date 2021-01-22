@@ -90,8 +90,9 @@ header {
     }
 
         #img-div {
-            width: 50%;
+            width: 42.5%;
             animation: img-div-load 1s ease;
+            /* border: 1px solid red; */
         }
 
         @keyframes img-div-load {
@@ -113,17 +114,23 @@ header {
                 display: block;
             }
 
+            #image {
+                height: auto;
+            }
+
         #img-caption {
-            width: 50%;
+            width: 57.5%;
             height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: var(--whitish);
-            animation: img-caption-load 1s ease; 
         }
 
+        #quote q, #title, .btns-header {
+            animation: img-caption-load 1s ease;
+        }
 
         @keyframes img-caption-load {
             0% {
