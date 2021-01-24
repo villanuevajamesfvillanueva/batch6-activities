@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="test4.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <title>survey form test</title>
+    </head>
+
+
+
+    <body>
+        
+        <!-- -----------------------------personal details---------------------------- -->
+        <div class="form-div" id="personal-details">
+            <img src="images/avion logo.png" alt="avion logo">
+            <h1 id="survey-form-title" id="title">Survey Form</h1>
+
+            <div class="scroll-indicator">
+                <div id="scroll-indicator"></div>
+            </div>
+
+            <div id="background-style"></div>
+
+            <form action="#survey-questions" method="get" class="form" id="survey-form">
+                <h1 class="section-title" id="description">Personal Details</h1>
+
+                <div class="form-div-inner">
+                    <input type="text" class="form-input" id="name" placeholder=" " required>
+                    <label for="name" class="form-label" id="name-label">Name</label>
+                </div>
+
+
+                <div class="form-div-inner">
+                    <input type="text" class="form-input" id="email" placeholder=" " required>
+                    <label for="email" class="form-label" id="email-label">Email</label>
+                </div>
+                <!-- include email validation error -->
+
+                <div class="form-div-inner">
+                    <input type="number" class="form-input" id="age" placeholder=" ">
+                    <label for="age" class="form-label" id="age-label">Age <span class="optional">(optional)</span></label>
+                </div>
+
+
+
+                <div class="form-div-inner">
+                    <input type="number" class="form-input" id="number" placeholder=" " required>
+                    <label for="number" class="form-label" id="number-label" >Phone Number</label>
+                </div>
+                <!-- include number validation error -->
+
+                <button class="form-button" id="form1_next" action="#survey-questions">Next</button>
+                
+            </form>
+        </div>
+
+
+        <!-- -----------------------------survey questions---------------------------- -->
+        <div class="form-div inactive" id="survey-questions">
+            <form action="#comments-and-suggestions" method="get" class="form">
+                <h1 class="section-title">Survey Questions</h1>
+
+                
+                <div class="container">
+                    <label for="select-box">Which option best describes your current role?</label>
+                    <div class="select-box" id="dropdown">
+            
+                        <div class="options-container">
+                            
+                                <div class="option">
+                                    <input type="radio" class="radio" id="student" name="role" required>
+                                    <label for="student">Student (current)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" class="radio" id="grad" name="role">
+                                    <label for="grad">Student (graduate)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" class="radio" id="instructor" name="role">
+                                    <label for="instructor">Instructor</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" class="radio" id="staff" name="role">
+                                    <label for="staff">Staff</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" class="radio" id="executive" name="role">
+                                    <label for="executive">Executive</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" class="radio" id="other" name="role">
+                                    <label for="other">Other</label>
+                                </div>
+                        </div>
+            
+                        <div class="selected">
+                            - - options - -
+                        </div>
+            
+                    </div>
+                </div>
+                 
+
+                    <!-- ----------------------------radio buttons---------------------------- -->
+                  <div class="form-div-inner radio-choices" id="recommend">
+                    <label for="recommend" id="would_you">Would you recommend Avion School to a friend?</label>
+
+                        <label for="definitely" class="radio-real" id="definitely-label">
+                            <input type="radio" name="recommend" value="" class="radio-input" id="definitely" required>
+                            <div class="radio-radio"></div>
+                            Definitely!
+                        </label>
+                        
+                        <label for="think-so" class="radio-real">
+                            <input type="radio" name="recommend" value="" class="radio-input" id="think-so">
+                            <div class="radio-radio"></div>
+                            I think so
+                        </label>
+
+                        <label for="maybe" class="radio-real">
+                            <input type="radio" name="recommend" value="" class="radio-input" id="maybe">
+                            <div class="radio-radio"></div>
+                            Maybe
+                        </label>
+        
+                        <label for="not-sure" class="radio-real">
+                            <input type="radio" name="recommend" value="" class="radio-input" id="not-sure">
+                            <div class="radio-radio"></div>
+                            Not sure
+                        </label>
+
+                        <label for="no" class="radio-real">
+                            <input type="radio" name="recommend" value="" class="radio-input" id="no">
+                            <div class="radio-radio"></div>
+                            No :(
+                        </label>
+
+
+                  </div>
+
+
+                <!-- ----------------------------checkbox---------------------------- -->
+                  <div class="form-div-inner checkbox" id="improve">
+                    <label for="improve">What would you like to see improved? (check all that apply)</label>
+                            
+                            <div class="checkbox-option" id="front-end-div">
+                                <input type="checkbox" class="checkboxx" id="front-end">
+                                <label for="front-end" class="checkbox-label">Front-end projects</label>
+                            </div>
+                        
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="back-end">
+                                <label for="back-end" class="checkbox-label">Back-end projects</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="challenges">
+                                <label for="challenges" class="checkbox-label">Challenges</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="open-source">
+                                <label for="open-source" class="checkbox-label">Open source community</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="videos">
+                                <label for="videos" class="checkbox-label">Videos</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="wiki">
+                                <label for="wiki" class="checkbox-label">Wiki</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="forum">
+                                <label for="forum" class="checkbox-label">Forum</label>
+                            </div>
+
+                            <div class="checkbox-option">
+                                <input type="checkbox" class="checkboxx" id="additional-courses">
+                                <label for="additional-courses" class="checkbox-label">Additional Courses</label>
+                            </div>
+                    
+                  </div>
+
+                  <button class="form-button" id="form2_next">Next</button>
+
+            </form>
+        </div>
+
+
+
+
+        <!-- ----------------------------- comments and suggestions ---------------------------- -->
+        <div class="form-div inactive" id="comments-and-suggestions">
+            <form action="#thank-you" method="get" class="form">
+                <h1 class="section-title">Comments and Suggestions</h1>
+
+                <div class="form-div-inner textarea">
+                    <label for="comments"></label>
+                    <textarea id="comments" name="user_message" placeholder="Enter Text Here" required></textarea>  
+                </div>
+
+                <input type="submit" class="form-button" value="Submit" id="submit">
+            </form>
+        </div>
+
+
+        <div class="form-div inactive" id="thank-you">
+            <h1>Thank you!</h1>
+        </div>
+
+
+        
+
+        <script src="test3.js"></script>
+    </body>
+</html>
