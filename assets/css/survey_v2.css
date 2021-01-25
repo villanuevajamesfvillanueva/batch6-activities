@@ -4,6 +4,7 @@
     --input-color: #80868B;
     --border-color: #DADCE0;
     --avion-red: #b53c36;
+    --avion-blue: #263b5e;
 }
   
 /*------------------------------ base ------------------------------*/
@@ -36,16 +37,34 @@ h1 {
 #survey-form-title {
     position: fixed;
     top: 10.5rem;
-    left: 30rem;
-    color: var(--input-color);
+    left: 21.3rem;
+    color: var(--avion-blue);
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    font-weight: 500;
 }
 
-img {
+#avion-logo {
     position: fixed;
     top: 5rem;
-    left: 15rem;
+    left: 9rem;
     height: 7rem;
 }
+
+.bg-svg {
+    position: fixed;
+    height: 20rem;
+}
+
+    #bg-svg-1 {
+        top: 55%;
+        left: 10%;
+    }
+
+    #bg-svg-2 {
+        top: 30%;
+        left: 68%;
+    }
 
 #background-style {
     background: #fff;
@@ -56,7 +75,10 @@ img {
     z-index: -1;
 }
 
-
+input {
+    font-size: 1rem;
+    
+}
 
 /*------------------------------ form ------------------------------*/
 .form-div {
@@ -68,7 +90,6 @@ img {
 
     .form {
         width: 360px;
-        /* height: auto; */
         padding: 4rem 2rem;
         border-radius: 1rem;
         box-shadow: 0 10px 25px rgba(92,99,105,.2);
@@ -99,6 +120,7 @@ img {
                 padding: 1rem;
                 background: none;
                 z-index: 1;
+                
             }
 
             .form-label {
@@ -110,6 +132,7 @@ img {
                 color: var(--input-color);
                 transition: 0.3s;
                 border-radius: 5px;
+                
             }
 
         .form-button {
@@ -154,26 +177,23 @@ img {
             border: 1.5px solid var(--blue);
         }
 
-        /* .form-input:focus .optional {
+        /*----- hide 'optional' -----*/
+        .form-input:focus + .form-label .optional {
             display: none;
             opacity: 0;
             visibility: hidden;
-        } */
-        /* hide '(optional) when focus',   FIND A WAY TO MAKE WORK */
+        }
+        
 
-
-
-
-/* number error check */
-#form-div-inner-number {
+.form-div-inner {
     margin-bottom: 0.5rem;
 }
     .error {   
         color: red;
         size: 80%;
         font-size: small;
-        /* padding-bottom: 10rem; */
         padding-left: 1.2rem;
+        padding-bottom: 1rem;
     }
 
         #phone-error {
@@ -181,7 +201,6 @@ img {
         }
         
     .hidden {
-        /* display: none; */
         opacity: 0;
     }
 
@@ -198,7 +217,6 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-/* still accepts other char like 'e', FIX THIS!!! */
 
 
 
@@ -235,13 +253,21 @@ input[type="number"] {
                 width: 0.3rem;
             }
 
-            .select-box .options-container::-webkit-scrollbar-track {
+            body::-webkit-scrollbar {   /*fix for screenshake when activating dropdown menu*/
+                width: 0;
+            }
+
+            .select-box .options-container::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
                 background: var(--border-color);
             }
 
-            .select-box .options-container::-webkit-scrollbar-thumb {
+            .select-box .options-container::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
                 background: var(--input-color);
             }            
+
+            /*activating dropdown makes screen shake*/
+
+
 
         .selected::after {
             content: "";
@@ -277,8 +303,6 @@ input[type="number"] {
 
             order: 0;
         }
-
-
             .select-box .option, .selected {
                 padding: 12px 24px;
                 cursor: pointer;
@@ -293,9 +317,7 @@ input[type="number"] {
             }
 
             .select-box .option .radio {
-                /* display: none; */
                 opacity: 0;
-                /* position: absolute; */
             }
 
 
@@ -430,11 +452,23 @@ textarea:focus {
 }
 
 #thank-you {
-    color: var(--avion-red);
+    display: flex;
+    flex-direction: column;
+    color: var(--avion-blue);
     font-size: 3rem;
 }
+    #thank-you-text {
+        font-family: 'Lora', serif;
+        font-weight: 500;
+    }
+
+    #thank-you p {
+        font-size: 1rem;
+    }
 
 
+
+/*------------------------------ scroll indicator ------------------------------*/
 .scroll-indicator {
     height: 7px;
     width: 100%;
@@ -445,36 +479,67 @@ textarea:focus {
 
     #scroll-indicator {
         height: 100%;
-        width: 50%;
+        width: 25%;
         background: var(--avion-red);
+        transition: width 0.5s ease;
     }
 
+
 /*------------------------------ transition between forms ------------------------------*/
-/* body {
+body {
     height: 100vh;
     display: flex;
     transition: background 0.5 ease;
-    position: relative; */
-    /* overflow: hidden; */
-    
-/* }
+    position: relative;
+}
 
-.form-div {
+ .form-div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.5s ease;
-}
+    /* transition: transform 0.5s ease;  */
+    transition: transform 0.5s ease;
+    
+   
+} 
 
-    div.inactive {
+    .form-div.inactive { 
         opacity: 0;
         pointer-events: none;
-        transform: translate(-50%, 50%);
+        /* display: none; */
+        transform: translate(-150%, -50%);
     }
 
-    div.active {
+    .form-div.active { 
         opacity: 1;
         pointer-events: all;
+        animation: fadeIn 0.5s ease-in-out;
         transform: translate(-50%, -50%);
-    } */
+    }
+
+    .form-div.done {
+        opacity: 0;
+        pointer-events: none;
+        /* display: none; */
+        animation: fadeOut 0.5s ease;
+        transform: translate(50%, -50%);
+    }
+        
+        @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }

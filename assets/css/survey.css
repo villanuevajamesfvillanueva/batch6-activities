@@ -445,7 +445,7 @@ textarea:focus {
 
     #scroll-indicator {
         height: 100%;
-        width: 50%;
+        width: 0%;
         background: var(--avion-red);
     }
 
