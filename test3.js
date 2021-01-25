@@ -72,7 +72,8 @@ function deRequireCb(elementClass) {
         for (i = 0; i < checkbox.length; i++) {
             checkbox[i].required = false;
         }
-    } else {
+    }
+    else {
         for (i = 0; i < checkbox.length; i++) {
             checkbox[i].required = true;
         }
@@ -86,10 +87,11 @@ form2_button.addEventListener("click", () => {
     console.log("dropdown = " + requireRadio("radio"));                 //can use requireRadio for dropdown since it's custom and is radio underneath
     console.log("radio = " + requireRadio("radio-input"));
     console.log("checkbox = " + deRequireCb("checkboxx"));
-    form2_check();
+    form2Check();
 });
 
-function form2_check() {
+var form2_clear = false;
+function form2Check() {
     if (deRequireCb("checkboxx") && requireRadio("radio-input") && requireRadio("radio")) {
         form2_clear = true;
         console.log("form2 = CLEAR");
@@ -129,12 +131,121 @@ window.onscroll = function() {
 };
 
 
-//---------------------------- email validation ---------------------------------
-// function validateEmail(email) {
-//     var form = document.getElementById("survey-form");
-//     var email = document.getElementById("email").value;
 
-//     var text = document.getElementById()
-//     const re = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-//     return re.test(String(email).toLowerCase());
-// }
+
+var phoneNumberInput = document.getElementById("number");
+var nameInput = document.getElementById("name");
+var emailInput = document.getElementById("email");
+
+
+
+
+//continuous checking of phone number using .oninput
+function validatePhoneNumber() {
+    //const phoneNumberInput = document.getElementById("number");
+    phoneNumberInput.oninput = numberCheck;
+}
+
+    function numberCheck() {
+        const numFormat = /^(?:[0][9]\d{9}|[0][9]\d{2} \d{3} \d{4})$/gm;
+        var input_number = document.getElementById('number').value;
+        var test = numFormat.test(input_number);
+        console.log("phone-number valid = " + test);
+
+        if (!test) {
+            document.getElementById('phone-error').classList.remove('hidden');
+        }
+        else {
+            document.getElementById('phone-error').classList.add('hidden');
+        }
+        return test;
+        // return test;                input field is disabled if there's a return value WWWWHHHHYYYYYY
+    }
+
+
+validatePhoneNumber();
+//numberCheck(); //call also numberCheck when clicking submit
+
+
+
+
+//checking name
+function validateName() {
+    //const nameInput = document.getElementById("name");
+    nameInput.oninput = nameCheck;
+}
+
+
+    function nameCheck() {
+        const name = document.getElementById("name").value;
+
+        if (name) {
+            console.log("name valid = true");
+            return true;
+        }
+        else {
+            console.log("name valid = false")
+            return false;
+        }
+
+        //test is not that thorough since it's name
+    }
+
+validateName();
+
+
+
+function validateEmail() {
+    //const emailInput = document.getElementById("email");
+    emailInput.oninput = emailCheck;
+}
+
+    function emailCheck() {
+        const email = document.getElementById("email");
+        const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const test = emailFormat.test(email.value);
+        console.log("email valid = " + test);
+        return test;
+
+        // email.oninvalid = invalidEmail;
+        // console.log("email.invalid = " + email.invalid);
+        // function invalidEmail() {
+        //     //return true;
+        // }                                            //STUDY MORE ABOUT  oninvalid
+        
+    
+    }
+
+validateEmail();
+
+function form1Check() {
+    nameCheck();
+    emailCheck();
+    numberCheck();
+}
+
+
+
+//-------------------------------- form1 validation ----------------------------------
+const form1_button = document.getElementById("form1_next");
+// form1_button.disabled = true;           //button disabled initially
+var form1_clear = false;
+form1_button.addEventListener("click", () => {
+    
+    
+    if (nameCheck() && emailCheck() && numberCheck()) {
+        // form1_button.disabled = false;
+        //should be able to submit
+        form1_clear = true;
+        console.log("form1 = CLEAR");
+    }
+    else {
+        alert("Please accomplish all fields.");
+        console.log("form1 = UNFINISHED");
+    }
+});
+
+// document.getElementById('survey-form').addEventListener('submit', numberCheck);
+
+document.getElementById('survey-form').addEventListener('submit', form1Check);
+

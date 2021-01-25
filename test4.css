@@ -56,6 +56,8 @@ img {
     z-index: -1;
 }
 
+
+
 /*------------------------------ form ------------------------------*/
 .form-div {
     display: flex;
@@ -159,6 +161,29 @@ img {
         } */
         /* hide '(optional) when focus',   FIND A WAY TO MAKE WORK */
 
+
+
+
+/* number error check */
+#form-div-inner-number {
+    margin-bottom: 0.5rem;
+}
+    .error {   
+        color: red;
+        size: 80%;
+        font-size: small;
+        /* padding-bottom: 10rem; */
+        padding-left: 1.2rem;
+    }
+
+        #phone-error {
+            margin-bottom: 1rem;
+        }
+        
+    .hidden {
+        /* display: none; */
+        opacity: 0;
+    }
 
 
 

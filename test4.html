@@ -28,13 +28,13 @@
                 <h1 class="section-title" id="description">Personal Details</h1>
 
                 <div class="form-div-inner">
-                    <input type="text" class="form-input" id="name" placeholder=" " required>
+                    <input type="text" class="form-input" id="name" placeholder=" " minlength="2" required>
                     <label for="name" class="form-label" id="name-label">Name</label>
                 </div>
 
 
                 <div class="form-div-inner">
-                    <input type="text" class="form-input" id="email" placeholder=" " required>
+                    <input type="email" class="form-input" id="email" placeholder=" " required>
                     <label for="email" class="form-label" id="email-label">Email</label>
                 </div>
                 <!-- include email validation error -->
@@ -46,13 +46,15 @@
 
 
 
-                <div class="form-div-inner">
-                    <input type="number" class="form-input" id="number" placeholder=" " required>
+                <div class="form-div-inner" id="form-div-inner-number">
+                    <input type="text" class="form-input" id="number" placeholder=" " pattern="^(?:[0][9]\d{9})$" required>
                     <label for="number" class="form-label" id="number-label" >Phone Number</label>
                 </div>
+                <div id="phone-error" class="error hidden">Please enter a valid phone number.<br>Format: <i>09XXXXXXXXX</i></div>
                 <!-- include number validation error -->
 
-                <button class="form-button" id="form1_next" action="#survey-questions">Next</button>
+                <button type="submit" class="form-button" id="form1_next" action="#survey-questions" onclick="">Next</button>
+                <!-- <input type="submit" class="form-button" value="Submit" id="form1_next"> -->
                 
             </form>
         </div>
@@ -203,7 +205,7 @@
 
                 <div class="form-div-inner textarea">
                     <label for="comments"></label>
-                    <textarea id="comments" name="user_message" placeholder="Enter Text Here" required></textarea>  
+                    <textarea id="comments" name="user_message" placeholder="Enter Text Here" maxlength="3000" required></textarea>  
                 </div>
 
                 <input type="submit" class="form-button" value="Submit" id="submit">
