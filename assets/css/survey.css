@@ -1,0 +1,480 @@
+:root {
+    --blue: #1A73E8;
+    --light-blue: #f4f7fc;
+    --input-color: #80868B;
+    --border-color: #DADCE0;
+    --avion-red: #b53c36;
+}
+  
+/*------------------------------ base ------------------------------*/
+html {
+    scroll-behavior: smooth;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-blue);
+}
+
+button a {
+    text-decoration: none;
+    color: #fff
+}
+
+h1 {
+  margin: 0;
+}
+
+#survey-form-title {
+    position: fixed;
+    top: 10.5rem;
+    left: 30rem;
+    color: var(--input-color);
+}
+
+img {
+    position: fixed;
+    top: 5rem;
+    left: 15rem;
+    height: 7rem;
+}
+
+#background-style {
+    background: #fff;
+    width: 100%;
+    height: 35vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+
+
+/*------------------------------ form ------------------------------*/
+.form-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+    .form {
+        width: 360px;
+        /* height: auto; */
+        padding: 4rem 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(92,99,105,.2);
+        background: white;
+    }
+
+        .section-title {
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .form-div-inner {
+            position: relative;
+            min-height: 48px;
+            margin-bottom: 1.5rem;
+            /* background: red; */
+        }
+
+            .form-input{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 1px solid var(--border-color);
+                border-radius: .5rem;
+                outline: none;
+                padding: 1rem;
+                background: none;
+                z-index: 1;
+            }
+
+            .form-label {
+                position: absolute;
+                left: 1rem;
+                top: 1rem;
+                padding: 0 0.25rem;
+                background-color: #fff;
+                color: var(--input-color);
+                transition: 0.3s;
+                border-radius: 5px;
+            }
+
+        .form-button {
+            display: block;
+            margin-left: auto;
+            padding: 0.75rem 2rem;
+            outline: none;
+            border: none;
+            background-color: var(--blue);
+            color: #fff;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-button:hover {
+            box-shadow: 0 10px 36px rgba(0,0,0,.15);
+        }
+
+        /*----- input focus to move up label -----*/
+        .form-input:focus + .form-label {
+            top: -0.5rem;
+            left: 0.8rem;
+            color: var(--blue);
+            font-size: small;
+            font-weight: 500;
+            z-index: 10;
+            
+        }
+
+        /*----- making label sticky up top -----*/
+        .form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: small;
+            font-weight: 500;
+            z-index: 10;
+        }
+
+        /*----- input focus -----*/
+        .form-input:focus {
+            border: 1.5px solid var(--blue);
+        }
+
+        /* .form-input:focus .optional {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+        } */
+        /* hide '(optional) when focus',   FIND A WAY TO MAKE WORK */
+
+
+
+
+/* number error check */
+#form-div-inner-number {
+    margin-bottom: 0.5rem;
+}
+    .error {   
+        color: red;
+        size: 80%;
+        font-size: small;
+        /* padding-bottom: 10rem; */
+        padding-left: 1.2rem;
+    }
+
+        #phone-error {
+            margin-bottom: 1rem;
+        }
+        
+    .hidden {
+        /* display: none; */
+        opacity: 0;
+    }
+
+
+
+
+/*----- to remove number spinner in input type=number -----*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+/* still accepts other char like 'e', FIX THIS!!! */
+
+
+
+/*------------------------------ dropdown ------------------------------*/
+.container {
+    margin-top: 100px;
+    margin: 0;
+}
+
+    .select-box {
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .select-box .options-container.active {
+        max-height: 200px;
+        opacity: 1;
+        overflow-y: scroll;
+    }
+
+    .select-box .options-container.active + .selected::after {
+        transform: rotateX(180deg);
+    }
+
+    .select-box .options-container.active + .selected {
+        border: 1.5px solid var(--blue);
+    }
+
+            /* Scrollbar */
+            .select-box .options-container::-webkit-scrollbar {
+                width: 0.3rem;
+            }
+
+            .select-box .options-container::-webkit-scrollbar-track {
+                background: var(--border-color);
+            }
+
+            .select-box .options-container::-webkit-scrollbar-thumb {
+                background: var(--input-color);
+            }            
+
+        .selected::after {
+            content: "";
+            background: url("assets/svg/angle-down-solid.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            position: absolute;
+            height: 20px;
+            width: 32px;
+            right: 0px;
+            top: 10px;
+
+            transition: all 0.4s;
+        }
+
+        .select-box .options-container {
+            max-height: 0;
+            width: 100%;
+            opacity: 0;
+            transition: all 0.4s;
+            border-radius: 8px;
+            overflow: hidden;
+
+            order: 1;
+        }
+
+        .selected {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            position: relative;
+
+            order: 0;
+        }
+
+
+            .select-box .option, .selected {
+                padding: 12px 24px;
+                cursor: pointer;
+            }
+
+            .select-box .option:hover {
+                background: var(--blue);
+            }
+
+            .select-box label {
+                cursor: pointer;
+            }
+
+            .select-box .option .radio {
+                /* display: none; */
+                opacity: 0;
+                /* position: absolute; */
+            }
+
+
+
+/*------------------------------ radio buttons ------------------------------*/
+.radio-choices {
+    display: block;
+}
+
+    #recommend label {
+        margin-bottom: 0.5rem;
+    }
+
+    #definitely-label {
+        margin-top: 1rem;
+    }
+
+    .radio-real {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        width: 100%;
+    }
+
+        .radio-input {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .radio-radio {
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            margin-right: 1.2rem;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .radio-radio::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: var(--blue);
+            border-radius: 50%;
+
+            transform: scale(0);
+            transition: transform 0.15s;
+        }
+
+        .radio-input:checked + .radio-radio::after {
+            transform: scale(1);
+        }
+
+
+
+/*------------------------------ checkboxes ------------------------------*/
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: 3px;
+        cursor: pointer;
+        border: 2px solid var(--border-color);
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="checkbox"]::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        content: "\f00c";
+        font-size: 0.5rem;
+        color: white;
+        display: block;
+        
+        transform: scale(0);
+        transition: transform 0.15s;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: var(--blue);
+        display: visible;
+    }
+
+    input[type="checkbox"]:checked::after{
+        display: block;
+        transform: scale(1);
+    }
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+   
+    
+}
+
+.checkbox-label {
+    margin-left: 1rem;
+    
+}
+
+#front-end-div {
+    margin-top: 1rem;
+}
+
+/* fix cursor: pointer not working */
+
+
+
+/*------------------------------ textarea ------------------------------*/
+textarea {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    height: 250px;
+    padding: 1rem;
+}
+
+textarea:focus {
+    border: 1.5px solid var(--blue);
+}
+
+#thank-you {
+    color: var(--avion-red);
+    font-size: 3rem;
+}
+
+
+.scroll-indicator {
+    height: 7px;
+    width: 100%;
+    background: white;
+    position: fixed;
+    bottom: 0;
+}
+
+    #scroll-indicator {
+        height: 100%;
+        width: 50%;
+        background: var(--avion-red);
+    }
+
+/*------------------------------ transition between forms ------------------------------*/
+/* body {
+    height: 100vh;
+    display: flex;
+    transition: background 0.5 ease;
+    position: relative; */
+    /* overflow: hidden; */
+    
+/* }
+
+.form-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+    div.inactive {
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, 50%);
+    }
+
+    div.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate(-50%, -50%);
+    } */
