@@ -3,18 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/survey_v2.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/survey.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <title>Avion School Survey</title>
     </head>
 
 
 
     <body>
-        <img src="images/avion logo.png" alt="avion logo" id="avion-logo">
+        
+        <!-- -----------------------------personal details---------------------------- -->
+        <div class="form-div" id="personal-details">
+            <img src="images/avion logo.png" alt="avion logo">
             <h1 id="survey-form-title" id="title">Survey Form</h1>
 
             <div class="scroll-indicator">
@@ -23,34 +24,26 @@
 
             <div id="background-style"></div>
 
-            <img src="assets/svg/building_websites_i78t.svg" alt="vector image building websites" class="bg-svg" id="bg-svg-1">
-            <img src="assets/svg/creative_team_r90h.svg" alt="vector image creative team" class="bg-svg" id="bg-svg-2">
-
-        <!-- -----------------------------personal details---------------------------- -->
-        <div class="form-div active" id="personal-details">
-            
-
-            <form class="form" id="survey-form" action="#survey-questions">
+            <form action="#survey-questions" method="get" class="form" id="survey-form">
                 <h1 class="section-title" id="description">Personal Details</h1>
 
                 <div class="form-div-inner">
                     <input type="text" class="form-input" id="name" placeholder=" " minlength="2" required>
                     <label for="name" class="form-label" id="name-label">Name</label>
                 </div>
-                <div id="name-error" class="error hidden">Please enter a valid name.</div>
+
 
                 <div class="form-div-inner">
                     <input type="email" class="form-input" id="email" placeholder=" " required>
                     <label for="email" class="form-label" id="email-label">Email</label>
                 </div>
-                <div id="email-error" class="error hidden">Please enter a valid email address.</div>
                 <!-- include email validation error -->
 
                 <div class="form-div-inner">
-                    <input type="number" class="form-input" id="age" placeholder=" " pattern="\s[1-6]{1}[0-9]{1}">
+                    <input type="number" class="form-input" id="age" placeholder=" ">
                     <label for="age" class="form-label" id="age-label">Age <span class="optional">(optional)</span></label>
                 </div>
-                <div id="age-error" class="error hidden">Age range should be between 18-60.</div>
+
 
 
                 <div class="form-div-inner" id="form-div-inner-number">
@@ -58,16 +51,18 @@
                     <label for="number" class="form-label" id="number-label" >Phone Number</label>
                 </div>
                 <div id="phone-error" class="error hidden">Please enter a valid phone number.<br>Format: <i>09XXXXXXXXX</i></div>
+                <!-- include number validation error -->
 
-    
-                <button type="button" class="form-button" id="form1_next">Next</button>
+                <button type="submit" class="form-button" id="form1_next" action="#survey-questions" onclick="">Next</button>
+                <!-- <input type="submit" class="form-button" value="Submit" id="form1_next"> -->
+                
             </form>
         </div>
 
 
         <!-- -----------------------------survey questions---------------------------- -->
         <div class="form-div inactive" id="survey-questions">
-            <form class="form" action="#comments-and-suggestions">
+            <form action="#comments-and-suggestions" method="get" class="form">
                 <h1 class="section-title">Survey Questions</h1>
 
                 
@@ -194,7 +189,9 @@
                             </div>
                     
                   </div>
-                  <button type="button" class="form-button" id="form2_next">Next</button>
+
+                  <button class="form-button" id="form2_next">Next</button>
+
             </form>
         </div>
 
@@ -203,26 +200,26 @@
 
         <!-- ----------------------------- comments and suggestions ---------------------------- -->
         <div class="form-div inactive" id="comments-and-suggestions">
-            <form class="form" action="#thank-you">
+            <form action="#thank-you" method="get" class="form">
                 <h1 class="section-title">Comments and Suggestions</h1>
 
                 <div class="form-div-inner textarea">
                     <label for="comments"></label>
                     <textarea id="comments" name="user_message" placeholder="Enter Text Here" maxlength="3000" required></textarea>  
                 </div>
-                <button type="button" class="form-button" id="submit">Submit</button>
+
+                <input type="submit" class="form-button" value="Submit" id="submit">
             </form>
         </div>
 
 
         <div class="form-div inactive" id="thank-you">
-            <h1 id="thank-you-text">Thank you!</h1>
-            <p id="thank-you-text2">Your response has been recorded.</p>
+            <h1>Thank you!</h1>
         </div>
 
 
         
 
-        <script src="assets/js/survey_v2.js"></script>
+        <script src="assets/js/survey.js"></script>
     </body>
 </html>
