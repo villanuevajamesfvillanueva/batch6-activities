@@ -222,7 +222,8 @@ function form1Check() {
 }
 
 
-form1_button.onpointerenter = form1Check;
+// form1_button.onpointerenter = form1Check;        //this was .onpointerernter before kasi type="submit" siya nung una
+form1_button.onclick = form1Check;
 
 
 
