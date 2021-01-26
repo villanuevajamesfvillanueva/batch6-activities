@@ -77,7 +77,11 @@ h1 {
 
 input {
     font-size: 1rem;
-    
+}
+
+p {
+    line-height: 1.5;
+    text-indent: 30px;
 }
 
 /*------------------------------ form ------------------------------*/
@@ -99,6 +103,7 @@ input {
         .section-title {
             font-weight: 400;
             margin-bottom: 3rem;
+            color: var(--avion-blue);
         }
 
         .form-div-inner {
@@ -204,7 +209,10 @@ input {
         opacity: 0;
     }
 
-
+#take-survey {
+    margin-top: 3rem;
+    font-size: 1rem;
+}
 
 
 /*----- to remove number spinner in input type=number -----*/
@@ -271,9 +279,13 @@ input[type="number"] {
 
         .selected::after {
             content: "";
-            background: url("assets/svg/angle-down-solid.svg");
+            background-image: url("assets/svg/angle-down-solid.svg");
             background-size: contain;
             background-repeat: no-repeat;
+            z-index: 999;
+            /* background: red; */
+            
+            
 
             position: absolute;
             height: 20px;
@@ -479,7 +491,7 @@ textarea:focus {
 
     #scroll-indicator {
         height: 100%;
-        width: 25%;
+        width: 20%;
         background: var(--avion-red);
         transition: width 0.5s ease;
     }

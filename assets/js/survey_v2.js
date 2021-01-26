@@ -281,6 +281,11 @@ function animatedForm() {
                 console.log("FROM: " + parentDiv.id + " TO: " + nextForm.id);
                 nextSlide(parentDiv, nextForm);
             }
+            else if (button.id === "take-survey") {
+                console.log("----- STARTING SURVEY -----");
+                console.log("FROM: " + parentDiv.id + " TO: " + nextForm.id);
+                nextSlide(parentDiv, nextForm);
+            }
             progressBar();
         });
     });   
@@ -326,16 +331,18 @@ function progressBar() {
 
     var prog = 1;
     if (form1.classList.contains("active")) {
-        prog = 1;
-    }
-    else if (form2.classList.contains("active")) {
         prog = 2;
     }
-    else if (form3.classList.contains("active")) {
+    else if (form2.classList.contains("active")) {
         prog = 3;
     }
-    else if (form4.classList.contains("active")) {
+    else if (form3.classList.contains("active")) {
         prog = 4;
+    }
+    else if (form4.classList.contains("active")) {
+        prog = 5;
+    } else {
+        prog = 1;   //this is the landing page
     }
     var progress = (prog/numberOfForms)*100;
     document.getElementById("scroll-indicator").style.width = progress + "%";
