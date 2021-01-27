@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container--inline-flex,
+.container--flex {
+  background-color: #64b5f6;
+  margin-bottom: 10px;
+  /* just for aesthetics */
+}
+
+.container--flex {
+  display: flex;
+}
+
+.container--inline-flex {
+  display: inline-flex;
+  justify-content: center;
+  width: 20rem;
+}
+
+.flex-child {
+  flex: 1;
+  max-width: 50px;
+  min-height: 50px;
+  margin: 10px;
+  background-color: #f06292;
+}
+
+.flex-color {
+  color: #64b5f6;
+}
+
+.inline-color {
+  color: #f06292;
+}
+
+/* Remaining styles are just to make the demo look nice */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+code {
+  background-color: #eeeeee;
+  padding: 1px 5px;
+}
+    </style>
+</head>
+<body>
+    <h1><code>display: flex</code> vs <code>display: inline-flex</code></h1>
+<subtitle>What's the difference?</subtitle>
+
+<h2>Example 1: <code>display: flex</code></h2>
+<p>Three containers <span class="flex-color">in this color</span> with <code>display: flex</code>, containing three child divs <span class="inline-color">in this color</span> with <code>flex: 1</code>.</p>
+<p>Each <span class="flex-color">parent container</span> sits on its own line. The <span class="inline-color">three children</span> occupy an equal width.</p>
+<div class="container--flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+<div class="container--flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+<div class="container--flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+
+<h2>Example 2: <code>display: inline-flex</code></h2>
+<p>Three containers <span class="flex-color">in this color</span> with <code>display: inline-flex</code>, containing three child divs <span class="inline-color">in this color</span> with <code>flex: 1</code> and <code>min-width: 50px</code>.</p>
+<p>Each <span class="flex-color">parent container</span> sits next to the other one, since they can all fit on the same row. The width of the <span class="flex-color">parent container</span> is dependent on the size of <span class="inline-color">the children</span>, which here have been given a min-width of 50px.</p>
+<div class="container--inline-flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+<div class="container--inline-flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+<div class="container--inline-flex">
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+  <div class="flex-child"></div>
+</div>
+
+<h2>Explanation</h2>
+<p>An element with <code>display: flex</code> is similar to an element with <code>display: block</code>, whereby it occupies the whole row. However, its child elements can be positioned flexibly and dynamically, compared to previously-available layout properties.</p>
+<p>If we change this to <code>display: inline-flex</code>, it:
+  <ul>
+    <li>makes the parent container display inline</li>
+    <li>still applies all flex properties to the children, no differently form <code>display: flex</code></li>
+  </ul>
+  This means that if the child elements aren't too big, two containers with <code>display: inline-flex</code> can sit side-by-side.
+</p>
+<p>Other display properties also have an inline counterpart:</p> 
+<ul><li><code>block</code> has <code>inline-block</code></li>
+  <li><code>table</code> has <code>inline-table</code></li>
+  <li>and even <code>grid</code> has <code>inline-grid</code></li>
+  <p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers">Read more about the flex display property in the W3 spec.</a></p>
+</body>
+</html>
