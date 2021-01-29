@@ -58,16 +58,18 @@ const audio = document.getElementById("move-audio");
             
             if (rowTiles[j].firstChild) {
                 console.log("occupied");       
-                // rowTiles[j].style.border = "3px solid red";          //highlight tile to show piece is picked up
+                rowTiles[j].classList.toggle("active");          //highlight tile to show piece is picked up
                 var pick = rowTiles[j].firstElementChild;
                 var style1 = rowTiles[j].getAttribute("style");
                 var orient1 = style1.match(/(\d+)/)[0];
-                
-                callMove(pick, orient1);
+            
+                callMove(pick, orient1, rowTiles[j]);
                 
             }
             else {
                 console.log("empty");
+                
+
             }
             
         }, false);
@@ -76,23 +78,27 @@ const audio = document.getElementById("move-audio");
 
 
 
-let callMove = (pick, orient) => {
+
+
+let callMove = (pick, orient, from) => {
     for (let k = 0; k < 8; k++) {
         const rowTiles = row[k].querySelectorAll(".tile");
-        for (let l = 0; l < 8; l++) {
-                                                            //try to make :hover only on empty tiles
-            rowTiles[l].onclick = () => {
+        for (let l = 0; l < 8; l++) {                                      //try to make :hover only on empty tiles
+            
+                rowTiles[l].onclick = () => {
                 if (!rowTiles[l].firstChild) {
                     rowTiles[l].appendChild(pick);
                     audio.play();
                     counterRotate(rowTiles[l], orient);
                     let str = rowTiles[l].firstElementChild.src;
-                    let res = str.substring(str.length - 6, str.length - 4);
-                    console.log(res);
-                    movelog(res, k, l);
+                    let piece = str.substring(str.length - 6, str.length - 4);
+                    // console.log(piece);
+                    moveLog(piece, k, l);
+                    from.classList.toggle("active");
                     return true;
                 }
                 else {
+                    
                     return false;
                 }
             
@@ -117,14 +123,13 @@ const letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const blackLog = document.getElementById("black-log");
 const whiteLog = document.getElementById("white-log");
 
-let movelog = (key , r, c) => {
+let moveLog = (key , r, c) => {
     if (key in pieces["white"]) {
-        
         console.log(pieces["white"][key] + " row = " + (-r +8) + " col = " + letters[c]);
         let w = document.createElement("p");
         w.innerHTML = pieces["white"][key] + " " + letters[c] + (-r +8);
         whiteLog.appendChild(w);
-        console.log(w);
+        
     }
 
     else if (key in pieces["black"]) {
@@ -132,8 +137,9 @@ let movelog = (key , r, c) => {
         let b = document.createElement("p");
         b.innerHTML = pieces["black"][key] + " " + letters[c] + (-r +8);
         blackLog.appendChild(b);
-        console.log(b);
+        
     }
 
 }
+
 

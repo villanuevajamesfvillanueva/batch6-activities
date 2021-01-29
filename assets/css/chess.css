@@ -167,11 +167,16 @@ li {
                 align-items: center;
             }
 
+            .active {
+                background:rgba(0, 0, 255, 0.7);
+            }
+
+
                 img {
                     width: 4vw;
-                    min-width: 45px;
+                    min-width: 50px;
                     height: 4vw;
-                    min-height: 45px;
+                    min-height: 50px;
                 }
 
             .tile:hover {
@@ -193,13 +198,14 @@ li {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    /* background: red; */
 }
 
     .log {
         width: 23vw;
         min-width: 400px;
-        height: 19vw;
-        min-height: 140px;
+        height: 18vw;
+        min-height: 120px;
         border: 1px solid gray;
         border-radius: 3px;
         overflow-y: scroll;
@@ -223,4 +229,50 @@ li {
     background: var(--darkish);
 }  
 
+    
+    .btn {
+        width: 7vw;
+        min-width: 120px;
+        height: 2vw;
+        max-height: 50px;
+        min-height: 30px;
+        position: relative;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        border: 1px solid var(--ligther-darkish);
+        letter-spacing: 0.2rem;
+        transition: all 0.5s;
+        cursor: pointer;
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '\21BB';
+        font-size: 1rem;
+        position: absolute;
+        opacity: 0;
+        top: -1px;
+        left: 70px;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+        .btn:hover span {
+            padding-right: 25px;
+            transition: 0.5s;
+        }
+
+        .btn:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
