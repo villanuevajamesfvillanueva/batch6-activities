@@ -151,7 +151,7 @@ li {
 
             .white {
                 background-image: url(images/chess/tiles/marble2.jpg);
-                background-image: url(/images/chess/tiles/paper.jpg);
+                background-image: url(paper.jpg);
                 
                 background-size: 100% 100%;
             }
@@ -160,7 +160,7 @@ li {
 
             .black {
                 background-image: url(images/chess/tiles/marble-black-gold.jpg);
-                background-image: url(/images/chess/tiles/papyrus.jpg);
+                background-image: url(papyrus.jpg);
                 
                 background-size: 100% 100%;  
             }
