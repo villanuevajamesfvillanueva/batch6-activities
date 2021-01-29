@@ -64,7 +64,7 @@ const audio = document.getElementById("move-audio");
                 var orient1 = style1.match(/(\d+)/)[0];
                 
                 callMove(pick, orient1);
-            
+                
             }
             else {
                 console.log("empty");
@@ -85,8 +85,11 @@ let callMove = (pick, orient) => {
                 if (!rowTiles[l].firstChild) {
                     rowTiles[l].appendChild(pick);
                     audio.play();
-                    // console.log(rowTiles[l]);
                     counterRotate(rowTiles[l], orient);
+                    let str = rowTiles[l].firstElementChild.src;
+                    let res = str.substring(str.length - 6, str.length - 4);
+                    console.log(res);
+                    movelog(res, k, l);
                     return true;
                 }
                 else {
@@ -99,8 +102,38 @@ let callMove = (pick, orient) => {
 }
 
 
-//------------------------------counter rotate-------------------------------------
+//------------------------------ counter rotate -------------------------------------
 let counterRotate = (tile, orient) => { 
     tile.style.transform = "rotate(" + orient +"deg)";
+}
+
+//----------------------------- move logs --------------------------------------------
+const pieces = { 
+        white: {wK: "♔", wQ : "♕", wR : "♖", wB : "♗", wN : "♘", wP : "♙"},
+        black: {bK : "♚", bQ : "♛", bR : "♜", bB : "♝", bN : "♞", bP : "♟"}};
+
+const letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+const blackLog = document.getElementById("black-log");
+const whiteLog = document.getElementById("white-log");
+
+let movelog = (key , r, c) => {
+    if (key in pieces["white"]) {
+        
+        console.log(pieces["white"][key] + " row = " + (-r +8) + " col = " + letters[c]);
+        let w = document.createElement("p");
+        w.innerHTML = pieces["white"][key] + " " + letters[c] + (-r +8);
+        whiteLog.appendChild(w);
+        console.log(w);
+    }
+
+    else if (key in pieces["black"]) {
+        console.log(pieces["black"][key] + " row = " + (-r +8) + " col = " + letters[c]);
+        let b = document.createElement("p");
+        b.innerHTML = pieces["black"][key] + " " + letters[c] + (-r +8);
+        blackLog.appendChild(b);
+        console.log(b);
+    }
+
 }
 
