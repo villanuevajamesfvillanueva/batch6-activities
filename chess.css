@@ -1,0 +1,188 @@
+:root {
+    --shadow: rgba(92,99,105, 0.7);
+    --board-outline1: linear-gradient(135deg, gray, black);
+    --board-outline2: linear-gradient(135deg, #f0e7d2, #6a4435);
+    --tile-dim: 5vw;
+    --interface-bg: #e4e4e4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+  background: white;
+  /* background: green; */
+  
+}
+
+.header {
+    /* background: red; */
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ h1 {
+     font-weight: 400;
+     letter-spacing: 0.2em;
+     /* margin: auto; */
+     padding-top: 1.5rem;
+     /* background: red; */
+ }
+
+.main-container {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 0.5rem; */
+    justify-content: space-evenly;
+    /* background: red; */
+}
+
+    @media (max-width: 900px) {
+        .main-container {
+            flex-direction: column;
+            justify-content: space-around;
+            padding-top: 3rem;
+            
+        }
+    }
+
+.board-container {
+    height: calc(var(--tile-dim)*8 + 2vw);
+    width: calc(var(--tile-dim)*8 + 2vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 10px; */
+    /* background: var(--board-outline2); */
+}
+
+.letters {
+    width: calc(var(--tile-dim)*8);
+    min-width: 400px;
+    height: 1vw;
+    min-height: 20px;
+    /* background: green; */
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .letters p {
+        margin-top: 1rem;
+    }
+
+.numbers-group {
+    display: flex;
+
+}
+
+    .numbers {
+        height: calc(var(--tile-dim)*8);
+        min-height: 400px;
+        width: 1vw;
+        min-width: 20px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        left: 0;
+        top: 0;
+        text-align: center;
+        /* background: red; */
+    }
+
+        .numbers p {
+            margin-right: 1rem;
+        }
+
+li {
+    list-style: none;
+    font-size: 1rem;
+}
+
+    .player-interface {
+        width: calc(var(--tile-dim)*5);
+        min-width: 300px;
+        height: calc(var(--tile-dim)*8 + 1vw);
+        min-height: 300px;
+        background: var(--interface-bg);
+    }
+
+    .board {
+        /* background: red; */
+        display: block;
+        -moz-box-shadow: 0 0 25px var(--shadow);
+        -webkit-box-shadow: 0 0 25px var(--shadow);
+        box-shadow: 0 0 25px var(--shadow);
+        background: none;
+        border-radius: 3px;
+    }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        /* position: relative; */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        }
+
+            .white, .black {
+                width: var(--tile-dim);
+                height: var(--tile-dim);
+                min-width: 50px;
+                min-height: 50px;
+                /* border: gray 1px solid; */
+                display: block;
+                border-radius: 3px;
+                  
+            }
+
+            .white {
+                background-image: url(images/chess/tiles/marble2.jpg);
+                background-image: url(images/chess/tiles/paper.jpg);
+                
+                background-size: 100% 100%;
+            }
+
+            
+
+            .black {
+                background-image: url(images/chess/tiles/marble-black-gold.jpg);
+                background-image: url(images/chess/tiles/papyrus.jpg);
+                
+                background-size: 100% 100%;  
+            }
+
+            .tile {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+                img {
+                    width: 4vw;
+                    min-width: 45px;
+                    height: 4vw;
+                    min-height: 45px;
+                }
+
+            .tile:hover {
+                background-color: rgba(0, 0, 255, 0.3);
+                /* background-color: rgba(255, 0, 0, 0.5);
+                background-color: rgba(0, 255, 0, 0.5); */
+                background-blend-mode: overlay;
+                cursor: pointer;
+            }
+

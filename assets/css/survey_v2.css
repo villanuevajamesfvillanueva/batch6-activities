@@ -279,10 +279,11 @@ input[type="number"] {
 
         .selected::after {
             content: "";
-            background: url("assets/svg/angle-down-solid.svg");
+            background: url(assets/svg/angle-down-solid.svg);
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 999;
+            background-size: 100% 100%;
             /* background: red; */
             /* background: url("assets/svg/angle-down-solid.svg"); */
             content: "⌵";
