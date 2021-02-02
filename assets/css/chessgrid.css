@@ -1,0 +1,1204 @@
+:root {
+    --shadow: rgba(92,99,105, 0.7);
+    --board-outline1: linear-gradient(135deg, gray, black);
+    --board-outline2: linear-gradient(135deg, #f0e7d2, #6a4435);
+    --tile-dim: 5vw;
+    --interface-bg: #e4e4e4;
+    --whitish: #e8e8e8;
+    --darkish: #4f524f;
+    --ligther-darkish: rgba(196, 200, 197, 0.9);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#build-log {
+    margin-right: 0.5rem;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px auto 40px;
+}
+
+.header {
+    grid-row: 1;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+    h1 {
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        padding-top: 1.5rem;
+    }
+
+
+.main-container {
+    grid-row: 2;
+
+    display: grid;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+
+    padding: 0 5vw 0 5vw;
+}
+
+    .board-container {
+        display: grid;
+        
+        justify-items: center;
+        align-items: center;
+        grid-template-rows: 1vw 40vw 1vw;  
+    }
+
+
+    .letters {
+        height: 1vw;
+        min-height: 12px;
+        width: 40vw;
+        min-width: 330px;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+        .letters p {
+            margin-top: 0.5rem;
+        }
+
+        #letters-top {
+            grid-row: 1;
+        }
+
+        #letters-bot {
+            grid-row: 3;
+        }
+
+
+    .numbers-group {
+        grid-row: 2;
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1vw 40vw 1vw;
+    }
+
+        .numbers {
+            height: 40vw;
+            min-height: 330px;
+            width: 1vw;
+            min-width: 12px;
+
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-rows: repeat(8, 1fr);
+        }
+
+            .numbers p {
+                margin-right: 1rem; 
+            }
+
+            #numbers-left {
+                grid-column: 1;
+                
+            }
+
+            #numbers-right {
+                grid-column: 3;
+            }
+
+
+.player-interface {
+    grid-column: 2;
+
+    width: 25vw;
+    height: 41vw;
+
+    border-radius: 3px;
+    
+    display: grid;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center; 
+}
+
+    .log {
+        width: 23vw;
+        height: 18vw;
+        border: 1px solid gray;
+        border-radius: 3px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+    }
+
+        .log p {
+            font-size: 2rem;
+        }
+
+            #black-log p {
+                text-align: end;
+                padding-right: 3rem;
+            }
+
+            #white-log p {
+                text-align: start;
+                padding-left: 3rem;
+            }
+
+
+            /*------- Scrollbar --------*/
+            .log::-webkit-scrollbar {
+                width: 0.3rem;
+            }
+
+            .log::-webkit-scrollbar-track {
+                background: var(--ligther-darkishdarkish);
+            }
+
+            .log::-webkit-scrollbar-thumb {
+                background: var(--darkish);
+            }  
+
+        .log-div {
+            /* background: red; */
+            width: 60%;
+            height: 30px;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+            .log-div span {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+        .log-div img {
+            height: 1vw;
+            width: auto;
+            margin-left: 0.5vw;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+        }
+            #playerB-info {
+                position: sticky;
+                top: 0.5vh;
+                left: 0px;
+                justify-content: flex-start;
+                padding-left: 1rem;
+            }
+
+            #playerW-info {
+                position: sticky;
+                top: 15.5vw;
+                left: 15vw;
+                justify-content: flex-end;
+                padding-right: 1rem;   
+            }
+
+
+    .btn {
+        width: 7vw;
+        height: 2vw;
+        max-height: 50px;  
+        position: relative;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        border: 1px solid var(--ligther-darkish);
+        letter-spacing: 0.2rem;
+        transition: all 0.5s;
+        cursor: pointer;
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .btn span:after {
+            content: '\21BB';
+            font-size: 1rem;
+            position: absolute;
+            opacity: 0;
+            top: -1px;
+            left: 70px;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+            .btn:hover span {
+                padding-right: 25px;
+                transition: 0.5s;
+            }
+
+            .btn:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+footer {
+    grid-row: 3;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    padding-right: 1rem;
+}
+
+.board {
+    display: grid;
+    width: 40vw;
+    height: auto;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(8, auto);
+    grid-gap: 0;
+
+    -moz-box-shadow: 0 0 25px var(--shadow);
+    -webkit-box-shadow: 0 0 25px var(--shadow);
+    box-shadow: 0 0 25px var(--shadow);
+}
+
+    .row {
+        display: grid;
+        width: auto;
+        height: auto;
+        grid-template-columns: repeat(8, auto);
+        grid-template-rows: repeat(1, auto);
+        grid-gap: 0;
+    }
+
+        .white, .black {
+            width: 5vw;
+            height: 5vw;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            
+            background-size: 100% 100%;
+
+            background-blend-mode: overlay;
+        }
+
+
+
+        .white {
+            background-image: url(../../images/chess/tiles/paper.jpg);
+        }
+
+            .white:hover, .black:hover {
+                background-color: rgba(0, 0, 255, 0.3);
+            }
+
+        .black {
+            background-image: url(../../images/chess/tiles/papyrus.jpg);
+        }
+
+            img {
+                height: 4vw;
+                width: 4vw;
+                cursor: pointer;
+            }
+
+                #blank {
+                    pointer-events: none;
+                }
+
+ #build-log {
+     cursor: pointer;
+ }
+
+
+ 
+ #james:hover, #build-log:hover {
+    text-decoration: underline;
+    color: rgba(0, 0, 128, 0.7);
+ }
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    max-height: 70%;
+    overflow-y: scroll;
+}
+
+
+    .modal::-webkit-scrollbar {
+        width: 0.3rem;
+    }
+
+    .modal::-webkit-scrollbar-track {
+        background: var(--ligther-darkishdarkish);
+    }
+
+    .modal::-webkit-scrollbar-thumb {
+        background: var(--darkish);
+    }
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+    .modal-header {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--darkish);
+    }
+
+        .modal-title {
+            font-size: 1.25rem;
+        }
+
+#modal-close {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2rem;
+}
+
+        .modal-body {
+            padding: 10px 25px;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+        }
+
+.overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+
+    .overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+        #overlay-gray {
+            background-color: rgba(128, 128, 128, 0.8);
+        }
+
+li {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+
+.win-announce {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    z-index: 10;
+    border: none;
+    background-color: white;
+    border-radius: none;
+    width: 100%;
+    height: 15vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .win-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10vw;
+    }
+
+    .win-announce.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+
+    @media (max-width: 320px) {
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 45px 1fr 18px;
+        }
+
+        h1 {
+            font-size: 1rem;
+        }
+
+        .main-container {
+            grid-row: 2;
+
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+            grid-template-rows: 56vh 1fr;
+            grid-template-columns: 1fr 94vw 1fr;
+
+            padding: 0;
+        }
+
+            .board-container {
+                grid-row: 1;
+                grid-column: 2;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                grid-template-rows: 1fr auto 1fr;
+            }
+
+            .board-container p {
+                font-size: 12px;
+            }    
+
+                .numbers-group {
+                    grid-row: 2;
+
+                    display: grid;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    grid-template-columns: 1fr auto 1fr;
+
+                    height: 280px;
+                }
+
+                .numbers {
+                    display: none;
+                }
+
+                    .numbers p {
+                        height: 35px;
+                        background: red;
+                    }
+
+                .letters {
+                    display: none;
+                }
+
+                    .board {
+                        grid-column: 2;
+
+                        display: grid;
+                        justify-content: center;
+                        justify-items: center;
+                        align-items: center;
+                        align-content: center;
+
+                        width: auto;
+                        height: auto;
+                    }
+
+                    .white, .black {
+                        width: 34px;
+                        height: 34px;
+                    }
+                        img {
+                            width: 34px;
+                            height: 34px;
+                        }
+
+
+                    .letters p {
+                        margin:0;
+                    }
+                    .numbers p {
+                        margin:0; 
+                    }
+                    
+            .player-interface {
+                grid-row: 2;
+
+                height: 31.25vh;
+                width: 91.67vw;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                padding: 0;
+
+                grid-template-columns: 1fr 1vw 1fr; 
+            }
+
+                #black-log {
+                    grid-column: 1;
+                }
+
+                #white-log {
+                    grid-column: 3;
+                }
+
+                .log {
+                    height: 32vh;
+                    width: 48vw;
+                }
+
+                    #black-log p {
+                        text-align: center;
+                        padding: 0;
+                        font-size: 1.5rem;
+                    }
+        
+                    #white-log p {
+                        text-align: center;
+                        padding: 0;
+                        font-size: 1.5rem;
+                    }
+
+
+                /*------- Scrollbar --------*/
+                .log::-webkit-scrollbar {
+                    width: 0px;
+                } 
+
+                    .log-div {
+                        background: var(--interface-bg);
+                        width: 100%;
+                        height: 20px;
+                        font-size: 1rem;
+                        top: 0;
+                        left: 0;
+                    }
+
+                        .log-div img {
+                            height: 10px;
+                            margin-left: 5px;
+                            border: none;
+                        }
+
+
+                    #playerW-info {
+                        top: 0;
+                        left: 0;
+                        padding-right: 7vw;
+                        font-size: 11px;
+                    }
+
+                    #playerB-info {
+                        top: 0;
+                        left: 0;
+                        padding-left: 7.5vw;
+                        font-size: 11px;
+                    }
+
+
+                .log p {
+                    font-size: 1rem;
+                }
+
+                .btn {
+                    display: none;
+                } 
+
+                footer {
+                    font-size: 7px;
+                }
+
+        .win-announce {
+            height: 30vw;
+        }
+            .win-body {
+                font-size: 15vw;
+            }
+    }
+
+    @media (max-width: 480px) and (min-device-width: 321px) {
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 50px 1fr 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        .main-container {
+            grid-row: 2;
+
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+            grid-template-rows: 56vh 1fr;
+            grid-template-columns: 1fr 94vw 1fr;
+
+            padding: 0;
+        }
+            .board-container {
+                grid-row: 1;
+                grid-column: 2;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                grid-template-rows: 1fr auto 1fr;
+            }
+
+            .board-container p {
+                font-size: 12px;
+            }    
+
+                .numbers-group {
+                    grid-row: 2;
+
+                    display: grid;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    grid-template-columns: 1fr auto 1fr;
+                    
+                }
+
+                    .board {
+                        grid-column: 2;
+
+                        display: grid;
+                        justify-content: center;
+                        justify-items: center;
+                        align-items: center;
+                        align-content: center;
+
+                        width: auto;
+                        height: auto;
+                    }
+
+                    .white, .black {
+                        width: 41.25px;
+                        height: 41.25px;
+                    }
+                        img {
+                            width: 40px;
+                            height: 40px;
+                        }
+
+
+                    .letters p {
+                        margin:0;
+                    }
+                    .numbers p {
+                        margin:0; 
+                    }
+                    
+            .player-interface {
+                grid-row: 2;
+
+                height: 31.25vh;
+                width: 91.67vw;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                padding: 0;
+
+                grid-template-columns: 1fr 1vw 1fr; 
+            }
+
+                #black-log {
+                    grid-column: 1;
+                }
+
+                #white-log {
+                    grid-column: 3;
+                }
+
+                .log {
+                    
+                    height: 32vh;
+                    width: 48vw;
+                }
+
+                    #black-log p {
+                        text-align: center;
+                        padding: 0;
+                        font-size: 1.5rem;
+                    }
+        
+                    #white-log p {
+                        text-align: center;
+                        padding: 0;
+                        font-size: 1.5rem;
+                    }
+
+
+                /*------- Scrollbar --------*/
+                .log::-webkit-scrollbar {
+                    width: 0px;
+                } 
+
+                    .log-div {
+                        background: var(--interface-bg);
+                        width: 100%;
+                        height: 22px;
+                        font-size: 1rem;
+                    }
+
+                        .log-div img {
+                            height: 15px;
+                            margin-left: 5px;
+                            border: none;
+                        }
+
+                    #playerW-info {
+                        top: 0;
+                        left: 0;
+                    }
+                    #playerB-info {
+                        top: 0;
+                        left: 0;
+                    }
+
+
+                .log p {
+                    font-size: 1rem;
+                }
+
+                .btn {
+                    display: none;
+                } 
+
+                footer {
+                    font-size: 8px;
+                }
+
+        .win-announce {
+            height: 28vw;
+        }
+            .win-body {
+                font-size: 15vw;
+            }
+                
+    }
+
+    @media (max-width: 768px) and (min-device-width: 481px) {
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 50px 1fr 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            padding: 0;
+        }
+
+        .main-container {
+            grid-row: 2;
+
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr 94vw 1fr;
+
+            padding: 0;
+        }
+            .board-container {
+                grid-row: 1;
+                grid-column: 2;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                grid-template-rows: 1fr auto 1fr;
+                
+            }
+
+                .letters {
+                    width: 76vw;
+                }
+
+                .numbers-group {
+                    grid-row: 2;
+
+                    display: grid;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    grid-template-columns: 1fr auto 1fr;
+                    
+                }
+
+                    .board {
+                        grid-column: 2;
+
+                        display: grid;
+                        justify-content: center;
+                        justify-items: center;
+                        align-items: center;
+                        align-content: center;
+
+                        width: auto;
+                        height: auto;
+                    }
+
+                    .white, .black {
+                        width: 9.5vw;
+                        height: 9.5vw;
+                    }
+                        img {
+                            width: 8vw;
+                            height: 8vw;
+                        }
+
+                    .numbers {
+                        height: 76vw;
+                    }
+
+            .player-interface {
+                grid-row: 2;
+
+                height: 28vh;
+                width: 91.67vw;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                padding: 0;
+
+                grid-template-columns: 1fr 1vw 1fr; 
+            }
+
+                #black-log {
+                    grid-column: 1;
+                }
+
+                #white-log {
+                    grid-column: 3;
+                }
+
+                .log {
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    height: 26vh;
+                    width: 48vw;
+                }
+
+                #black-log p {
+                    text-align: center;
+                    padding: 0;
+                    font-size: 2rem;
+                }
+    
+                #white-log p {
+                    text-align: center;
+                    padding: 0;
+                    font-size: 2rem;
+                }
+
+                .log-div {
+                    background: var(--interface-bg);
+                    width: 100%;
+                    height: 30px;
+                    font-size: 1.2rem;
+                  
+                }
+
+                    .log-div img {
+                        height: 25px;
+                        margin-left: 12px;
+                        border: none;
+                    }
+
+                #playerW-info {
+                    top: 0;
+                    left: 0;
+
+                    display: flex;
+                    justify-content: center;
+                    padding-left: 2.5rem;
+                }
+
+                #playerB-info {
+                    top: 0;
+                    left: 0;
+
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .btn {
+                    display: none;
+                }
+
+
+                /*------- Scrollbar --------*/
+                .log::-webkit-scrollbar {
+                    width: 0px;
+                }
+
+        .win-announce {
+            height: 24vw;
+        }
+            .win-body {
+                font-size: 15vw;
+            }
+
+    }
+
+    @media (max-width: 1024px) and (min-device-width: 769px) {
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 50px 1fr 30px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            padding: 0;
+        }
+
+        .main-container {
+            grid-row: 2;
+
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr 94vw 1fr;
+
+            padding: 0;
+        }
+            .board-container {
+                grid-row: 1;
+                grid-column: 2;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                grid-template-rows: 1fr auto 1fr;
+                
+            }
+
+                .letters {
+                    width: 76vw;
+                }
+
+                .numbers-group {
+                    grid-row: 2;
+
+                    display: grid;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    grid-template-columns: 1fr auto 1fr;
+                    
+                }
+
+                    .board {
+                        grid-column: 2;
+
+                        display: grid;
+                        justify-content: center;
+                        justify-items: center;
+                        align-items: center;
+                        align-content: center;
+
+                        width: auto;
+                        height: auto;
+                    }
+
+                    .white, .black {
+                        width: 9.5vw;
+                        height: 9.5vw;
+                    }
+                        img {
+                            width: 8vw;
+                            height: 8vw;
+                        }
+
+                    .numbers {
+                        height: 76vw;
+                    }
+
+            .player-interface {
+                grid-row: 2;
+
+                height: 33vh;
+                width: 91.67vw;
+
+                display: grid;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+
+                padding: 0;
+
+                grid-template-columns: 1fr 1vw 1fr; 
+            }
+
+                #black-log {
+                    grid-column: 1;
+                }
+
+                #white-log {
+                    grid-column: 3;
+                }
+
+                .log {
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    align-content: center;
+
+                    
+                    height: 32vh;
+                    width: 48vw;
+                }
+
+                #black-log p {
+                    text-align: center;
+                    padding: 0;
+                    font-size: 3rem;
+                }
+    
+                #white-log p {
+                    text-align: center;
+                    padding: 0;
+                    font-size: 3rem;
+                }
+
+                .log-div {
+                    background: var(--interface-bg);
+                    width: 100%;
+                    height: 60px;
+                    font-size: 2rem;
+                  
+                }
+
+                    .log-div img {
+                        height: 30px;
+                        margin-left: 12px;
+                        border: none;
+                    }
+
+                #playerW-info {
+                    top: 0;
+                    left: 0;
+
+                    display: flex;
+                    justify-content: center;
+                    padding-left: 2.5rem;
+                }
+
+                #playerB-info {
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .btn {
+                    display: none;
+                }
+
+
+                /*------- Scrollbar --------*/
+                .log::-webkit-scrollbar {
+                    width: 0px;
+                }
+
+                footer {
+                    font-size: 15px;
+                }
+
+
+        .win-announce {
+            height: 22vw;
+        }
+            .win-body {
+                font-size: 15vw;
+            }
+    }
+    
+    @media (max-width: 1200px) and (min-device-width: 1025px) {
+
+    }
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chess grid</title>
+    <link rel="stylesheet" href="assets/css/chessgrid.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/chess/icons/wtchessbrown.png">
+</head>
+
+
+
+<body>
+    <div class="header">
+        <h1>whatthechess demo</h1>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="board-container">
+            <div class="board-label letters"></div>
+            <div class="numbers-group" id="numbers-group">
+                <div class="board-label numbers">
+                    <p>8</p>
+                    <p>7</p>
+                    <p>6</p>
+                    <p>5</p>
+                    <p>4</p>
+                    <p>3</p>
+                    <p>2</p>
+                    <p>1</p>
+                </div>
+            
+                <div class="board" id="board"></div>
+                
+                <div class="board-label numbers">
+                </div>
+                
+            </div>
+            <div class="board-label letters">
+                <p>a</p>
+                <p>b</p>
+                <p>c</p>
+                <p>d</p>
+                <p>e</p>
+                <p>f</p>
+                <p>g</p>
+                <p>h</p>
+            </div>
+        </div>
+
+
+
+        <div class="player-interface">
+            <div class="log" id="black-log">
+            
+                <div class="log-div" id="playerB-info">
+                    <span id="bot-number">Computer (AU)</span> <img id="flag1" src="images/chess/icons/ai2.png" alt="">
+                </div>
+
+            </div> 
+
+
+            <div class="log" id="white-log">
+
+                <div class="log-div" id="playerW-info">
+                    <span id="guest-number">Guest #12345</span> <img src="images/chess/icons/panalo.svg" alt="Philippine flag">
+                </div>
+
+            </div>
+
+
+            <button class="btn" type="button" onClick="window.location.reload();"><span>Reset</span></button> 
+        
+        </div>
+
+    </div>
+
+    <audio src="images/chess/move.wav" type="audio/wav" id="move-audio"></audio>
+    <audio src="images/chess/clapping-min.mp3" type="audio/wav" id="win-audio"></audio>
+
+    <footer>
+        <span id="build-log">build v2.0</span><a href="index.html" id="james">by James Villanueva</a>
+
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="modal-title">Responsive Chess Layout v2.0 ♜</div>
+                <button id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Known <del>bugs</del> features:<p>
+                    <br>
+                <ul>
+                    <li>Pieces can move anywhere.</li>
+                    <li>Pieces can capture any other piece, including the ones that belong in their side.</li>
+                    <li>Player can control opponent's pieces.</li>
+                    <li>Captures don't properly reflect in the move log.</li>
+                    <li>No castling implementation yet.</li>
+                    <li>No visual or audio cue implementations yet for checks.</li>
+                    <li>No reset button for mobile yet.</li>
+                    <li>After one side wins, if player moves a piece, the bot will still play as if the game is not over yet.</li>
+                </ul>
+                    <br>
+                <p>To enjoy the game, please try to play honestly against the AU (Artificial Unintelligence). Stop harassing it and insta promoting every single pawn you have into a queen. Bots have feelings too you know.</p>
+            </div>
+        </div>
+
+
+        <div class="win-announce" id="win-white">
+            <div class="win-body">
+                <div class="winner">White wins!</div>
+            </div>
+        </div>
+
+        <div class="win-announce" id="win-black">
+            <div class="win-body">
+                <div class="winner">Black wins!</div>
+            </div>
+        </div>
+
+
+        <div class="overlay" id="overlay-gray"></div>
+
+    </footer>
+
+    
+
+
+
+    <script src="assets/js/chessgrid.js"></script>
+</body>
+</html>
+
+<!-- “If you can't do great things, do small things in a great way.”
+                                                ~ Napoleon Hill -->

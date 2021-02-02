@@ -1,0 +1,76 @@
+	///////////////////////////////////////////////////////////////////////////////////
+        //                                                                               //
+        //                                Piece encoding                                 //
+        //                                                                               //
+        ///////////////////////////////////////////////////////////////////////////////////
+        //                                                                               //
+        //  emSq, P+, P-, K, N, B, R, Q                      0  0  0    0  0  0  0       //
+        //     0,  1,  2, 3, 4, 5, 6, 7                     64 32 16    8  4  2  1       //
+        //                                                                               //
+        //  w = 8  b = 16                                                                //
+        //                                                                               //
+        //  wP : P+ | w = 9     0001 | 1000 = 1001           1 & 1 = 1   bitwise AND     //
+        //  wK :  K | w = 11    0011 | 1000 = 1011           1 & 0 = 0                   //
+        //  wN :  N | w = 12    0100 | 1000 = 1100           0 & 1 = 0                   //
+        //  wB :  B | w = 13    0101 | 1000 = 1101           0 & 0 = 0                   //
+        //  wR :  R | w = 14    0110 | 1000 = 1110                                       //
+        //  wQ :  Q | w = 15    0111 | 1000 = 1111           1 | 1 = 1   bitwise OR      //
+        //                                                   1 | 0 = 1                   //
+        //  bP : P- | b = 18    00010 | 10000 = 10010        0 | 1 = 1                   //
+        //  bK :  K | b = 19    00011 | 10000 = 10011        0 | 0 = 0                   //
+        //  bN :  N | b = 20    00100 | 10000 = 10100                                    //
+        //  bB :  B | b = 21    00101 | 10000 = 10101                                    //
+        //  bR :  R | b = 22    00110 | 10000 = 10110                                    //
+        //  bQ :  Q | b = 23    00111 | 10000 = 10111                                    //
+        //                                                                               //
+        ///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+Relative values to evaluate the material score of the position.
+        
+        /* 
+            Piece weights array map:
+            
+                empty square,
+                skip 2nd,
+                black pawn,
+                black king = 0,    for kings are not evaluated, only king captures
+                black knight,
+                black bishop,
+                black rook,
+                black queen,
+                skip 9th,
+                white pawn,
+                skip 11th,
+                white king = 0,    for kings are not evaluated, only king captures
+                white knight,
+                white bishop,
+                white rook,
+                white queen
+        */
+
+
+
+
+var move_offsets = [
+        
+           15,  16,  17,   0,                           // black pawns
+          -15, -16, -17,   0,                           // white pawns
+            1,  16,  -1, -16,   0,                      // rooks
+            1,  16,  -1, -16,  15, -15, 17, -17,  0,    // queens, kings and bishops
+           14, -14,  18, -18,  31, -31, 33, -33,  0,    // knights
+            3,  -1,  12,  21,  16,   7, 12              /* starting indexes for each piece type in order:
+                                                           black pawns, white pawns, kings, knights, bishops, rooks, queens
+                                                           
+                                                           e.g. piece type is 4 - knight
+                                                           move_offset[30] == 0
+                                                           move_offset[from 31 to 37] == 3, -1, 12, 21, 16, 7, 12
+                                                           so move_offset[30 + type(which is 4 in case of knight)] is 34,
+                                                           so at move_offset[34] value is 21 - this is the index where knight
+                                                           offsets are starting, so we can loop over knight move offests to
+                                                           generate knight moves.
+                                                           
+                                                        */
+        ];
