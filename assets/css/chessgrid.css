@@ -29,6 +29,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: 80px auto 40px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .header {
