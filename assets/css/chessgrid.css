@@ -181,7 +181,7 @@ body {
 
         .log-div {
             /* background: red; */
-            width: 60%;
+            width: 65%;
             height: 30px;
             display: flex;
             /* justify-content: center; */
@@ -211,7 +211,7 @@ body {
                 top: 15.5vw;
                 left: 15vw;
                 justify-content: flex-end;
-                padding-right: 1rem;   
+                padding-right: 1rem;  
             }
 
 
@@ -1136,13 +1136,13 @@ li {
                 #black-log p {
                     text-align: center;
                     padding: 0;
-                    font-size: 3rem;
+                    font-size: 7vw;
                 }
     
                 #white-log p {
                     text-align: center;
                     padding: 0;
-                    font-size: 3rem;
+                    font-size: 7vw;
                 }
 
                 .log-div {
@@ -1154,7 +1154,7 @@ li {
                 }
 
                     .log-div img {
-                        height: 30px;
+                        height: 5vw;
                         margin-left: 12px;
                         border: none;
                     }
@@ -1165,7 +1165,10 @@ li {
 
                     display: flex;
                     justify-content: center;
-                    padding-left: 2.5rem;
+                    padding-left: 1.8rem;
+                    font-size: 4vw;
+                    
+                    
                 }
 
                 #playerB-info {
@@ -1173,6 +1176,7 @@ li {
                     left: 0;
                     display: flex;
                     justify-content: center;
+                    font-size: 4vw;
                 }
 
                 .btn {
@@ -1199,6 +1203,6 @@ li {
     }
     
     @media (max-width: 1200px) and (min-device-width: 1025px) {
-
+        
     }
 
