@@ -324,7 +324,7 @@ footer {
             img {
                 height: 4vw;
                 width: 4vw;
-                cursor: pointer;
+                /* cursor: pointer; */
             }
 
                 #blank {
@@ -379,7 +379,7 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid var(--darkish);
+        border-bottom: 1px solid var(--ligther-darkish);
     }
 
         .modal-title {

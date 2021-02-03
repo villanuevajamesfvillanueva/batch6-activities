@@ -85,11 +85,23 @@
 
         <div class="modal" id="modal">
             <div class="modal-header">
-                <div class="modal-title">Responsive Chess Layout v2.0 ♜</div>
+                <div class="modal-title">Responsive Chess Layout v2.1 ♜</div>
                 <button id="modal-close">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Known <del>bugs</del> features:<p>
+
+                <p>v2.1 What's new?</p>
+                    <br>
+                <ul>
+                    <li>Improved player movement constraint. Pieces can no longer land anywhere on the board</li>
+                    <li>Disabled cursor: pointer on empty tiles and non-movable pieces.</li>
+                    <li>Implemented a basic reset button on smaller screens.</li>
+                    <li>Fixed chessboard file and rank labels and move logs font not appearing uniform across some devices.</li>
+                    <li>Minor adjustment to mobile screens.</li>
+                    <li>Reduced file size of some assets to speed up loading time.</li>
+                </ul>
+                    <br><hr><br>
+                <p>v2.0 Known <del>bugs</del> features:</p>
                     <br>
                 <ul>
                     <li>Pieces can move anywhere.</li>
@@ -98,6 +110,7 @@
                     <li>Captures don't properly reflect in the move log.</li>
                     <li>No castling implementation yet.</li>
                     <li>No visual or audio cue implementations yet for checks.</li>
+                    <li>No option yet to deselect selected piece.</li>
                     <li>After one side wins, if player moves a piece, the bot will still play as if the game is not over yet.</li>
                 </ul>
                     <br>

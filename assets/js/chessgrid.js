@@ -254,7 +254,7 @@ function draw_board() {
       var square = row * 16 + col;
       // make sure square is on board
       if ((square & 0x88) == 0)
-        chess_board += '<div id="' + square + '"class="' + ( ((col + row) % 2) ? 'white' : 'black') + '" onclick="make_move(this.id)"></div>';
+        chess_board += '<div id="' + square + '"class="' + ( ((col + row) % 2) ? 'white' : 'black') + '"></div>';
     }
     chess_board += '</div>';
   }  
@@ -263,6 +263,11 @@ function draw_board() {
         
         
 function update_board() {
+  // player move constraint
+  if (side === 8) {   
+    player_moves(8);
+}
+
   for (var row = 0; row < 8; row++) {
     for (var col = 0; col < 16; col++){
       var square = row * 16 + col;      
@@ -502,4 +507,62 @@ window.onload = function(){
 };
 
 
+
+
+//-----------------------------------player move constraints-----------------------
+function player_moves(side) {
+  let options = {};
+
+  var piece, piece_type, directions, source_square, target_square, captured_square, captured_piece, step_vector;
+  for (var square = 0; square < 128; square++) {
+      if ((square & 0x88) == 0) {
+          source_square = square;
+          piece = board[square];
+          if (piece & side) {
+              piece_type = piece & 7; 
+              directions = move_offsets[piece_type + 30];
+              while (step_vector = move_offsets[++directions]) {   //loop over  move offsets
+                  target_square = source_square;
+                  do {
+                      target_square += step_vector;
+                      captured_square = target_square;
+                      if (target_square & 0x88) break;
+                      captured_piece = board[captured_square];    
+                      if (captured_piece & side) break;       
+                      if (piece_type < 3 && !(step_vector & 7) != !captured_piece) break;
+
+                      var chosen_piece = document.getElementById(source_square);
+                      var landing = document.getElementById(target_square);
+                      options[source_square] = target_square;
+                      
+                      //highlight move options
+                      // console.log(`move:  ${coordinates[source_square]} -> ${coordinates[target_square]}`);
+                      
+                      chosen_piece.setAttribute("style", "cursor: pointer;");
+                     
+                      
+                      chosen_piece.setAttribute("onclick", "make_move(this.id)");
+                      landing.setAttribute("onclick", "make_move(this.id)");
+                      // landing.setAttribute("style", "background-color: blue;");
+                      
+                      //need to map source to corresponding target squares
+                      //problem: improper target correspondence, all source squares can use all target squares
+
+
+                      
+                      // console.log(chosen_piece);
+
+                      captured_piece += piece_type < 5;
+                      // unfake capture for pawns if double pawn push is on the cards
+                      // 6*side + (target_square & 0x70) == 0x80 detects if pawn is in 2nd or 7th rank
+                      if (piece_type < 3 & 6*side + (target_square & 0x70) == 0x80) captured_piece--;
+                  }
+                  //condition to break out of loop over squares for non-slider pieces
+                  while (captured_piece == 0)
+              }
+          }
+      }
+  }
+  console.log(options);
+}
 
