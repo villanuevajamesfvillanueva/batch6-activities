@@ -300,7 +300,7 @@ footer {
             display: grid;
             justify-content: center;
             align-items: center;
-            border-radius: 3px;
+            /* border-radius: 3px; */
             
             background-size: 100% 100%;
 
@@ -309,7 +309,7 @@ footer {
 
 
 
-        .white {
+        .black {
             background-image: url(../../images/chess/tiles/paper.jpg);
         }
 
@@ -317,7 +317,7 @@ footer {
                 background-color: rgba(0, 0, 255, 0.3);
             }
 
-        .black {
+        .white {
             background-image: url(../../images/chess/tiles/papyrus.jpg);
         }
 
