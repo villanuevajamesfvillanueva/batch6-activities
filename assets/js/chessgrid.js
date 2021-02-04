@@ -573,7 +573,7 @@ function player_moves(side) {
                      
                       chosen_piece.setAttribute("onclick", "make_move(this.id)");
                       landing.setAttribute("onclick", "make_move(this.id)");
-                      landing.setAttribute("style", "background-color: blue;");
+                      // landing.setAttribute("style", "background-color: blue;");
                      
                       // populate container for moves
                       options[source_square].push(target_square);
