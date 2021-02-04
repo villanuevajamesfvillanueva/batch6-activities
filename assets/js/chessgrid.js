@@ -263,13 +263,43 @@ function draw_board() {
   // console.log(chess_board);
 }
         
+  
+
+// function moveConstraints() {
+    
+//     sourcesAndTargets = player_moves();
+//     let sources = Object.keys(sourcesAndTargets);
+//     console.log(sources);
+    
+//     //make only these sources clickable
+//     for (let i = 0; i < sources.length; i++) {
+//       var chosen_piece = document.getElementById(sources[i]);
+
+      
+//       var landing = document.getElementById(target_square);
+
+//     }
+                    
+
+                    
+                      
+//         chosen_piece.setAttribute("style", "cursor: pointer;");
         
+//         chosen_piece.setAttribute("onclick", "make_move(this.id)");
+//         landing.setAttribute("onclick", "make_move(this.id)");
+
+  
+// }
+
+
+
+
+
+
+
 function update_board() {
   // player move constraint
-  if (side === 8) {   
-    player_moves(8);
-}
-
+  player_moves();
   for (var row = 0; row < 8; row++) {
     for (var col = 0; col < 16; col++){
       var square = row * 16 + col;      
@@ -280,6 +310,9 @@ function update_board() {
       }
       // unhighlight white player bec it's black's turn
       whiteLog.style.border = "1px solid gray";
+
+      //make cursor pointer on blanks default
+
     }
   }
 }
@@ -292,41 +325,56 @@ var user_source, user_target;
 
 // default search depth
 var search_depth = 3;
-    function make_move(sq) {
-        // convert div ID to square index
+    function make_move(sq) {  
 
+        let sources = Object.keys(player_moves());
+        let targ;
+        // convert div ID to square index
         var click_sq = parseInt(sq, 10)
-      
+
         // if player clicks on source square 
         if (!click_lock && board[click_sq]) {
-            document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0.5)";
-
-            // x = true;
             // init user source square
             user_source = click_sq;
+
+            targ = player_moves()[click_sq];
+            console.log(`user source:\n id: ${user_source}\n tile: ${coordinates[user_source]}\n piece type: ${board[user_source]}\n possible targets id: ${targ}`);
+            
+            // disable all mouse clicks except self and targets
+            // for proper source target correspondence
+            for (let i = 0; i < 128; i++) {
+              if (((i & 0x88) == 0) && (i != user_source) && !targ.includes(i)) {
+                document.getElementById(i).removeAttribute("onclick");
+              }
+            }
             
             // lock click
             click_lock ^= 1;
-            console.log(`selected ${coordinates[user_source]}(${board[user_source]}) click_lock: ${click_lock}`)
-        }
-
-           // if player clicks on the same piece
-          else if (user_source == click_sq) {
-
-          // negate piece highlight
-          document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
-          click_lock ^= 1;
-         
-          
-          // unset user source
-          user_source = undefined;
-          console.log(`selected ${coordinates[user_source]}(${board[user_source]}) click_lock: ${click_lock}`); 
+            document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0.5)";
           }
+
+        // if player clicks on the same piece
+        else if (user_source == click_sq) {
+            // negate piece highlight
+            document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
+            click_lock ^= 1;
+        
+          
+
+            // unset user source
+            user_source = undefined;
+            console.log(`selected ${coordinates[user_source]}(${board[user_source]}) click_lock: ${click_lock}`); 
+        }
     
 
 
         // if player clicks on destination square
-        else if (click_lock) {
+        else if (click_lock && player_moves()[user_source]) {
+
+            console.log("targets: " + player_moves()[user_source]);
+            console.log("user source: " + user_source);
+
+         
 
             // extract row and column from target square
             var col = user_source & 7;
@@ -541,6 +589,7 @@ window.onload = function(){
 
 //-----------------------------------player move constraints-----------------------
 function player_moves(side) {
+  side = 8;
   let options = {};
 
   var piece, piece_type, directions, source_square, target_square, captured_square, captured_piece, step_vector;
@@ -570,8 +619,6 @@ function player_moves(side) {
                     
                       var chosen_piece = document.getElementById(source_square);
                       var landing = document.getElementById(target_square);
-                      //highlight move options
-                      console.log(`move:  ${coordinates[source_square]} -> ${coordinates[target_square]}`);
                       
                       chosen_piece.setAttribute("style", "cursor: pointer;");
                      
@@ -582,13 +629,6 @@ function player_moves(side) {
                       // populate container for moves
                       options[source_square].push(target_square);
                       
-                       
-
-                      //need to map source to corresponding target squares
-                      //problem: improper target correspondence, all source squares can use all target squares
-                      // worry about removing cursor pointer from source square after a turn has been made
-                      //priority: proper source:target correspondence!
-
                       captured_piece += piece_type < 5;
                       // unfake capture for pawns if double pawn push is on the cards
                       // 6*side + (target_square & 0x70) == 0x80 detects if pawn is in 2nd or 7th rank
@@ -600,7 +640,15 @@ function player_moves(side) {
           }
       }
   }
-  console.log(options);
+
+  // for cleanup, leaving only moveable tiles and their corresponding target tiles
+  for (let i = 0; i < 128; i++) {
+    if (!options[i] || options[i].length === 0) {
+      delete options[i];
+    }
+  }
+
+  // console.log(options);
   return  options;
 }
 
