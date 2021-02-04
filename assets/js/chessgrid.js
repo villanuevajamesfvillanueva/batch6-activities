@@ -260,7 +260,7 @@ function draw_board() {
     chess_board += '</div>';
   }  
   board.innerHTML = chess_board;
-  console.log(chess_board);
+  // console.log(chess_board);
 }
         
         
@@ -301,29 +301,33 @@ var search_depth = 3;
         if (!click_lock && board[click_sq]) {
             document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0.5)";
 
+            // x = true;
             // init user source square
             user_source = click_sq;
             
             // lock click
             click_lock ^= 1;
-            console.log(`selected ${coordinates[user_source]}`);
+            console.log(`selected ${coordinates[user_source]}(${board[user_source]}) click_lock: ${click_lock}`)
         }
 
-        // player clicks on the same piece
-        // else if (click_lock && board[user_source] && board[click_sq]) {
+           // if player clicks on the same piece
+          else if (user_source == click_sq) {
 
-        //   // negate piece highlight
-        //   document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
-        //   click_lock ^= 1;
-
-        //   // unset user source
-        //   console.log(`unselected ${coordinates[user_source]}`);
-        //   user_source = undefined;
-        // }
+          // negate piece highlight
+          document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
+          click_lock ^= 1;
+         
+          
+          // unset user source
+          user_source = undefined;
+          console.log(`selected ${coordinates[user_source]}(${board[user_source]}) click_lock: ${click_lock}`); 
+          }
+    
 
 
         // if player clicks on destination square
         else if (click_lock) {
+
             // extract row and column from target square
             var col = user_source & 7;
             var row = user_source >> 4;
