@@ -28,12 +28,12 @@ var coordinates = [                                          // convert square i
                 
 
 //svg chess pieces
-const bP = "<img src='images/chess/pieces/black/bP.svg' alt=''>";
-const bK = "<img src='images/chess/pieces/black/bK.svg' alt=''>";
-const bN = "<img src='images/chess/pieces/black/bN.svg' alt=''>";
-const bB = "<img src='images/chess/pieces/black/bB.svg' alt=''>";
-const bR = "<img src='images/chess/pieces/black/bR.svg' alt=''>";
-const bQ = "<img src='images/chess/pieces/black/bQ.svg' alt=''>";
+const bP = "<img src='images/chess/pieces/black/bP.svg'  alt=''>";   
+const bK = "<img src='images/chess/pieces/black/bK.svg'  alt=''>";
+const bN = "<img src='images/chess/pieces/black/bN.svg'  alt=''>";
+const bB = "<img src='images/chess/pieces/black/bB.svg'  alt=''>";
+const bR = "<img src='images/chess/pieces/black/bR.svg'  alt=''>";
+const bQ = "<img src='images/chess/pieces/black/bQ.svg'  alt=''>";
 
 const wP = "<img src='images/chess/pieces/white/wP.svg' alt=''>";
 const wK = "<img src='images/chess/pieces/white/wK.svg' alt=''>";
@@ -255,10 +255,12 @@ function draw_board() {
       // make sure square is on board
       if ((square & 0x88) == 0)
         chess_board += '<div id="' + square + '"class="' + ( ((col + row) % 2) ? 'white' : 'black') + '"></div>';
+        // chess_board += '<div id="' + square + '"class="' + ( ((col + row) % 2) ? 'white"' : 'black" onclick="make_move(this.id)"') + '></div>';
     }
     chess_board += '</div>';
   }  
   board.innerHTML = chess_board;
+  console.log(chess_board);
 }
         
         
@@ -276,6 +278,7 @@ function update_board() {
         document.getElementById(square).innerHTML = pieces[board[square] & 15];
         moveAudio.play();
       }
+      // unhighlight white player bec it's black's turn
       whiteLog.style.border = "1px solid gray";
     }
   }
@@ -307,16 +310,16 @@ var search_depth = 3;
         }
 
         // player clicks on the same piece
-        else if (click_lock && board[user_source] && board[click_sq]) {
+        // else if (click_lock && board[user_source] && board[click_sq]) {
 
-          // negate piece highlight
-          document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
-          click_lock ^= 1;
+        //   // negate piece highlight
+        //   document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
+        //   click_lock ^= 1;
 
-          // unset user source
-          console.log(`unselected ${coordinates[user_source]}`);
-          user_source = undefined;
-        }
+        //   // unset user source
+        //   console.log(`unselected ${coordinates[user_source]}`);
+        //   user_source = undefined;
+        // }
 
 
         // if player clicks on destination square
@@ -570,7 +573,7 @@ function player_moves(side) {
                      
                       chosen_piece.setAttribute("onclick", "make_move(this.id)");
                       landing.setAttribute("onclick", "make_move(this.id)");
-                      // landing.setAttribute("style", "background-color: blue;");
+                      landing.setAttribute("style", "background-color: blue;");
                      
                       // populate container for moves
                       options[source_square].push(target_square);
