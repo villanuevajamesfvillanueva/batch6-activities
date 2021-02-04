@@ -263,36 +263,6 @@ function draw_board() {
   // console.log(chess_board);
 }
         
-  
-
-// function moveConstraints() {
-    
-//     sourcesAndTargets = player_moves();
-//     let sources = Object.keys(sourcesAndTargets);
-//     console.log(sources);
-    
-//     //make only these sources clickable
-//     for (let i = 0; i < sources.length; i++) {
-//       var chosen_piece = document.getElementById(sources[i]);
-
-      
-//       var landing = document.getElementById(target_square);
-
-//     }
-                    
-
-                    
-                      
-//         chosen_piece.setAttribute("style", "cursor: pointer;");
-        
-//         chosen_piece.setAttribute("onclick", "make_move(this.id)");
-//         landing.setAttribute("onclick", "make_move(this.id)");
-
-  
-// }
-
-
-
 
 
 
@@ -322,7 +292,7 @@ function update_board() {
         //--------------------------------------- make move --------------------------------------------
 var click_lock = false;
 var user_source, user_target;
-
+var capture = false;
 // default search depth
 var search_depth = 5;
     function make_move(sq) {  
@@ -371,23 +341,27 @@ var search_depth = 5;
         // if player clicks on destination square
         else if (click_lock && player_moves()[user_source]) {
 
-            console.log("targets: " + player_moves()[user_source]);
-            console.log("user source: " + user_source);
-
-         
-
             // extract row and column from target square
             var col = user_source & 7;
             var row = user_source >> 4;
             
+            
             // restore color of the square that piece has left
             var color = (col + row) % 2 ? 'gray' : 'gray'
-                document.getElementById(user_source).style.backgroundColor = color;
-                
-                // move piece
-                board[click_sq] = board[user_source];
-                board[user_source] = 0;
+            document.getElementById(user_source).style.backgroundColor = color;
+             
+            //detect capture
+            console.log(board[click_sq]);
+            if (board[click_sq] != 0) {
+              capture = true;
+            }
+
+            // move piece
+            board[click_sq] = board[user_source];
+            board[user_source] = 0;
             
+
+
             // if pawn promotion
             if (((board[click_sq] == 9) && (click_sq >= 0 && click_sq <= 7)) ||
                 ((board[click_sq] == 18) && (click_sq >= 112 && click_sq <= 119)))
@@ -404,7 +378,9 @@ var search_depth = 5;
 
             let str = pieces[board[click_sq]];
             let pieceStr = str.substring(str.length - 15, str.length - 13);
-                whiteMoveLog(pieceStr, coordinates[click_sq]);
+              whiteMoveLog(pieceStr, coordinates[click_sq], capture);
+              
+              capture = false;
             
             // make computer move in response
             setTimeout("think(search_depth)", 500);
@@ -442,7 +418,7 @@ function think(depth) {
         }, 100);
         winAudio.play();
 
-        //disable all movements
+        //disable all movements when game is over
         document.getElementById("board").style.pointerEvents = "none";
         
     }
@@ -483,10 +459,13 @@ whiteLog.style.border = "2px solid rgba(0, 0, 255, 0.7)";
 
 
 //-------------------------------------- move log -------------------------------------------
-let whiteMoveLog = (piece, coords) => {
+let whiteMoveLog = (piece, coords, capture) => {
     let w = document.createElement("p");
-    if (piecesLog["white"][piece]) {
+    if (piecesLog["white"][piece] && capture === false) {
       w.innerHTML = piecesLog["white"][piece] + coords;
+    }
+    else if(piecesLog["white"][piece] && capture === true) {
+      w.innerHTML = piecesLog["white"][piece] + "x" + coords;
     }
     else { w.innerHTML = "---";}
     whiteLog.appendChild(w); 
