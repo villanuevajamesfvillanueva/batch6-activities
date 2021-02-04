@@ -324,7 +324,7 @@ var click_lock = false;
 var user_source, user_target;
 
 // default search depth
-var search_depth = 3;
+var search_depth = 5;
     function make_move(sq) {  
 
         let sources = Object.keys(player_moves());
