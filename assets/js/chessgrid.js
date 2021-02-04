@@ -475,7 +475,8 @@ let whiteMoveLog = (piece, coords, capture) => {
       w.innerHTML = piecesLog["white"][piece] + "x" + coords;
     }
     else { w.innerHTML = "---";}
-    whiteLog.appendChild(w); 
+    whiteLog.appendChild(w);
+    whiteLog.scrollTop = whiteLog.scrollHeight; 
 }
 
 let blackMoveLog = (piece, coords) => {
@@ -487,7 +488,8 @@ let blackMoveLog = (piece, coords) => {
       b.innerHTML = piecesLog["black"][piece] + "x" + coords;
     }
     else { b.innerHTML = "---";}
-    blackLog.appendChild(b);    
+    blackLog.appendChild(b);
+    blackLog.scrollTop = blackLog.scrollHeight;    
 }
 
 
