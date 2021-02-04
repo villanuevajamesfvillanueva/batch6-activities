@@ -351,7 +351,6 @@ var search_depth = 5;
             document.getElementById(user_source).style.backgroundColor = color;
              
             //detect capture
-            console.log(board[click_sq]);
             if (board[click_sq] != 0) {
               capture = true;
             }
@@ -397,7 +396,13 @@ function think(depth) {
     // search position
     var score = search_position(side, depth, -10000, 10000);
 
+//detect capture
+if (board[best_target] != 0) {
+  capture = true;
+}
+
 // make AI move
+console.log(`best_source: ${best_source}(${board[best_source]}), best_target: ${best_target}(${board[best_target]})`);
     board[best_target] = board[best_source];
     board[best_source] = 0;
 
@@ -437,15 +442,17 @@ function think(depth) {
 
     else { update_board();}
 
-// log stats
+    // log stats
     console.log('score: ', score);
     console.log('move: ', coordinates[best_source] + coordinates[best_target]);
+    
 
     let str = document.getElementById(best_target).firstElementChild.src
     let pieceStr = str.substring(str.length - 6, str.length - 4);
-        blackMoveLog(pieceStr, coordinates[best_target]);
+        blackMoveLog(pieceStr, coordinates[best_target], capture);
 
     whiteLog.style.border = "2px solid rgba(0, 0, 255, 0.7)";
+    capture = false;
 }
         
 
@@ -473,8 +480,11 @@ let whiteMoveLog = (piece, coords, capture) => {
 
 let blackMoveLog = (piece, coords) => {
     let b = document.createElement("p");
-    if (piecesLog["black"][piece]) {
+    if (piecesLog["black"][piece] && capture === false) {
       b.innerHTML = piecesLog["black"][piece] + coords;
+    }
+    else if(piecesLog["black"][piece] && capture === true) {
+      b.innerHTML = piecesLog["black"][piece] + "x" + coords;
     }
     else { b.innerHTML = "---";}
     blackLog.appendChild(b);    
