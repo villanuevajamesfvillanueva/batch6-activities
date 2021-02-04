@@ -312,7 +312,7 @@ var search_depth = 3;
           // negate piece highlight
           document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
           click_lock ^= 1;
-          
+
           // unset user source
           console.log(`unselected ${coordinates[user_source]}`);
           user_source = undefined;
@@ -385,7 +385,11 @@ function think(depth) {
         function(){
         blackWins();
         }, 100);
-    winAudio.play();
+        winAudio.play();
+
+        //disable all movements
+        document.getElementById("board").style.pointerEvents = "none";
+        
     }
 
     else if (score == -10000) {
@@ -393,7 +397,11 @@ function think(depth) {
         function(){
         whiteWins();
         }, 100);
-        winAudio.play(); 
+        winAudio.play();
+
+        //disable all movements
+        document.getElementById("board").style.pointerEvents = "none";
+        
     }
 
     else { update_board();}
