@@ -291,20 +291,35 @@ var user_source, user_target;
 var search_depth = 3;
     function make_move(sq) {
         // convert div ID to square index
+
         var click_sq = parseInt(sq, 10)
       
-        // if user clicks on source square 
+        // if player clicks on source square 
         if (!click_lock && board[click_sq]) {
             document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0.5)";
-          
+
             // init user source square
             user_source = click_sq;
             
             // lock click
             click_lock ^= 1;
+            console.log(`selected ${coordinates[user_source]}`);
         }
-      
-        // if user clicks on destination square
+
+        // player clicks on the same piece
+        else if (click_lock && board[user_source] && board[click_sq]) {
+
+          // negate piece highlight
+          document.getElementById(sq).style.backgroundColor = "rgba(0, 0, 255, 0)";
+          click_lock ^= 1;
+          
+          // unset user source
+          console.log(`unselected ${coordinates[user_source]}`);
+          user_source = undefined;
+        }
+
+
+        // if player clicks on destination square
         else if (click_lock) {
             // extract row and column from target square
             var col = user_source & 7;
@@ -521,8 +536,15 @@ function player_moves(side) {
           if (piece & side) {
               piece_type = piece & 7; 
               directions = move_offsets[piece_type + 30];
+              
+              // init container for possible moves of a particular piece
+              options[source_square] = [];
+
               while (step_vector = move_offsets[++directions]) {   //loop over  move offsets
                   target_square = source_square;
+
+                  
+
                   do {
                       target_square += step_vector;
                       captured_square = target_square;
@@ -530,27 +552,27 @@ function player_moves(side) {
                       captured_piece = board[captured_square];    
                       if (captured_piece & side) break;       
                       if (piece_type < 3 && !(step_vector & 7) != !captured_piece) break;
-
+                    
                       var chosen_piece = document.getElementById(source_square);
                       var landing = document.getElementById(target_square);
-                      options[source_square] = target_square;
-                      
                       //highlight move options
-                      // console.log(`move:  ${coordinates[source_square]} -> ${coordinates[target_square]}`);
+                      console.log(`move:  ${coordinates[source_square]} -> ${coordinates[target_square]}`);
                       
                       chosen_piece.setAttribute("style", "cursor: pointer;");
                      
-                      
                       chosen_piece.setAttribute("onclick", "make_move(this.id)");
                       landing.setAttribute("onclick", "make_move(this.id)");
                       // landing.setAttribute("style", "background-color: blue;");
+                     
+                      // populate container for moves
+                      options[source_square].push(target_square);
                       
+                       
+
                       //need to map source to corresponding target squares
                       //problem: improper target correspondence, all source squares can use all target squares
-
-
-                      
-                      // console.log(chosen_piece);
+                      // worry about removing cursor pointer from source square after a turn has been made
+                      //priority: proper source:target correspondence!
 
                       captured_piece += piece_type < 5;
                       // unfake capture for pawns if double pawn push is on the cards
@@ -564,5 +586,6 @@ function player_moves(side) {
       }
   }
   console.log(options);
+  return  options;
 }
 
