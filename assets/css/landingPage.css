@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: Sign;
-    src: url(/assets/fonts/AmostelySignature.ttf);
+    src: url(../assets/fonts/AmostelySignature.ttf);
 }
 
 * {
