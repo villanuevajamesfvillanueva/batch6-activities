@@ -37,4 +37,16 @@ video.addEventListener("mouseleave", () => {
 
 
 
+//--------------------------------- other projects button ---------------------------------------
+let bigRed = document.getElementById("other-proj-circ");
+let redcover = document.getElementById("red-cover");
+
+bigRed.onclick = function(){
+    redcover.classList.add("red-cover");
+};
+
+
+function delay (URL) {
+    setTimeout( function() { window.location = URL }, 1000 );
+}
 

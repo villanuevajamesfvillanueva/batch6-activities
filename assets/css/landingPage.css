@@ -8,10 +8,10 @@
     src: url(/assets/fonts/SilkSerif-Italic.woff);
 }
 
-@font-face {
+/* @font-face {
     font-family: Sign;
     src: url(../assets/fonts/AmostelySignature.ttf);
-}
+} */
 
 * {
     padding: 0;
@@ -278,7 +278,8 @@ nav {
             #scarlette {
                 font-size: 3rem;
                 color: red;
-                font-family: Sign;
+                /* font-family: Sign; */
+                font-family: 'Great Vibes', cursive;
                 text-transform: none;
                 margin-right: 15px;
             }
@@ -299,10 +300,10 @@ video {
 
 #page3 {
     /* background: gray; */
-    height: 300vh;
+    height: 600vh;
     display: grid;
     grid-template-columns: repeat(16, 6.25%);
-    grid-template-rows: repeat(30, 10%);
+    grid-template-rows: repeat(120, 5%);
 }
 
     #num02 {
@@ -338,14 +339,34 @@ video {
  
 }
 
-    [data-aos="slide-in"] {
+    [data-aos="slide-in-tr"] {
         transform: translateX(-100%);
         transition-property: transform;
     }
 
-    [data-aos="slide-in"].aos-animate {
+    [data-aos="slide-in-tr"].aos-animate {
         transform: translateX(0);
     }
+
+    [data-aos="slide-in-tl"] {
+        transform: translateX(100%);
+        transition-property: transform opacity;
+    }
+
+    [data-aos="slide-in-tl"].aos-animate {
+        transform: translateX(0);
+    }
+
+    [data-aos="slide-in-tb"] {
+        transform: translateY(100%);
+        transition-property: transform;
+    }
+
+    [data-aos="slide-in-tb"].aos-animate {
+        transform: translateY(0);
+    }
+
+
 
 .designer {
     font-size: 3rem;
@@ -363,9 +384,6 @@ video {
         display: grid;
         align-content: center;
         justify-content: center;
-
-        
-        background: red;
     }
 
         #alex-work {
@@ -375,6 +393,30 @@ video {
             background: white;
         }
 
+        #work-caption-alex {
+            grid-column: 1 / span 5;
+            grid-row: 6;
+
+            display: flex;
+            justify-content: center;
+            align-items:flex-start;
+
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        #alex-wc-line {
+            grid-column: 1 / span 5;
+            grid-row: 6;
+
+            margin-left: 9.7rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items:center;
+            width: 20rem;
+            height: 5rem;
+        }
+
     #lesia-name {
         grid-column: 7 / span 6;
         grid-row: 3;
@@ -382,16 +424,161 @@ video {
         display: grid;
         align-content: center;
         justify-content: center;
-        background: green;
     }
 
         #lesia-work {
             grid-column: 7 / span 6;
             grid-row: 4 / span 6;
-            background: orange;
+            background: white;
+        }
+
+        #work-caption-lesia {
+            grid-column: 7 / span 6;
+            grid-row: 10;
+
+            display: flex;
+            justify-content: center;
+            align-items:flex-start;
+
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        #lesia-wc-line {
+            grid-column: 7 / span 6;
+            grid-row: 10;
+
+            margin-left: 12.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items:center;
+            width: 20rem;
+            height: 5rem;
+
+            /* background: red; */
+        }
+
+    #logofolio-work {
+        grid-column: 7 / span 10;
+        grid-row: 11 / span 2;
+
+        background: white;
+        margin-right: 2rem;
+    }
+
+        #logofolio-name {
+            grid-column: 3;
+            grid-row: 11 / span 2;
+
+            transform: rotate(-90deg);
+            width: 40rem;
+
+            display: flex;
+            justify-content: center;
+            z-index: -1;
+
+            font-size: 5rem;
         }
 
 
+        #logofolio-wc-line {
+            grid-column: 5;
+            grid-row: 11 / span 2;
+
+            /* background-color: red; */
+            border-right: 2px solid white;
+        }
+
+
+
+    #some1-name {
+        grid-column: 1 / span 5;
+        grid-row: 14;
+
+        /* background: red; */
+        margin-left: 2rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 3em;
+    }
+
+        #some1-work {
+            grid-column: 1 / span 5;
+            grid-row: 15 / span 2;
+
+            background-color: white;
+            margin-left: 2rem;
+        }
+
+        #work-caption-some1 {
+            grid-column: 1 / span 5;
+            grid-row: 17;
+
+            display: flex;
+            justify-content: center;
+            align-items:flex-start;
+
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-left: 2rem;
+        }
+
+        #some1-wc-line {
+            grid-column: 1 / span 5;
+            grid-row: 17;
+
+            margin-left: 7.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items:center;
+            width: 25rem;
+            height: 5rem;
+            
+        }
+
+
+
+
+    #some2-name {
+        grid-column: 8 / span 9;
+        grid-row: 14;
+
+        /* background: red; */
+        margin-right: 2rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 3em;
+       
+    }
+
+        #some2-work {
+            grid-column: 8 / span 9;
+            grid-row: 15 / span 5;
+
+            background-color: white;
+            margin-right: 2rem;
+        }
+
+        #work-caption-some2 {
+            grid-column: 8 / span 9;
+            grid-row: 20;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        #some2-wc-line {
+            grid-column: 8 / span 9;
+            grid-row: 20;
+
+           /* background: red; */
+           margin-left: 21.3rem;
+           height: 6rem;
+           width: 25rem;
+        }
 
 .circles {
     width: 27rem;
@@ -420,6 +607,12 @@ video {
         margin-left: 2rem;
     }
 
+    #c3 {
+        grid-column: 4;
+        grid-row: 18;
+        margin-top: 7rem;
+    }
+
         svg {
             width: 10rem;
             height: 10rem;
@@ -434,15 +627,53 @@ video {
         svg:hover {
             transform: scale(1.5);
         }
-            
+
+
+
+
+/*------------------------ page3.5 ----------------------*/
+#page3-5 {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+        justify-content: center;
+    
+}
+
+    #other-proj {
+        margin-bottom: 10rem;
+        width: 35rem;
+        height: 35rem;
+       
+    }
+
+    #red-cover {
+        /* position: relative; */
+        width: 100vw;
+        height: 100vh;
+        
+        background: red;
+        
+        transition: all 0.5s ease-in;
+    }
+
+        .red-cover {
+            transform: scale(1);
+        }
+
+
+
+
+
           
 /*--------------------------------------- third section -----------------------------------*/
 #page4 {
     /* background: gray; */
-    height: 100vh;
+    height: 500vh;
     display: grid;
     grid-template-columns: repeat(16, 6.25%);
-    grid-template-rows: repeat(30, 10%);
+    grid-template-rows: repeat(125, 4%);
 }
 
     #about-sdmg {
@@ -457,40 +688,101 @@ video {
         
     }
 
-
-
-
-
-/*--------------------------------------- fourth section -----------------------------------*/
-
-        
-.scarlly {
-    font-family: SilkSerifRegItalic;
-    font-size: 10rem;
-    font-style: italic;
-    white-space: nowrap;
+.p {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.publicSans {
-    font-family: 'Public Sans', sans-serif;
+    #p1 {
+        grid-column: 5;
+        grid-row: 4;
+
+        width: 25rem;
+        height: 10rem;
+    }
+
+    #p2 {
+        grid-column: 7;
+        grid-row: 17;
+
+        width: 25rem;
+        height: 10rem;
+    }
+
+
+
+    #about-img1 {
+        grid-column: 7 / span 9;
+        grid-row: 6 / span 4;
+
+        background: green;
+    }
+
+    #about-img2 {
+        grid-column: 2 / span 9;
+        grid-row: 9 / span 4;
+
+        background: blue;
+    }
+
+    #about-img3 {
+        grid-column: 7 / span 9;
+        grid-row: 12 / span 4;
+
+        background: red;
+    }
+
+.carousel {
+    grid-column: 1 / span 16;
+    grid-row: 19 / span 3;
+    background: white;
 }
 
+    #we-work-line {
+        grid-column: 7;
+        grid-row: 19;
 
-#scarlly1 {
+        margin: 0;
+        padding: 0;
+    }
+    #we-work {
+        grid-column: 7;
+        grid-row: 20;
+
+        padding-top: 2rem;
+        width: 25rem;
+    }
+
+.crawling-text {
+    grid-column: 1 / span 16;
+    grid-row: 21;
+
+    text-transform: uppercase;
+}
+
+#crawl-container1, #crawl-container3 {
     animation: crawlLeft 15s linear infinite;
-}
-#scarlly2 {
-    direction: rtl;
-    animation: crawlRight 15s linear infinite;
-}
-#scarlly3 {
-    animation: crawlLeft 15s linear infinite;
+    /* background: red; */
+    height: 9.5rem;
 }
 
-#scarlly4 {
-    direction: rtl;
+#crawl-container2, #crawl-container4 {
     animation: crawlRight 15s linear infinite;
+    direction: rtl;
+    height: 9.5rem;
 }
+    
+    .crawl {
+        font-family: SilkSerifRegItalic;
+        font-size: 10rem;
+        font-style: italic;
+        white-space: nowrap;
+    }
+
+    .publicSans {
+        font-family: 'Public Sans', sans-serif;
+        font-style: normal;
+    }
 
     @keyframes crawlLeft {
         0% {
@@ -516,4 +808,64 @@ video {
         -webkit-text-stroke: 1px white;
         -webkit-text-fill-color: var(--bg);
     }
-}  
+} 
+
+/*--------------------------------------- fourth section -----------------------------------*/
+#page5 {
+    /* background-color: gray; */
+    height: 120vh;
+    display: grid;
+    grid-template-columns: repeat(16, 6.25%);
+    grid-template-rows: repeat(6, 20%);
+}
+
+    #num04 {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    #lets-create {
+        grid-column: 5;
+        grid-row: 2;
+    }
+
+    .socials, .address, .sayhi {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        margin-top: 7rem;
+    }
+
+    .socials {
+        grid-column: 5;
+        grid-row: 3;
+        
+    }
+
+        .social {
+            transition: all 0.2s ease; 
+        }
+
+        .social:hover {
+            transform: translateY(-10px);
+        }
+    
+    .address {
+        grid-column: 9 / span 2;
+        grid-row: 3;
+    }
+
+    .sayhi {
+        grid-column: 13;
+        grid-row: 3;
+    }
+
+    .contact-title {
+        font-size: 1.5rem;
+    }
+
+#page6 {
+    height: 100vh;
+    background: gray;
+}
+
+  
