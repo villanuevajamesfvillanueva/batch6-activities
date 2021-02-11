@@ -50,3 +50,28 @@ function delay (URL) {
     setTimeout( function() { window.location = URL }, 1000 );
 }
 
+//---------------------------------- contact us page ------------------------------------------
+let contactUs = document.querySelector("#contact-us");
+
+contactUs.addEventListener("mouseover", () => {
+    mouseCur.classList.add("cursor-contact-us");
+});
+
+contactUs.addEventListener("mouseleave", () => {
+    mouseCur.classList.remove("cursor-contact-us"); 
+});
+
+//----------------------------------- view project ------------------------------------------------
+let works = document.querySelectorAll(".work-sample");
+
+works.forEach(work => {
+    work.addEventListener("mouseover", () => {
+        mouseCur.classList.add("view-project");
+        mouseCur.lastElementChild.innerHTML = "VIEW PROJECT";
+    });
+
+    work.addEventListener("mouseleave", () => {
+        mouseCur.classList.remove("view-project");
+        mouseCur.lastElementChild.innerHTML = "";
+    });
+});

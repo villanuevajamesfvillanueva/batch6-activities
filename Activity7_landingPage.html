@@ -16,6 +16,7 @@
 <body>
     <div class="cursor">
         <div class="play">&#9654</div>
+        <span></span>
     </div>
     
     <main>
@@ -28,19 +29,19 @@
                     <div class="clickable" id="logo">Logo</div>
                 </div>
                 <nav>
-                    <div><a href="#scarlly1" class="clickable">Works</a></div>
-                    <div><a href="#" class="clickable">About</a></div>
-                    <div><a href="#" class="clickable">Contact</a></div>
+                    <div class="nav-link"><a href="#page3" class="clickable">Works</a></div>
+                    <div class="nav-link"><a href="#page4" class="clickable">About</a></div>
+                    <div class="nav-link"><a href="#page5" class="clickable">Contact</a></div>
                 </nav>
 
                 <div class="section-number" id="num01"><p>01</p></div>
                 <div class="front-page">
-                    <div><span class="kw-grp1" id="kw1" data-text="Powerful">Powerful</span></div>
-                    <div><span class="kw-grp1" id="kw2" data-text="Unique">Unique</span></div>
-                    <div><span class="kw-grp1" id="kw3" data-text="Timeless">Timeless</span></div>
+                    <div><span class="kw-grp1" data-text="Powerful">Powerful</span></div>
+                    <div><span class="kw-grp1" data-text="Unique">Unique</span></div>
+                    <div><span class="kw-grp1" data-text="Timeless">Timeless</span></div>
                     <div id="designs"><span>Designs</span></div>
-                    <div id="company"><span><span id="scarlette">Scarlette</span> <span id="dgm">Digital Media Group</span></span></div>
                 </div>
+                <a href="#page2" class="clickable" id="cta"><div ><span>Get Started</span></div></a>
             </div>
 
             <div class="page" id="page2">
@@ -57,47 +58,89 @@
         <section>
             <div class="page" id="page3">
                 <div class="section-number" id="num02"><p>02</p></div>
-                <div class="section-title-container" id="our-projects">
+                <div class="section-title-container" id="our-projects" data-aos="fade-up">
                     <div><span class="">Our Projects</span></div>
                     <div class="line slide-in" data-aos="slide-in-tr"></div>
                 </div>
 
 
-                <div class="designer alex" id="alex-name">Alexandra Kozarik</div>
-                <div class="work-sample alex" id="alex-work"></div>
-                <div class="work-caption alex" id="work-caption-alex">Web Design 2019</div>
-                <div class="line slide-in" data-aos="slide-in-tl" id="alex-wc-line"></div>
+                <div class="designer alex" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.behance.net/missalex_uiuxdesign" class="clickable" target="_blank">Alexandra Kozarik</a>
+                    </div>
+                <div class="work-sample alex">
+                    <a href="https://www.behance.net/gallery/104269661/JBL-Online-Store-Redesign-E-commerce-website-concept" target="_blank">
+                        <img data-aos="img-show" data-aos-delay="200" src="images/landingpage/jbl.png" alt="jbl headphones">
+                    </a>
+                </div>
+                <div class="work-caption alex">
+                    <span>Web Design, UI/UX</span> <span>2019</span>
+                </div>
+                <div class="line slide-in alex" data-aos="slide-in-tl"></div>
                 
-                <div class="designer" id="lesia-name">Lesia Mykolenko</div>
-                <div class="work-sample" id="lesia-work"></div>
-                <div class="work-caption lesia" id="work-caption-lesia">Web Layout 2019</div>
-                <div class="line slide-in" data-aos="slide-in-tr" id="lesia-wc-line"></div>
 
-                <div class="circles" id="c2"><svg id="arrow2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.01 130.58"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="73.6 93.08 63.32 82.8 46.06 100.06 46.06 1 29.13 1 29.13 100.24 11.7 82.8 1.41 93.08 37.49 129.16 37.51 129.15 37.52 129.16 73.6 93.08"/></g></g></svg></div>
-                <div class="circles" id="c1"><svg id="arrow1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.97 99.09"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="97.97 47.05 83.43 47.05 83.43 71.46 13.38 1.41 1.41 13.38 71.58 83.55 46.93 83.55 46.93 98.09 97.95 98.09 97.95 98.08 97.97 98.08 97.97 47.05"/></g></g></svg></div>
+                <div class="designer lesia" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.behance.net/lesia_mykolenko" target="_blank" class="clickable">Lesia Mykolenko</a>
+                </div>
+                <div class="work-sample lesia">
+                    <a href="https://www.behance.net/gallery/110756643/CULT-GAIA-website-redesign" target="_blank">
+                        <img data-aos="img-show" data-aos-delay="400" src="images/landingpage/cult_gaia.png" alt="fasion online store weblayout">
+                    </a>
+                    
+                </div>
+                <div class="work-caption lesia">
+                    <span>Responsive Web Layout, UI/UX</span> <span>2019</span>
+                </div>
+                <div class="line slide-in lesia" data-aos="slide-in-tr" id="lesia-wc-line"></div>
+
+
+                <div class="circles c2"><svg id="arrow2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.01 130.58"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="73.6 93.08 63.32 82.8 46.06 100.06 46.06 1 29.13 1 29.13 100.24 11.7 82.8 1.41 93.08 37.49 129.16 37.51 129.15 37.52 129.16 73.6 93.08"/></g></g></svg></div>
+                <div class="circles c1"><svg id="arrow1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.97 99.09"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="97.97 47.05 83.43 47.05 83.43 71.46 13.38 1.41 1.41 13.38 71.58 83.55 46.93 83.55 46.93 98.09 97.95 98.09 97.95 98.08 97.97 98.08 97.97 47.05"/></g></g></svg></div>
             
-                <div class="designer" id="logofolio-name"><span>Logofolio 2020</span></div>
+
+                <div class="designer logofolio" id="logofolio-name" data-aos="fade-up" data-aos-delay="100"><span>Logofolio 2020</span></div>
                 <div data-aos="slide-in-tb" id="logofolio-wc-line"></div>
-                <div class="work-sample" id="logofolio-work"></div>
+                <div class="work-sample logofolio" id="logofolio-work">
+                    <a href="https://www.behance.net/gallery/112188357/Logofolio-20182020?tracking_source=search_projects_recommended%7Clogofolio" target="_blank">
+                        <img data-aos="img-show" data-aos-delay="200" src="images/landingpage/logofolio.png" alt="logo portfolio">
+                    </a>
+                </div>
 
-                <div class="designer" id="some1-name">Someone made this</div>
-                <div class="work-sample" id="some1-work"></div>
-                <div class="work-caption someone" id="work-caption-some1">Product Branding 2018</div>
-                <div class="line slide-in" data-aos="slide-in-tl" id="some1-wc-line"></div>
+                <div class="designer mustafa" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.behance.net/mustafa-akulker" class="clickable" target="_blank">Mustafa Akülker</a>
+                </div>
+                <div class="work-sample mustafa">
+                    <a href="https://www.behance.net/gallery/74266443/Flavia-Botanicals-Branding" target="_blank">
+                        <img data-aos="img-show" data-aos-delay="200" src="images/landingpage/branding.png" alt="product branding sample">
+                        <img data-aos="img-show" data-aos-delay="300" src="images/landingpage/branding2.png" alt="logos">
+                    </a>
+                </div>
+                <div class="work-caption mustafa">
+                    <span>Product Branding, Logo Design</span> <span>2018</span>
+                </div>
+                <div class="line slide-in mustafa" data-aos="slide-in-tl"></div>
 
 
-                <div class="designer" id="some2-name">Sometwo made this</div>
-                <div class="work-sample" id="some2-work"></div>
-                <div class="work-caption sometwo" id="work-caption-some2">Concept Design 2019</div>
-                <div class="line slide-in" data-aos="slide-in-tr" id="some2-wc-line"></div>
+                <div class="designer fei" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.behance.net/Fei-Xie" target="_blank" class="clickable">Fei Xie</a>
+                </div>
+                <div class="work-sample fei" id="some2-work">
+                    <a href="https://www.behance.net/Fei-Xie" target="_blank">
+                        <img data-aos="img-show" data-aos-delay="400" src="images/landingpage/conceptcar2.png" alt="concept car front">
+                        <img data-aos="img-show" data-aos-delay="500" src="images/landingpage/conceptcar3.png" alt="concept car back">
+                        <img data-aos="img-show" data-aos-delay="600" src="images/landingpage/conceptcar4.png" alt="concept car back">
+                    </a>
+                </div>
+                <div class="work-caption fei" id="work-caption-some2"><span>Concept Design, Design Champion FSC</span> <span>2015</span></div>
+                <div class="line slide-in fei" data-aos="slide-in-tr" id="some2-wc-line"></div>
 
-                <div class="circles" id="c3"><svg id="arrow3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.58 75.01"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="93.08 1.41 82.8 11.7 100.06 28.96 1 28.96 1 45.88 100.24 45.88 82.8 63.32 93.08 73.6 129.16 37.52 129.15 37.51 129.16 37.49 93.08 1.41"/></g></g></svg></div>
+                <div class="circles c3"><svg id="arrow3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.58 75.01"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="93.08 1.41 82.8 11.7 100.06 28.96 1 28.96 1 45.88 100.24 45.88 82.8 63.32 93.08 73.6 129.16 37.52 129.15 37.51 129.16 37.49 93.08 1.41"/></g></g></svg></div>
 
             </div>
             
 
             <div class="page" id="page3-5">
-                <a href="#other-proj" id="other-proj-circ"><div class="circles" id="other-proj" onclick="delay('#other-projects')">
+                <a href="#other-proj" id="other-proj-circ">
+                    <div class="circles" id="other-proj" onclick="delay('#other-projects')">
                     Other projects
                     <!-- don't forget to update the link -->
                 </div></a>
@@ -111,44 +154,73 @@
         <section>
             <div class="page" id="page4">
                 <div class="section-number" id="num03"><p>03</p></div>
-                <div class="section-title-container" id="about-sdmg">
+                <div class="section-title-container" id="about-sdmg" data-aos="fade-up">
                     <div><span class="">About SDMG</span></div>
                     <div class="line slide-in" data-aos="slide-in-tr"></div>
                 </div>
                 
 
-                <p class="p" id="p1">Scarlette Digital Media Group is
-                    dedicated to bringing powerful, unique, and innovative digital graphic experience to our users. We are passionate in what we do and we take pride in our creations. We learn and grow, win and celebrate together with our clients.
+                <p class="p" id="p1" data-aos="fade-up"><span data-aos="fade-up" data-aos-delay="50">Scarlette Digital Media Group is</span>
+                    <span data-aos="fade-up" data-aos-delay="100">dedicated to bringing powerful,</span>
+                    <span data-aos="fade-up" data-aos-delay="150">unique, and innovative digital </span>
+                    <span data-aos="fade-up" data-aos-delay="200">graphic experience to our users.</span>
+                    <span data-aos="fade-up" data-aos-delay="250">We are passionate in what we do </span>
+                    <span data-aos="fade-up" data-aos-delay="300">and we take pride in our </span>
+                    <span data-aos="fade-up" data-aos-delay="350">creations. We learn and grow, </span>
+                    <span data-aos="fade-up" data-aos-delay="400">win and celebrate together with</span>
+                    <span data-aos="fade-up" data-aos-delay="450">our clients.</span>
                 </p>
 
-                <div class="about-img" id="about-img1"></div>
-                <div class="about-img" id="about-img2"></div>
-                <div class="about-img" id="about-img3"></div>
+                <div class="about-img img1" id="about-img1">
+                    <div class="position ceo">
+                        <span>Scully</span>
+                        <span>Chief Executive Officer</span>
+                    </div>
+                    <img src="images/landingpage/ceo.jpg" alt="ceo">
+                </div>
+                <div class="about-img img2" id="about-img2">
+                    <div class="position clientrel">
+                        <span>Nicole</span>
+                        <span>General Manager</span>
+                    </div>
+                    <img src="images/landingpage/clientrel.jpg" alt="client relations">
+                </div>
+                <div class="about-img img3" id="about-img3">
+                    <div class="position leaddesign">
+                        <span>Sam</span>
+                        <span>Lead Designer</span>
+                    </div>
+                    <img src="images/landingpage/leaddesign.jpg" alt="lead designer">
+                </div>
 
 
-                <p class="p" id="p2">Would you like to have award winning site or unique branding style? Please say hi to our manager <a class="clickable" href="">—info@sdmg.org</a>
-                    and we will help you with the pleasure.
+                <p class="p" id="p2" data-aos="fade-up" data-aos-delay="50">
+                    <span data-aos="fade-up" data-aos-delay="100">Would you like to have award </span>
+                    <span data-aos="fade-up" data-aos-delay="150">winning site or unique branding </span>
+                    <span data-aos="fade-up" data-aos-delay="200">style? Please say hi to our manager <a class="clickable" href="">—info@sdmg.org</a>and</span>
+                    <span data-aos="fade-up" data-aos-delay="250">we will help you with the</span>
+                    <span data-aos="fade-up" data-aos-delay="300">pleasure. </span>
                 </p>
 
                 <!-- <div class="carousel"></div> -->
                 <div class="line slide-in" id="we-work-line"></div>
-                <p class="p" id="we-work">We work with</p>
+                <p class="p" id="we-work" data-aos="fade-right">We work with</p>
 
                 <div class="crawling-text">
                     <div class="crawl-container" id="crawl-container1">
-                        <span class="crawl">- science - <span class="publicSans">sport</span> - automotive - <span class="publicSans">fashion</span> - travel - <span class="publicSans">beauty</span> - techonology - <span class="publicSans">presentations</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- food - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span></span>
+                        <span class="crawl">- science - <span class="publicSans">sport</span> - automotive - <span class="publicSans">fashion</span> - travel - <span class="publicSans">beauty</span> - techonology - <span class="publicSans">Logos</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- food - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span></span>
                     </div>
 
                     <div class="crawl-container" id="crawl-container2">
-                        <span class="crawl">- fashion - <span class="publicSans">automotive</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- presentations - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span>science - <span class="publicSans">art</span> - food - <span class="publicSans">techonology</span> - travel - <span class="publicSans">beauty</span> </span>
+                        <span class="crawl"> - travel - <span class="publicSans">beauty</span>- Logos - <span class="publicSans">food</span> - magazine - <span class="publicSans">web layout</span> - science - <span class="publicSans">sports</span> - hotels -<span class="publicSans">food</span>- fashion - <span class="publicSans">automotive</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- logos - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span>science - <span class="publicSans">art</span> - food - <span class="publicSans">techonology</span> - travel - <span class="publicSans">beauty</span> </span>
                     </div>
 
                     <div class="crawl-container" id="crawl-container3">
-                        <span class="crawl">- art - <span class="publicSans">music</span> - architecture - <span class="publicSans">social media</span> - travel - <span class="publicSans">beauty</span> - techonology - <span class="publicSans">presentations</span> - sport - <span class="publicSans">real estate</span>- automotive - <span class="publicSans">hotels</span>- food - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span></span>
+                        <span class="crawl">- art - <span class="publicSans">music</span> - architecture - <span class="publicSans">social media</span> - techonology - <span class="publicSans">photography</span> - marketing - <span class="publicSans">Logos</span> - sport - <span class="publicSans">real estate</span>- automotive - <span class="publicSans">hotels</span>- food - <span class="publicSans">social media</span>- brochures - <span class="publicSans">portfolios</span></span>
                     </div>
 
                     <div class="crawl-container" id="crawl-container4">
-                        <span class="crawl">- science - <span class="publicSans">sport</span> - automotive - <span class="publicSans">fashion</span> - travel - <span class="publicSans">beauty</span> - techonology - <span class="publicSans">presentations</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- food - <span class="publicSans">product design</span>- magazine - <span class="publicSans">portfolios</span></span>
+                        <span class="crawl">- architecture - <span class="publicSans">technology</span>- marketing - <span class="publicSans">social media</span>- travel - <span class="publicSans">beauty</span> - art - <span class="publicSans">music</span> - marketing - <span class="publicSans">businesses</span> - design - <span class="publicSans">interior design</span> - travel - <span class="publicSans">beauty</span> - techonology - <span class="publicSans">web layout</span> - music - <span class="publicSans">real estate</span>- architecture - <span class="publicSans">hotels</span>- food - <span class="publicSans">product design</span>- magazine - <span class="publicSans">portfolios</span></span>
                     </div>
                 </div>
             </div>
@@ -159,41 +231,58 @@
         <section>
             <div class="page" id="page5">
                 <div class="section-number" id="num04"><p>04</p></div>
-                <div class="section-title-container" id="lets-create">
-                    <div><span class="">Let's Create</span></div>
+                <div class="section-title-container" id="lets-create" data-aos="fade-up">
+                    <div>
+                        <a href="#contact-us">
+                            <span class="clickable">Let's Create</span>
+                            <svg class="clickable" id="arrow4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.58 75.01"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="93.08 1.41 82.8 11.7 100.06 28.96 1 28.96 1 45.88 100.24 45.88 82.8 63.32 93.08 73.6 129.16 37.52 129.15 37.51 129.16 37.49 93.08 1.41"/></g></g></svg>
+                        </a>
+                    </div>
                     <div class="line slide-in" data-aos="slide-in-tr"></div>
                     
                 </div>
 
                 
-                    <div class="socials">
-                        <p class="contact-title">Socials</p>
-                        <br>
-                        <p class="clickable social">behance</p>
-                        <p class="clickable social">instagram</p>
-                        <p class="clickable social">facebook</p>
-                        <p class="clickable social">twitter</p>
-                        <p class="clickable social">youtube</p>
-                    </div>
+                <div class="socials">
+                    <p class="contact-title" data-aos="fade-up" data-aos-delay="100">Socials</p>
+                    <br>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="150" id="behance">behance</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="200">instagram</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="250">facebook</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="300">twitter</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="350">youtube</p>
+                </div>
     
-                    <div class="address">
-                        <p class="contact-title">Address</p>
-                        <br>
-                        <p>64 axis tower</p>
-                        <p>mckinley ave</p>
-                        <p>bgc taguig</p>
-                        <p>philippines</p>
-                    </div>
+                <div class="address">
+                    <p class="contact-title" data-aos="fade-up" data-aos-delay="300">Address</p>
+                    <br>
+                    <p data-aos="fade-up" data-aos-delay="350">64 axis tower</p>
+                    <p data-aos="fade-up" data-aos-delay="400">mckinley ave</p>
+                    <p data-aos="fade-up" data-aos-delay="450">bgc taguig</p>
+                    <p data-aos="fade-up" data-aos-delay="500">philippines</p>
+                </div>
     
-                    <div class="sayhi">
-                        <p class="contact-title">Say Hi!</p>
-                        <br>
-                        <p class="clickable social">info@sdmg.org</p>
-                    </div>
+                <div class="sayhi">
+                    <p class="contact-title" data-aos="fade-up" data-aos-delay="500">Say Hi!</p>
+                    <br>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="550">info@sdmg.org</p>
+                </div>
 
             </div>
 
-            <div class="page" id="page6">
+            <div class="page" id="contact-us">
+                <div class="line slide-in" id="we-work-line"></div>
+                <p class="p">Contact Us</p>
+
+                <form action="">
+                    <div data-aos="fade-up" data-aos-delay="100"><span>Hello,</span> </div>
+                    <div data-aos="fade-up" data-aos-delay="150" class="input"><span>My name is</span> <input type="text" id="name" placeholder="Enter your name here"></div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="input"><span>Here is my email <input type="email" id="email" placeholder="Enter your email here"></span></div>
+                    <div data-aos="fade-up" data-aos-delay="250" class="input"><span>I'm looking for <input type="text" id="purpose" placeholder="Enter your project details here"></span> </div>
+                    <div class="send">SEND</div>
+                </form>
+                
+                
 
             </div>
             
