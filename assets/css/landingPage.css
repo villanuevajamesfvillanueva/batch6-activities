@@ -953,21 +953,37 @@ video {
         grid-row: 3;
         
     }
-        /* #page5 .socials .social  {
-            transition: transform 0.2s ease;
+        /* .social  {
+            transition: all 0.2s ease;
         }
 
-        #page5 .socials .social:hover  {
-            transition: transform 0.2s ease;
-        } */
+        .social:hover  {
+            transform: translateY(-1rem);
+            background: white;
+        }  */
 
-        .socials .clickable.social, .sayhi .clickable.social{
-            transition: transform 0.2s ease; 
+
+        /* .socials .clickable.social, .sayhi .clickable.social{
+            transition: all 0.2s ease; 
         }
 
         .socials .clickable.social:hover, .sayhi .clickable.social:hover {
             transform: translateY(-10px);
+            
+        } */
+
+        /* BAKIT YUNG MGA TARGETTING METHODS ABOVE DI GUMAGANA
+        ANONG KALOKOHAN TO */
+
+        #behance, #instagram, #facebook, #twitter, #youtube, #info-email{
+            transition: all 0.2s ease;
         }
+
+        #behance:hover, #instagram:hover, #facebook:hover, #twitter:hover, #youtube:hover, #info-email:hover {
+            transform: translateY(-10px);
+        }
+
+        
 
 
     
