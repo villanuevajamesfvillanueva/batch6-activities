@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+    <div id="logo-container">
+        <a href="#page1"><div class="clickable" id="logo">Logo</div></a>
+    </div>
+    
     <div class="cursor">
         <div class="play">&#9654</div>
         <span></span>
@@ -25,14 +29,24 @@
             <div class="cover"></div>
 
             <div class="page" id="page1">
-                <div id="logo-container">
+                <!-- <div id="logo-container">
                     <div class="clickable" id="logo">Logo</div>
-                </div>
+                </div> -->
                 <nav>
                     <div class="nav-link"><a href="#page3" class="clickable">Works</a></div>
                     <div class="nav-link"><a href="#page4" class="clickable">About</a></div>
                     <div class="nav-link"><a href="#page5" class="clickable">Contact</a></div>
                 </nav>
+
+                <div id="mySidenav" class="sidenav">
+                    <!-- <span class="closebtn" onclick="closeNav()">close</span> -->
+                    <div class="closebtn" onclick="closeNav()">&times</div>
+                    <a href="#page3" onclick="closeNav()">Works</a>
+                    <a href="#page4" onclick="closeNav()">About</a>
+                    <a href="#page5" onclick="closeNav()">Contact</a>
+                </div>
+                  
+                <span id="hamburger" style="font-size:30px" onclick="openNav()">&#9776</span>
 
                 <div class="section-number" id="num01"><p>01</p></div>
                 <div class="front-page">
@@ -115,7 +129,7 @@
                     </a>
                 </div>
                 <div class="work-caption mustafa">
-                    <span>Product Branding, Logo Design</span> <span>2018</span>
+                    <span>Product Branding</span> <span>2018</span>
                 </div>
                 <div class="line slide-in mustafa" data-aos="slide-in-tl"></div>
 
@@ -130,7 +144,7 @@
                         <img data-aos="img-show" data-aos-delay="600" src="images/landingpage/conceptcar4.png" alt="concept car back">
                     </a>
                 </div>
-                <div class="work-caption fei" id="work-caption-some2"><span>Concept Design, Design Champion FSC</span> <span>2015</span></div>
+                <div class="work-caption fei" id="work-caption-some2"><span>Concept Design</span> <span>2015</span></div>
                 <div class="line slide-in fei" data-aos="slide-in-tr" id="some2-wc-line"></div>
 
                 <div class="circles c3"><svg id="arrow3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.58 75.01"><defs><style>.cls-1{fill:none;stroke:#f1f2f2;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="93.08 1.41 82.8 11.7 100.06 28.96 1 28.96 1 45.88 100.24 45.88 82.8 63.32 93.08 73.6 129.16 37.52 129.15 37.51 129.16 37.49 93.08 1.41"/></g></g></svg></div>
@@ -177,6 +191,11 @@
                         <span>Chief Executive Officer</span>
                     </div>
                     <img src="images/landingpage/ceo.jpg" alt="ceo">
+                    <div class="position ceo mobile">
+                        <span>Scully</span>
+                        <span>Chief Executive Officer</span>
+                    </div>
+
                 </div>
                 <div class="about-img img2" id="about-img2">
                     <div class="position clientrel">
@@ -184,6 +203,10 @@
                         <span>General Manager</span>
                     </div>
                     <img src="images/landingpage/clientrel.jpg" alt="client relations">
+                    <div class="position clientrel mobile">
+                        <span>Nicole</span>
+                        <span>General Manager</span>
+                    </div>
                 </div>
                 <div class="about-img img3" id="about-img3">
                     <div class="position leaddesign">
@@ -191,6 +214,10 @@
                         <span>Lead Designer</span>
                     </div>
                     <img src="images/landingpage/leaddesign.jpg" alt="lead designer">
+                    <div class="position leaddesign mobile">
+                        <span>Sam</span>
+                        <span>Lead Designer</span>
+                    </div>
                 </div>
 
 
@@ -246,11 +273,17 @@
                 <div class="socials">
                     <p class="contact-title" data-aos="fade-up" data-aos-delay="100">Socials</p>
                     <br>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="150" id="behance">behance</p>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="200" id="instagram">instagram</p>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="250" id="facebook">facebook</p>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="300" id="twitter">twitter</p>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="350" id="youtube">youtube</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="150"><span>behance</span></p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="200"><span>instagram</span></p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="250"><span>facebook</span></p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="300"><span>twitter</span></p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="350"><span>youtube</span></p>
+
+                    <!-- <div class="clickable social" data-aos="fade-up" data-aos-delay="150"><span>behance</span></div>
+                    <div class="clickable social" data-aos="fade-up" data-aos-delay="200"><span>instagram</span></div>
+                    <div class="clickable social" data-aos="fade-up" data-aos-delay="250"><span>facebook</span></div>
+                    <div class="clickable social" data-aos="fade-up" data-aos-delay="300"><span>twitter</span></div>
+                    <div class="clickable social" data-aos="fade-up" data-aos-delay="350"><span>youtube</span></div> -->
                 </div>
     
                 <div class="address">
@@ -265,7 +298,7 @@
                 <div class="sayhi">
                     <p class="contact-title" data-aos="fade-up" data-aos-delay="500">Say Hi!</p>
                     <br>
-                    <p class="clickable social" data-aos="fade-up" data-aos-delay="550" id="info-email">info@sdmg.org</p>
+                    <p class="clickable social" data-aos="fade-up" data-aos-delay="550" id="info-email"><span>info@sdmg.org</span></p>
                 </div>
 
             </div>

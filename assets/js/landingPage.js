@@ -75,3 +75,14 @@ works.forEach(work => {
         mouseCur.lastElementChild.innerHTML = "";
     });
 });
+
+
+//----------------------------------side nav ----------------------------------
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+  
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0px";
+    console.log("closing");
+}
