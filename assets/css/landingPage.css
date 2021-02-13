@@ -1234,9 +1234,10 @@ form {
     
 
         #cta {
-            grid-column: 2;
+            grid-column: 4;
             grid-row: 10;
             margin-top: 2rem;
+            margin-left: 7vw;
 
             display: flex;
             justify-content: center;
