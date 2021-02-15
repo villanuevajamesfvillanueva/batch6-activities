@@ -165,6 +165,7 @@ a {
 
 #logo-container {
     grid-column: 2;
+    grid-row: 1;
 
     display: grid;
     grid-template-rows: repeat(2, 1fr);
@@ -172,14 +173,21 @@ a {
 
     position: sticky;
     position: -webkit-sticky;
-    top: 1rem;
-    margin-left: 2rem;
-    
+    top: 0vw;
+    margin-left: 3vw;
+
+    transition: transform 0.3s ease ;
+    height: 0;
+    width: 0;
 }
 
-    #logo {
-        
+    #logo-container:hover {
+        transform: translateY(-5px);
     }
+
+        #header-img {
+            width: 3vw;
+        }
 
 nav {
     grid-column: 13 / span 3;
@@ -211,13 +219,18 @@ nav {
 
     .nav-link {
         transition: all 0.3s ease ;
+        width: fit-content;
+        text-align: center;
+        height: 2rem;
+        margin-top: 3vw;
+        /* background-color: red; */
     }
     .nav-link:hover {
-        transform: translateY(-7px);
+        transform: translateY(-10px);
     }
 
     
-#page1 {
+#header {
     display: grid;
     grid-template-columns: repeat(16, 6.25%);
     grid-template-rows: repeat(5, 20%);
@@ -983,15 +996,29 @@ video {
     .socials {
         grid-column: 5;
         grid-row: 3;
+
+        transition: all 0.5s ease;
         
     }
-        /* .social {
-            transition: all 0.2s ease;
+        .social {
+            transition: all 0.5s ease;
         }
 
         .social:hover  {
-            transform: translateY(-10rem);
-        }  */
+            /* transform: translateY(-10rem); */
+            letter-spacing: 5px;
+        } 
+
+        @supports (-webkit-text-stroke: 1px white) {                /* temp fix */
+            .social:hover {
+                -webkit-text-stroke: 1px white;
+                -webkit-text-fill-color: var(--bg);
+            }
+        }
+
+        /* .social {
+            transition: all 0.5s ease;
+        } */
 
 
         /* .socials .clickable.social, .sayhi .clickable.social{
@@ -1162,10 +1189,28 @@ form {
     .cursor {
         display: none;
     }
+
+
+    #logo-container {
+        top: 4vw;
+        margin-left: 6vw;
+
+        padding: 0;
+        width: 10px;
+        height: 10px;
+    }
+        
+        #header-img {
+            width: 10vw;
+            margin: 0;
+            padding: 0;
+            height: 10vw;
+        }
+    
 /* -----------------------------------------------section 1---------------------------------*/
 /* --------------------page1-----------------------*/
 
-    #page1 {
+    #header {
         display: grid;
         grid-template-columns: repeat(16, 6.25%);
         grid-template-rows: repeat(16, 6.25%);
@@ -1896,10 +1941,26 @@ form {
     .cursor {
         display: none;
     }
+
+    #logo-container {
+        top: 3vw;
+        margin-left: 6vw;
+
+        padding: 0;
+        width: 10px;
+        height: 10px;
+    }
+        
+        #header-img {
+            width: 10vw;
+            margin: 0;
+            padding: 0;
+            height: 10vw;
+        }
 /* -----------------------------------------------section 1---------------------------------*/
 /* --------------------page1-----------------------*/
 
-        #page1 {
+        #header {
             display: grid;
             grid-template-columns: repeat(16, 6.25%);
             grid-template-rows: repeat(16, 6.25%);
@@ -1969,9 +2030,10 @@ form {
         
 
             #cta {
-                grid-column: 1;
+                grid-column: 3;
                 grid-row: 10;
                 margin-top: 2rem;
+                margin-left: 2vw;
 
                 display: flex;
                 justify-content: center;
@@ -2630,10 +2692,25 @@ form {
         display: none;
     }
 
+    #logo-container {
+        top: 3vw;
+        margin-left: 8vw;
+
+        padding: 0;
+        width: 10px;
+        height: 10px;
+    }
+        
+        #header-img {
+            width: 7vw;
+            margin: 0;
+            padding: 0;
+            height: 7vw;
+        }
 /* -----------------------------------------------section 1---------------------------------*/
 /* --------------------page1-----------------------*/
 
-        #page1 {
+        #header {
             display: grid;
             grid-template-columns: repeat(16, 6.25%);
             grid-template-rows: repeat(16, 6.25%);
@@ -2701,10 +2778,11 @@ form {
         
 
             #cta {
-                grid-column: 3;
+                grid-column: 4;
                 grid-row: 11;
                 /* margin-top: 2rem; */
                 margin-top: 10vw;
+                margin-left: 6vw;
 
                 display: flex;
                 justify-content: center;
@@ -3364,10 +3442,26 @@ form {
     .cursor {
         display: none;
     }
+
+    #logo-container {
+        top: 2.5vw;
+        margin-left: 5vw;
+
+        padding: 0;
+        width: 10px;
+        height: 10px;
+    }
+        
+        #header-img {
+            width: 8vw;
+            margin: 0;
+            padding: 0;
+            height: 8vw;
+        }
 /* -----------------------------------------------section 1---------------------------------*/
 /* --------------------page1-----------------------*/
 
-        #page1 {
+        #header {
             display: grid;
             grid-template-columns: repeat(16, 6.25%);
             grid-template-rows: repeat(16, 6.25%);
