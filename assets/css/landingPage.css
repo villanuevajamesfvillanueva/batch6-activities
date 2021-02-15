@@ -962,6 +962,7 @@ video {
         #page5 .section-title-container div span:hover{
             font-family: SilkSerifRegItalic;
             letter-spacing: 0.5px;
+            font-style: italic;
         }
 
             @supports (-webkit-text-stroke: 1px white) {
