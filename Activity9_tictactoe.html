@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/tictactoe.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <title>tictactoe</title>
+</head>
+<body>
+    <main>
+
+        <div class="board" id="board"></div>
+
+        <div class="menu"></div>
+    </main>
+    <div class="modal active" id="modal1">
+        <h1>Which side would you like to play?</h1>
+        <div class="button-container">
+            <div class="button" id="buttonX"><p>X<p></div>
+            <div class="button" id="buttonO"><p>O<p></div>
+        </div>
+    </div>
+
+    <div class="overlay active" id="overlay1"></div>
+
+    <div class="win-announce" id="win-white">
+        <div class="win-body">
+            <div class="winner">Player X wins!</div>
+        </div>
+    </div>
+
+    <div class="win-announce" id="win-black">
+        <div class="win-body">
+            <div class="winner">Player O wins!</div>
+        </div>
+    </div>
+    
+    <script src="assets/js/tictactoe.js"></script>
+</body>
+</html>
