@@ -1,9 +1,7 @@
 console.log("---------------------------------- BMI CALCULATOR --------------------------------");
 console.log("This program asks for weight and height inputs for 2 persons, computes for their respective BMIs, and compares them.")
 
-
 //---------------------------------- with default values -----------------------------
-
 let bmi = (mass, height) => {
   result = mass/(height*height);
   return round(result, 2);
@@ -12,7 +10,6 @@ let bmi = (mass, height) => {
 let round = (value, decimals) => {
   return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals);
 };
-
 
 let victor = {
   mass: 60,
@@ -36,7 +33,6 @@ johnBMI = bmi(john.mass, john.height);
 
 
 //---------------------------------- with dynamic values -----------------------------
-
 let data = {};
 
 const readline = require('readline').createInterface({
@@ -57,9 +53,9 @@ let promptInput = () => {
         console.log(`${name}'s BMI: ${result}`);
         dataCount++;
 
-        if (dataCount >= 2) {
+        if (dataCount >= 2) {               //limiting inputs to 2 persons only
           readline.close();
-
+          
           let person1 = Object.keys(data)[0];
           let person2 = Object.keys(data)[1];
           let person1BMI = data[person1]["bmi"];
@@ -76,5 +72,52 @@ let promptInput = () => {
   });
 }
 
-
 promptInput();
+
+
+
+
+
+//---------------------------------- with input validation -----------------------------
+// let data = {};
+
+// const readline = require('readline').createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+ 
+// var dataCount = 0;
+// let promptInput = () => {
+//   readline.question('\nInput name: ', name => {
+//     data[name] = {};
+//     readline.question('Input weight in kg: ', mass => {
+//       // console.log(typeof(mass));          //why is this returning a string???
+//       data[name]["mass"] = mass;
+//       readline.question('Input height in meters: ', height => {
+//         data[name]["height"] = height;
+//         result = bmi(data[name]["mass"], data[name]["height"]);
+//         data[name]["bmi"] = result;
+//         console.log(`${name}'s BMI: ${result}`);
+//         dataCount++;
+//         // console.log(data);
+//         if (dataCount >= 2) {
+//           readline.close();
+          
+//           let person1 = Object.keys(data)[0];
+//           let person2 = Object.keys(data)[1];
+//           let person1BMI = data[person1]["bmi"];
+//           let person2BMI = data[person2]["bmi"];
+         
+//           comparison = (person1BMI > person2BMI) ? "Yes" : "No";
+//           console.log(`\nIs ${person1}'s BMI higher than ${person2}'s? ${comparison}`);
+//           return;
+//         };
+
+//         promptInput();
+//       });
+//     });
+//   });
+// }
+
+
+// promptInput();
