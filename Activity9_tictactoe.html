@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/tictactoe.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-    <title>tictactoe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <title>TicTacToe</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/tictactoe/tic-tac-toe (1).ico">
 </head>
 <body>
     <main>
@@ -77,6 +78,119 @@
     </div>
 
     <div class="cursor"></div>
+
+
+    <div class="modal2" id="modal2">
+        <div class="modal2-header">
+            <div class="modal2-title">TicTacToe v1.1.5 
+                <svg id="tictactoe-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <circle style="fill:#50206C;" cx="256" cy="256" r="256"/>
+                <path style="fill:#3D1952;" d="M511.99,263.131L385.782,136.924c-12.226-15.774-31.339-25.957-52.795-25.957
+                    c-29.584,0-54.722,19.344-63.469,46.041l-22.983-22.983l0.121-0.121l-23.61-23.612l-43.847,43.847l-43.846-43.847l-23.611,23.611
+                    l43.847,43.847l-43.847,43.847l0.029,0.028l-0.121,0.121l48.504,48.504c-27.571,8.221-47.736,33.793-47.736,64
+                    c0,18.583,7.637,35.411,19.928,47.53l-0.175,0.175L262.14,511.924C398.358,508.765,508.267,399.211,511.99,263.131z"/>
+                <path style="fill:#FFFFFF;" d="M332.895,244.532c-36.824,0-66.783-29.959-66.783-66.783s29.959-66.783,66.783-66.783
+                    s66.783,29.959,66.783,66.783S369.717,244.532,332.895,244.532z M332.895,144.358c-18.412,0-33.391,14.979-33.391,33.391
+                    s14.979,33.391,33.391,33.391s33.391-14.979,33.391-33.391S351.305,144.358,332.895,144.358z"/>
+                <path style="fill:#E0E0E2;" d="M332.895,110.967v33.391c18.412,0,33.391,14.979,33.391,33.391s-14.979,33.391-33.391,33.391v33.391
+                    c36.824,0,66.783-29.959,66.783-66.783S369.717,110.967,332.895,110.967z"/>
+                <polygon style="fill:#FFFFFF;" points="246.564,133.902 222.953,110.291 179.105,154.139 135.259,110.291 111.648,133.902 
+                    155.496,177.75 111.648,221.596 135.259,245.207 179.105,201.361 222.953,245.207 246.564,221.596 202.716,177.75 "/>
+                <polygon style="fill:#E0E0E2;" points="246.564,133.902 222.953,110.291 179.105,154.139 179.105,201.361 222.953,245.207 
+                    246.564,221.596 202.716,177.75 "/>
+                <path style="fill:#FFFFFF;" d="M179.105,401.033c-36.824,0-66.783-29.959-66.783-66.783s29.959-66.783,66.783-66.783
+                    s66.783,29.959,66.783,66.783S215.929,401.033,179.105,401.033z M179.105,300.859c-18.412,0-33.391,14.979-33.391,33.391
+                    c0,18.412,14.979,33.391,33.391,33.391s33.391-14.979,33.391-33.391C212.497,315.838,197.517,300.859,179.105,300.859z"/>
+                <path style="fill:#E0E0E2;" d="M179.105,267.468v33.391c18.412,0,33.391,14.979,33.391,33.391s-14.979,33.391-33.391,33.391v33.391
+                    c36.824,0,66.783-29.959,66.783-66.783S215.929,267.468,179.105,267.468z"/>
+                <polygon style="fill:#FFFFFF;" points="400.352,290.404 376.741,266.793 332.895,310.639 289.047,266.793 265.436,290.404 
+                    309.284,334.25 265.436,378.098 289.047,401.708 332.895,357.861 376.741,401.708 400.352,378.098 356.504,334.25 "/>
+                <polygon style="fill:#E0E0E2;" points="400.352,290.404 376.741,266.793 332.895,310.639 332.895,357.861 376.741,401.708 
+                    400.352,378.098 356.504,334.25 "/>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                </svg>   
+            </div>
+            <button id="modal2-close">&times;</button>
+        </div>
+        <div class="modal2-body">
+
+
+            <p>v1.1.5 22.02.21 What's new?</p>
+                <br>
+            <ul>
+                <li>Improved move history functionality. Bug: When history is accessed and previous and next button are used, the index changes depending on which item in the history the player is accessing.
+                But, the last know value of index gets carried over the next round when the history is reenabled. It then gets updated immediately to its correct values when Previous and Next buttons are pressed.</li>
+                <li>Custom cursor implemented. Cursor changes depending on who's turn when hovered over the game board.</li>
+            </ul>
+                <br><hr><br>
+
+            <p>v1.1.2 22.02.21 updates:</p>
+                <br>
+            <ul>
+                <li>Fixed proper winning cell highlighting.</li>
+                <li>Times where the game ends with two winning patterns can now be recognized.</li>
+            </ul>
+                <br><hr><br>
+
+            <p>v1.1.0 21.02.21 updates: </p>
+                <br>
+            <ul>
+                <li>Added proper player interface.</li>
+                <li>Added scoring system.</li>
+                <li>Fixed board reset button.</li>
+                <li>Improved move history functionality. History can now be accessed using Previous and Next buttons but history index being used increases proportionally to the value of the current round.</li>
+            </ul>
+                <br><hr><br>
+
+            <p>v1.0.0 Known <del>bugs</del> features:</p>
+                <br>
+            <ul>
+                <li>Move history in chaos.</li>
+                <li>Previous and Next button not behaving accordingly.</li>
+                <li>Reset button not properly resetting the board. Needs to reload the page everytime.</li>
+                <li>Winning cells sometimes fail to highlight.</li>
+                <li>Despite these, game is playable overall.</li>
+                
+            </ul>
+                <br>
+            <p>First player to score 5 wins. Good luck, have fun!</p>
+        </div>
+    </div>
+
+
+    <footer>
+        <span id="build-log">build v1.0.0</span><a href="index.html" id="james"><span>by James Villanueva</span></a>
+    </footer>
 
     <script src="assets/js/tictactoe.js"></script>
 </body>

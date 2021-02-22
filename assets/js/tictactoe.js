@@ -113,12 +113,10 @@ function playerMove(cell) {
             }
         }
         
-        overlay2.addEventListener("click", () => {
-            closeModal();
-            // previous.style.transform = "scale(1)";
-            // next.style.transform = "scale(1)";
-        });
-
+        // overlay2.addEventListener("click", () => {
+        //     closeModal();
+        // });
+        overlay2.onclick = function() { closeModal(); }
         //history can now be accessed
         //Previous and Next will show up
         showHistory();   
@@ -129,6 +127,7 @@ function playerMove(cell) {
     let entry = JSON.parse(JSON.stringify(board));
     history.push(entry);
 }
+
 
 
 let highlightWinningCells = (cells) => {
@@ -335,6 +334,7 @@ var oWinner = document.getElementById("win-O");
 var oGameWinner = document.getElementById("win-O-game");
 var draw = document.getElementById("draw");
 
+//closing the heck out of everything
 let closeModal = () => {
     modal1.classList.remove("active");
     overlay1.classList.remove("active");
@@ -344,6 +344,7 @@ let closeModal = () => {
     oWinner.style.transform = "translate(-50%, -50%) scale(0)";
     oGameWinner.style.transform = "translate(-50%, -50%) scale(0)"
     draw.style.transform = "translate(-50%, -50%) scale(0)";
+    buildLog.style.transform = "translate(-50%, -50%) scale(0)";
   }
 
     playerX.addEventListener("click", () => {
@@ -384,7 +385,16 @@ document.querySelector("#board").addEventListener("mouseleave", () => {
 
 
 
+var buildVersion = document.getElementById("build-log");
+var buildLog = document.querySelector("#modal2");
+var xButton = document.getElementById("modal2-close");
+buildVersion.addEventListener("click", () => {
+    buildLog.style.transform = "translate(-50%, -50%) scale(1)";
+    overlay2.classList.add("active");
 
+});
+overlay2.onclick = function() { closeModal(); }
+xButton.onclick = function() { closeModal(); }
 
 //X is reserved for player1, O is for player2/bot
 
