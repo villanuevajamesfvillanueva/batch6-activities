@@ -70,7 +70,6 @@ function playerMove(cell) {
             cell.classList.remove("pointer");
         });
 
-
         //announce winner
         overlay2.classList.add("active");
 
@@ -88,6 +87,8 @@ function playerMove(cell) {
                 if (scoreX === 5) {
                     xGameWinner.style.transform = "translate(-50%, -50%) scale(1)";
                     //game over banner
+                    gameoverContainer.firstElementChild.innerHTML = "GAME OVER";
+
 
                     //reset button reloads window
                     document.getElementById("reset").onclick = function () {
@@ -103,6 +104,8 @@ function playerMove(cell) {
                 if (scoreO === 5) {
                     oGameWinner.style.transform = "translate(-50%, -50%) scale(1)";
                     //game over banner
+                    gameoverContainer.firstElementChild.style.fontSize = "6rem";
+                    gameoverContainer.firstElementChild.innerHTML = "GAME OVER";
 
                     //reset button reloads window
                     document.getElementById("reset").onclick = function () {
@@ -113,9 +116,6 @@ function playerMove(cell) {
             }
         }
         
-        // overlay2.addEventListener("click", () => {
-        //     closeModal();
-        // });
         overlay2.onclick = function() { closeModal(); }
         //history can now be accessed
         //Previous and Next will show up
@@ -311,12 +311,6 @@ let updateBoard = (entry) => {
     boardDiv.innerHTML = output;
 }
 
- 
-
-
-
-
-
 //accessing X and O buttons at the start
 var modal1 = document.getElementById("modal1");
 var overlay1 = document.getElementById("overlay1");
@@ -358,8 +352,6 @@ let closeModal = () => {
     });
 
 
-
-
 //cursor toggles between X and O for 2 human players
     //turn = 1: X
     //turn = 0: O
@@ -377,12 +369,10 @@ gameboard.addEventListener("mouseover", () => {
     else if (turn === 0) {
         mouseCursor.innerHTML = "O";
     }
-    
 });
 document.querySelector("#board").addEventListener("mouseleave", () => {
     mouseCursor.innerHTML = "";
 });
-
 
 
 var buildVersion = document.getElementById("build-log");
@@ -397,5 +387,5 @@ overlay2.onclick = function() { closeModal(); }
 xButton.onclick = function() { closeModal(); }
 
 //X is reserved for player1, O is for player2/bot
-
+var gameoverContainer = document.querySelector(".header");
 

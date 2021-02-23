@@ -46,7 +46,6 @@ main {
         height: 60vh;
         border: 1px solid black;
         cursor: none;
-        
     }
 
         .row {
@@ -282,9 +281,12 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     padding-right: 1rem;
+    /* padding-bottom: 1rem; */
 
     width: 100%;
     height: 5vh;
+    /* background: red; */
+    
 }
 
 
@@ -367,5 +369,706 @@ footer span, footer a span  {
     width: 2.5rem;
     height: 2rem;
     padding: 0 0 0 7px;
-    /* background-color: red; */
+}
+
+.header {
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+    .header h1 {
+        font-weight: 300;
+        letter-spacing: 10px;
+        font-size: 4rem;
+    }
+
+
+
+@media only screen and (max-width: 320px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 25vw;
+        height: 25vw;
+        font-size: 20vw;
+    }
+
+    .board {
+        width: 75vw;
+        height: 75vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 3rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 5rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 0.8rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        width: 4rem;
+        height: 4rem;
+        font-size: 4rem;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.6rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 2vh;
+        left: 0;
+        height: 7vh; 
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 1.2rem;
+        }
+
+}
+
+    
+    
+
+@media only screen and (max-width: 480px) and (min-device-width: 321px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 25vw;
+        height: 25vw;
+        font-size: 20vw;
+    }
+
+    .board {
+        width: 75vw;
+        height: 75vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 3rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 5rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 0.8rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        width: 4rem;
+        height: 4rem;
+        font-size: 4rem;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.6rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 2vh;
+        left: 0;
+        height: 7vh; 
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 1.2rem;
+        }
+
+}
+
+
+@media only screen and (max-width: 768px) and (min-device-width: 481px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 20vw;
+        height: 20vw;
+        font-size: 16vw;
+    }
+
+    .board {
+        width: 60vw;
+        height: 60vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+        }
+
+        .name {
+            width: 100%;
+            height: 10vh;
+            font-size: 4rem;
+        }
+
+        .score {
+            width: 100%;
+            height: 25vh;
+            font-size: 7rem;
+        }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 1.2rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 3.5rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        /* .win-body {
+            font-size: 7vw;
+        } */
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 6rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        width: 4rem;
+        height: 4rem;
+        font-size: 4rem;
+    }
+    
+    footer span, footer a span  {
+        font-size: 0.8rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 7vh; 
+        /* background: red; */
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 1.8rem;
+        }
+
+}
+
+
+@media only screen and (max-width: 1024px) and (min-device-width: 769px) {
+    body {
+        width: 100vw;
+    }
+
+    main {
+        padding: 0 10vw;
+        flex-direction: column;
+        /* background: red; */
+    }
+
+    .cell {
+        width: 20vw;
+        height: 20vw;
+        font-size: 16vw;
+    }
+
+    .board {
+        width: 60vw;
+        height: 60vw;
+        border: 1px solid black;
+        margin-top: 3.5rem;
+    }
+
+
+    .menu {
+        width: 100vw;
+        height: 50vh;
+        margin: 0 0 5vh 0;
+    }
+
+    .score-container {
+        height: 35vh;
+    }
+
+        .player {
+            width: 40vw;
+            height: 35vh;
+            /* background: red; */
+        }
+
+            .name {
+                width: 100%;
+                height: 7vh;
+                font-size: 5rem;
+                font-weight: 200;
+            }
+
+            .score {
+                width: 100%;
+                height: 28vh;
+                font-size: 10rem;
+            }
+
+    .history-btn-container {
+        height: 8vh;
+        
+        padding: 0 2vw;
+    }
+        .btn {
+            width: 23vw;
+            height: 5vh;
+        }        
+        
+    .btn span {
+        font-size: 1.5rem;
+    }
+
+
+    #modal1 {
+        height: 35vh;
+    }
+
+    .win-announce {
+        height: 20vh;
+    }
+
+        .win-announce .winner {
+            font-size: 3.5rem;
+            text-align: center;
+            font-weight: 300;
+        }
+    
+        #modal1 h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+        }
+    
+        /* .win-body {
+            font-size: 7vw;
+        } */
+        
+        .button-container {
+            height: 18vh;
+        }
+            .button {
+                width: 20vw;
+                height: 10vw;
+                font-size: 6rem;
+                font-weight: 200;
+            }
+        
+    .cursor {
+        width: 4rem;
+        height: 4rem;
+        font-size: 4rem;
+    }
+    
+    footer span, footer a span  {
+        font-size: 1rem;
+        
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4vh; 
+        /* background: red; */
+    }
+    
+        .header h1 {
+            font-weight: 400;
+            letter-spacing: 1vw;
+            font-size: 2.5rem;
+        }
+}
+
+@media (max-width: 1200px) and (min-device-width: 1025px) {
+
+}
+
+@media (min-width: 1201px) {
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 823px) and (orientation: landscape) {
+    main {
+        padding: 0 10vw;
+        padding-top: 5vh;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+        .board {
+            width: 60vh;
+            height: 60vh;
+            /* padding: 0; */
+            margin: 0;
+     
+        }
+    
+                .cell {
+                    width: 20vh;
+                    height: 20vh;
+                    font-size: 16vh;
+                    font-weight: 100;
+                   
+                }
+    
+                        .winnerceleb {
+                            background: red;
+                        }
+    
+    
+        .menu {
+            width: 60vh;
+            height: 60vh;
+            padding: 0;
+            margin: 0;
+        }
+    
+    
+        .score-container {
+            /* background: red; */
+            height: 50vh;
+        }
+    
+            .player {
+                width: 27vh;
+                height: 50vh;
+            }
+    
+            .name {
+                width: 100%;
+                height: 10vh;
+               
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 200;
+            }
+    
+            .score {
+                border: 1px solid black;
+                width: 100%;
+                height: 35vh;
+                font-size: 4rem;
+            }
+    
+    
+    
+        .history-btn-container {
+            height: 5vh;
+            
+            padding: 0;
+        }
+            .btn {
+                width: 10vw;
+                height: 7vh;
+            }        
+            
+        
+    
+        .btn span {
+            font-size: 0.7rem;
+        }
+    
+    #modal1, .win-announce {
+        height: 45vh;
+    }
+    
+        #modal1 h1 {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+    
+        .win-body {
+            font-size: 7vw;
+        }
+    
+    
+    
+    #modal1.active{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+            .button {
+                font-size: 4rem;
+                font-weight: 200;
+            }
+    
+                #buttonX {
+                    margin-left: 15vw;
+                }
+                #buttonO {
+                    margin-right: 15vw;
+                }
+    
+    
+    
+    
+    .cursor { 
+        width: 3rem;
+        height: 3rem;
+        font-size: 3rem;   
+    }
+         
+    
+    
+    footer {
+        bottom: 5vh;
+        font-size: 10px;
+        padding-right: 1rem;
+    
+        width: 100%;
+        height: 5vh;
+    }
+    
+    
+    footer span, footer a span  {
+        font-size: 0.5rem;
+        font-weight: 400;
+        margin: 0 5px;
+    }
+       
+    .header {
+        top: 5vh;
+        left: 0;
+        width: 100vw;
+        height: 10vh;
+    }
+    
+        .header h1 {
+            font-weight: 300;
+            letter-spacing: 10px;
+            font-size: 2rem;
+        }
 }
