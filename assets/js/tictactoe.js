@@ -411,7 +411,7 @@ const chessAdMsg = document.querySelector(".chess-ad-container");
 let chessAd = () => {
     let rand = Math.round(Math.random()*10)
     //change this to 50% chance
-    if (rand) {
+    if (rand > 5) {
         chessAdMsg.style.transform = "scale(1)";
     }
 }
