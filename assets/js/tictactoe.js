@@ -52,10 +52,12 @@ function playerMove(cell) {
     if (turn === 1) {
         target.innerHTML = "X";
         board[index[0]][index[1]] = "X";
+        playAudio(moveAudio);
     }
     else if (turn === 0) {
         target.innerHTML = "O";
         board[index[0]][index[1]] = "O";
+        playAudio(moveAudio);
     }
 
     target.removeAttribute("onclick");
@@ -83,37 +85,41 @@ function playerMove(cell) {
             if (turn === 1) {
                 xWinner.style.transform = "translate(-50%, -50%) scale(1)";
                 scoreX++;
+                playAudio(roundWinAudio);
                 scoreXdisplay.innerHTML = scoreX;
                 if (scoreX === 5) {
                     xGameWinner.style.transform = "translate(-50%, -50%) scale(1)";
                     //game over banner
                     gameoverContainer.firstElementChild.innerHTML = "GAME OVER";
-
+                    playAudio(winAudio);
 
                     //reset button reloads window
                     document.getElementById("reset").onclick = function () {
                         window.location.reload();
                     }
+                    chessAd();
                 }
                
             }
             else if (turn === 0) {
                 oWinner.style.transform = "translate(-50%, -50%) scale(1)";
                 scoreO++;
+                playAudio(roundWinAudio);
                 scoreOdisplay.innerHTML = scoreO;
                 if (scoreO === 5) {
                     oGameWinner.style.transform = "translate(-50%, -50%) scale(1)";
                     //game over banner
-                    gameoverContainer.firstElementChild.style.fontSize = "6rem";
                     gameoverContainer.firstElementChild.innerHTML = "GAME OVER";
+                    playAudio(winAudio);
 
                     //reset button reloads window
                     document.getElementById("reset").onclick = function () {
                         window.location.reload();
                     }
+                    chessAd();
                 }
-                
             }
+            
         }
         
         overlay2.onclick = function() { closeModal(); }
@@ -341,6 +347,10 @@ let closeModal = () => {
     buildLog.style.transform = "translate(-50%, -50%) scale(0)";
   }
 
+let closeAd = () => {
+    chessAdMsg.style.transform = "scale(0)";
+}
+
     playerX.addEventListener("click", () => {
         turn = 1;
         closeModal();
@@ -386,6 +396,25 @@ buildVersion.addEventListener("click", () => {
 overlay2.onclick = function() { closeModal(); }
 xButton.onclick = function() { closeModal(); }
 
-//X is reserved for player1, O is for player2/bot
 var gameoverContainer = document.querySelector(".header");
 
+const moveAudio = document.querySelector("#move-audio");
+const roundWinAudio = document.querySelector("#roundwin-audio");
+const winAudio = document.querySelector("#win-audio");
+
+let playAudio = (audio) => {
+    audio.currentTime = 0;
+    audio.play();
+} 
+
+const chessAdMsg = document.querySelector(".chess-ad-container");
+let chessAd = () => {
+    let rand = Math.round(Math.random()*10)
+    //change this to 50% chance
+    if (rand) {
+        chessAdMsg.style.transform = "scale(1)";
+    }
+}
+
+var chessAdClose = document.querySelector("#chess-ad-close");
+chessAdClose.onclick = function() { closeAd(); }

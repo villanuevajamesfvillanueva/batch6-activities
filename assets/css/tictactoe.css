@@ -393,6 +393,50 @@ footer span, footer a span  {
 
 
 
+
+.chess-ad-container {
+    position: fixed;
+    bottom: 5vh;
+    right: 2vh;
+    height: 10vh;
+    width: 10vw;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.7);
+    /* background: red; */
+    font-size: 1rem;
+    animation: float 2.5s ease infinite;
+    transform: scale(0);
+}    
+    @keyframes float {
+        0% {bottom: 5vh;}
+        50% {bottom: 7vh;}
+        100% {bottom: 5vh;}
+    }
+
+    .chess-ad {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-end;
+        /* justify-content: center; */
+    }
+
+        #chess-ad-close {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.5rem;
+            height: 2vh;
+            margin: 0 0.5vw 0 0;
+
+        }
+
+        .chess-ad-container div div {
+            font-size: 0.8rem;
+            font-weight: 400;
+            padding: 10px 10px;
+        }
+
 @media only screen and (max-width: 320px) {
     body {
         width: 100vw;
@@ -516,10 +560,39 @@ footer span, footer a span  {
             font-size: 1.2rem;
         }
 
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 10vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+      
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
+
 }
 
-    
-    
 
 @media only screen and (max-width: 480px) and (min-device-width: 321px) {
     body {
@@ -638,11 +711,42 @@ footer span, footer a span  {
         height: 7vh; 
     }
     
-        .header h1 {
-            font-weight: 400;
-            letter-spacing: 1vw;
-            font-size: 1.2rem;
+    .header h1 {
+        font-weight: 400;
+        letter-spacing: 1vw;
+        font-size: 1.2rem;
+    }
+
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 10vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
         }
+        
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
 
 }
 
@@ -770,6 +874,36 @@ footer span, footer a span  {
             letter-spacing: 1vw;
             font-size: 1.8rem;
         }
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 12vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+        
+            #chess-ad-close {
+                font-size: 1.5rem;
+                height: 2vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.8rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
 
 }
 
@@ -899,6 +1033,36 @@ footer span, footer a span  {
             letter-spacing: 1vw;
             font-size: 2.5rem;
         }
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 12vh;
+        width: 40vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+        
+            #chess-ad-close {
+                font-size: 3rem;
+                height: 3vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 1.5rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
 }
 
 @media (max-width: 1200px) and (min-device-width: 1025px) {
@@ -1061,4 +1225,35 @@ footer span, footer a span  {
             letter-spacing: 10px;
             font-size: 2rem;
         }
+
+
+    .chess-ad-container {
+        position: fixed;
+        top: 50vh;
+        right: 2vh;
+        height: 15vh;
+        width: 25vw;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 128, 128, 0.7);
+        background: white;
+        animation: float 2.5s ease infinite;
+        transform: scale(0);
+    }    
+        @keyframes float {
+            0% {top: 50vh;}
+            50% {top: 52vh;}
+            100% {top: 50vh;}
+        }
+    
+            #chess-ad-close {
+                font-size: 1rem;
+                height: 0.5vh;
+                margin: 0 2vw 0 0;
+            }
+    
+            .chess-ad-container div div {
+                font-size: 0.6rem;
+                font-weight: 400;
+                padding: 10px 10px;
+            }
 }
