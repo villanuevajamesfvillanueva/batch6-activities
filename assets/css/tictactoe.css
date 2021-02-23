@@ -495,9 +495,7 @@ footer span, footer a span  {
             }
         
     .cursor {
-        width: 4rem;
-        height: 4rem;
-        font-size: 4rem;
+        display: none;
     }
     
     footer span, footer a span  {
@@ -625,9 +623,7 @@ footer span, footer a span  {
             }
         
     .cursor {
-        width: 4rem;
-        height: 4rem;
-        font-size: 4rem;
+        display: none;
     }
     
     footer span, footer a span  {
@@ -753,9 +749,7 @@ footer span, footer a span  {
             }
         
     .cursor {
-        width: 4rem;
-        height: 4rem;
-        font-size: 4rem;
+        display: none;
     }
     
     footer span, footer a span  {
@@ -884,9 +878,7 @@ footer span, footer a span  {
             }
         
     .cursor {
-        width: 4rem;
-        height: 4rem;
-        font-size: 4rem;
+        display: none;
     }
     
     footer span, footer a span  {
@@ -1036,9 +1028,7 @@ footer span, footer a span  {
     
     
     .cursor { 
-        width: 3rem;
-        height: 3rem;
-        font-size: 3rem;   
+        display: none;   
     }
          
     
