@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    let history = [
+                    [
+                        [" ",  " ",  " ",],
+                        [" ",  " ",  " ",],
+                        [" ",  " ",  " ",],
+                    ]
+                ];
+    let gameOver = false;
+    let turnIndex = 0;
+
+
+        let game = function() {
+            let turns = ["X", "O"];
+            
+            var checkInput = function(inputCoords, turn) {
+            let validMove = false;
+                //extracting content of inputCoords, returns an array of length = 2
+                coords = inputCoords.match(/\d+/g).map(Number);
+
+                // If it's an invalid coords
+                if ((coords[0] < 0) || (coords[0] > 2) || (coords[1] < 0) || (coords[1] > 2)) {
+                    console.log('Please enter a proper pair of coordinates. ex. move("2,1", "X")');
+                    return;
+                }
+                
+                else if ((board[coords[0]][coords[1]]) !== " ") {
+                    console.log('The cell is already taken. Please choose another cell.');
+                    return
+                }
+                
+                // Accept upper and lower case
+                if (turn === 'x' || turn === 'X') {
+                    board[coords[0]][coords[1]] = 'X';
+                    validMove = true;
+                } else if (turn === 'o' || turn === 'O') {
+                    board[coords[0]][coords[1]] = 'O';
+                    validMove = true;
+
+                // Handle unexpected inputs
+                } else {
+                    console.log('Please enter a valid letter! (X or O)');
+                }
+                
+
+                if (validMove) {
+                    //insert into history array
+                    var entry = JSON.parse(JSON.stringify(board));
+                    history.push(entry);
+
+                    if (detectWinner() || detectDraw()) {
+                        gameOver = true;
+                        currentHistoryIndex = history.length - 1;
+                        console.log("Move history can now be accessed. Available methods are:\n");
+                        console.log('\tprev()');
+                        console.log('\t\t- shows the previous board state \n');
+                        console.log('\tnext()');
+                        console.log('\t\t- shows the next board state \n');
+                        console.log('Use reset() to restart the game.');
+                        return;
+                    }
+
+                    turnIndex ^= 1;
+                    console.log(`\n\n*** It's %cPlayer ${turns[turnIndex]}%c's turn ***`, `color:violet`, `color:white`);
+                }
+            }
+
+            var detectWinner = function() {
+                var winner = false;
+                
+                //checking rows
+                for (let i=0; i<3; i++) {
+                    for (let j=0; j<1; j++) {
+                        if ((board[i][j] !== " ") && (board[i][j] === board[i][j+1]) && (board[i][j+1] === board[i][j+2])) {
+                            winner = true;
+                            displayGameOver();
+                            console.log(`%cPlayer ${turns[turnIndex]} wins via row${i+1}!`, `color:green; font-size:1.2rem`);
+                        }
+                    }
+                }
+
+                //checking colums
+                for (let i=0; i<3; i++) {
+                    for (let j=0; j<1; j++) {
+                        if ((board[j][i] !== " ") && (board[j][i] === board[j+1][i]) && (board[j+1][i] === board[j+2][i])) {
+                            winner = true;
+                            displayGameOver();
+                            console.log(`%cPlayer ${turns[turnIndex]} wins via col${i+1}!`, `color:green; font-size:1.2rem`);
+                        }
+                    }
+                } 
+
+                //checking diags
+                for (let i=0; i<1; i++) {
+                    for (let j=0; j<1; j++) {
+                        //diag1
+                        if ((board[i][j] !== " ") && (board[i][j] === board[i+1][j+1]) && (board[i+1][j+1] === board[i+2][j+2])) {
+                            winner = true;
+                            displayGameOver();
+                            console.log(`%cPlayer ${turns[turnIndex]} wins diag1!`, `color:green; font-size:1.2rem`);
+                        } 
+                    }
+                }
+
+                        //diag2
+                        if ((board[0][2] !== " " ) && (board[0][2] === board[1][1]) && (board[1][1] === board[2][0])) {
+                            winner = true;
+                            displayGameOver();
+                            console.log(`%cPlayer ${turns[turnIndex]} wins diag21`, `color:green; font-size:1.2rem`);
+                        }
+
+                return winner;
+            }
+
+            var detectDraw = function() {
+                var draw = false;
+                var count = 0;
+                for (let i=0; i<3; i++) {
+                    for (let j=0; j<3; j++) {
+                        if (board[i][j] === " ") {
+                            count++;
+
+                            if (count >= 1) {
+                                return draw;
+                            }   
+
+                            else {
+                                this.displayGameOver();
+                                draw = true;
+                                return draw;
+                            }
+                        }
+
+                        
+                    }
+                }
+            }
+
+            var displayGameOver = function() {
+                console.log("\n\n%c------------------ %cGAMEOVER%c ------------------", "font-size: 1.5rem", "color:red; font-size: 1.5rem", "color:white; font-size: 1.5rem");
+            }
+
+            return {
+                initBoard: function() {
+                    history = [
+                                [
+                                    [" ",  " ",  " ",],
+                                    [" ",  " ",  " ",],
+                                    [" ",  " ",  " ",],
+                                ]
+                            ];
+                    gameOver = false;
+                    turnIndex = 0;
+                    board = [
+                        [" ",  " ",  " ",],
+                        [" ",  " ",  " ",],
+                        [" ",  " ",  " ",],
+                    ];
+                    console.log("\n\n\n*************************** whatthetictac console version ***************************\n");
+                    console.log('Available methods are: \n');
+                    console.log('\tplay(coords)');
+                    console.log("\t\t- Places the letter of the current player's turn (X or O) in the supplied position\n");
+                    console.log("\t\t- Argument must be a string")
+                    console.log('\t\t- ex. play("1,2") \n');
+                    console.log('\treset() \n');
+                    console.log('\t\t- Starts a new game \n');
+                    console.log(`*** It's %cPlayer ${turns[turnIndex]}%c's turn ***`, `color:violet`, `color:white`);
+                    this.displayBoard();
+                },
+
+                displayBoard: function() {
+                    for (let i=0; i<3; i++) {
+                        if (i>0) {
+                            console.log("%c   -------", "font-family:monospace; font-size: 1.5rem");
+                        }
+                        for (let j=0; j<1; j++) {
+                            // if (board[i][j] === "X") {
+                            //     style1 = "%c";
+                            //     style1Desc = "color: red; font-family:monospace; font-size: 1.5rem";
+                            // }
+                            // else {
+                            //     style1 = "";
+                            //     style1Desc = ""; 
+                            // }
+                            // console.log(`%c   |${style1}${board[i][j]}|${style1}${board[i][j+1]}|${style1}${board[i][j+2]}|`, `font-family:monospace; font-size: 1.5rem`, `${style1Desc}`, `${style1Desc}`, `${style1Desc}`);
+                        console.log(`%c   |${board[i][j]}|${board[i][j+1]}|${board[i][j+2]}|`, `font-family:monospace; font-size: 1.5rem`);
+                        }
+                    }
+                    
+                },
+
+                move: function(inputCoords, turn = turns[turnIndex]) {
+                    if (!gameOver) {
+                        checkInput(inputCoords, turn);
+                        this.displayBoard();
+                    }
+                    else {
+                        console.log("Game is over. Please move on and start a new game.");
+                    }
+                },
+
+                previous : function() {
+                    if (gameOver) {
+                        //display appropriate history element
+                        currentHistoryIndex--;
+                        if (currentHistoryIndex <= 1) {
+                            //keeping index in check from going out of bounds
+                            currentHistoryIndex = 1;
+                            console.log("Nothing to go back to. Please use next() or reset the game.")
+                        }
+                        arr = history[currentHistoryIndex];
+                        for (let i=0; i<3; i++) {
+                            if (i>0) {
+                                console.log("%c   -------", "font-family:monospace; font-size: 1.5rem");
+                            }
+                            for (let j=0; j<1; j++) {
+                                console.log(`%c   |${arr[i][j]}|${arr[i][j+1]}|${arr[i][j+2]}|`, `font-family:monospace; font-size: 1.5rem`);
+                            }
+                        }
+                    }
+                    else {
+                        console.log("The game is not over yet. Please finish the game first.")
+                    }
+                },
+
+                next : function() {
+                    if (gameOver) {
+                        //display appropriate history element
+                        currentHistoryIndex++;
+                        if (currentHistoryIndex >= history.length - 1) {
+                            //keeping index in check from going out of bounds
+                            currentHistoryIndex = history.length - 1;
+                            console.log("End of the moves history. Please use prev() or reset the game.")
+                        }
+                        arr = history[currentHistoryIndex];
+                        for (let i=0; i<3; i++) {
+                            if (i>0) {
+                                console.log("%c   -------", "font-family:monospace; font-size: 1.5rem");
+                            }
+                            for (let j=0; j<1; j++) {
+                                console.log(`%c   |${arr[i][j]}|${arr[i][j+1]}|${arr[i][j+2]}|`, `font-family:monospace; font-size: 1.5rem`);
+                            }
+                        }
+                    }
+                    else {
+                        console.log("The game is not over yet. Please finish the game first.")
+                    }
+                },    
+            }
+        }
+
+        game().initBoard();
+        function play(position, letter){
+            game().move(position,letter);
+        }
+
+        function prev() {
+            game().previous();
+        }
+
+        function next() {
+            game().next();
+        }
+        function reset() {
+            game().initBoard();
+        }
+
+    </script>
+</body>
+</html>
