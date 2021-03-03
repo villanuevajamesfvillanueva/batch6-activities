@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table {
+    display: grid;
+    margin: 10vh 2vw;
+    /* grid-template-rows: repeat(4, 20vh); */
+    grid-template-columns: 88vw 8vw;
+}
+
+    .display {
+        grid-column: 1;
+
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+        
+        border: 2px solid black;
+        margin: 4px;
+        border-radius: 8px;
+    }
+
+        .red {
+            background-color: rgba(255, 0, 0, 0.616);
+        }
+
+        .black {
+            background-color: gray;
+        }
