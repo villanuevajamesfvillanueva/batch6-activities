@@ -1,13 +1,29 @@
+:root {
+    --red: #c61a3b;
+    --black: #002232;
+    --cardWidth: 120px;
+    --cardHeight: 176px;
+    --cardBorder: 2px solid blue;
+    --backgroundColor: #dde1e7;
+    /* --backgroundColor: #e8e8e8; */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background-color: var(--backgroundColor);
+}
+
 .table {
     display: grid;
     margin: 10vh 2vw;
-    /* grid-template-rows: repeat(4, 20vh); */
     grid-template-columns: 88vw 8vw;
 }
 
@@ -16,21 +32,184 @@
 
         display: flex;
         flex-wrap: wrap;
+       
     }
 
     .card {
-        width: 120px;
-        height: 180px;
+        width: var(--cardWidth);
+        height: var(--cardHeight);
         
-        border: 2px solid black;
-        margin: 4px;
+        border: none;
         border-radius: 8px;
+        padding: 5px;
+        margin: 4px;
+        background-color: var(--backgroundColor);
+        background-color: white;
+        /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288); */
+        box-shadow: -3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        position: fixed;
+        bottom: 30px;
+        right: 30px;       
     }
 
+    .highlight {
+        box-shadow: -3px -3px 7px rgba(47, 0, 255, 0.288), 3px 3px 7px rgba(0, 0, 255, 0.521);
+    }
+
+
+
+        svg, img {
+            width: 15px;
+            height: 15px;
+            margin: 0 0 0 2px;
+        }
+  
+
         .red {
-            background-color: rgba(255, 0, 0, 0.616);
+            color: var(--red);
         }
 
         .black {
-            background-color: gray;
+            color: var(--black);
         }
+        
+            .cardTopLeft {
+                width: 100%;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                padding-left: 2px;
+            }
+
+                .cardTopLeft span {
+                    font-size: 0.5rem;
+                    padding-left: 5px;
+                }
+
+            .cardContent {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                padding: 10px 5px;
+            }
+
+                .cardContent p {
+                    font-size: 4rem;
+                    padding-left: 5px;
+                }
+
+                .cardContent img {
+                    width: 50px;
+                    height: 50px;
+                    align-self: flex-end;
+                    position: relative;
+                    bottom: 10px;
+                }
+
+    .deck {
+        width: var(--cardWidth);
+        height: var(--cardHeight);
+
+        border-radius: 8px;
+        margin: 4px;
+        background-color: white;
+        /* background: url(../../images/cards/001-poker-cards.png); */
+        cursor: pointer;
+        box-shadow: -3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+    }
+
+        .deck img {
+            width: 120px;
+            height: 180px;
+        }
+
+    .buttons-container {
+        position: fixed;
+        right: 30px;
+        bottom: 270px;
+        margin: 4px;
+        height: 400px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+
+        .div-button {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: -3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666);
+            width: var(--cardWidth);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(0);
+}
+
+    .hand {
+        z-index: 10;
+        background: white;
+        height: 300px;
+        width: 100vw;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 20px;
+        font-size: 10rem;
+        transform: translate(100%, 40%);
+        transition: all 0.2s ease;
+    }
+
+.init-message {
+    position: absolute;
+    bottom: 100px;
+    right: 180px;
+    background: white;
+    padding: 30px 30px;
+    height: 100px;
+    width: 180px;
+    text-align: center;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666);
+    border-radius: 8px;
+    animation: instruct 2s ease infinite;
+}
+
+    @keyframes instruct {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }

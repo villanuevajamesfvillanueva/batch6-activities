@@ -5,12 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/cards.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,200&display=swap" rel="stylesheet">
     <title>Cards</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/cards/001-poker-cards.png"/>
 </head>
 <body>
     <div class="table">
         <div class="display">
-            <!-- <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+
+            <div class="card"></div>
             <div class="card"></div>
             <div class="card"></div>
             <div class="card"></div>
@@ -34,42 +70,27 @@
             
             <div class="card"></div>
             <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-
-            <div class="card"></div>
-            <div class="card"></div> -->
         </div>
-        <div class="ui"></div>
+        <!-- <div class="tempHolder"></div> -->
+        <div class="ui">
+            <div class="buttons-container">
+                <div class="div-button" id="shuffle">Shuffle</div>
+                <div class="div-button" id="arrangeBySuit">Arrange by Suit</div>
+                <div class="div-button" id="arrangeByValue">Arrange by Value</div>
+                <div class="div-button deal" id="deal1Card">Deal 1 Card</div>
+                <div class="div-button deal" id="deal5Cards">Deal 5 Cards</div>
+                <div class="div-button" id="newDeck" onClick="window.location.reload();">Reset</div>
+            </div>            
+            <div class="deck">
+                <img src="images/cards/backofcard.png" alt="">
+            </div>
+        </div>
     </div>
+    <div class="init-message">Click the deck to start!</div>
+    <div class="overlay"></div>
+    <div class="hand"></div>
+
+    <script src="assets/js/anime.min.js"></script>
     <script src="assets/js/cards.js"></script>
 </body>
 </html>
