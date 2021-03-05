@@ -43,9 +43,7 @@ body {
         border-radius: 8px;
         padding: 5px;
         margin: 4px;
-        background-color: var(--backgroundColor);
         background-color: white;
-        /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288); */
         box-shadow: -3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666);
         display: flex;
         justify-content: center;
@@ -57,7 +55,8 @@ body {
     }
 
     .highlight {
-        box-shadow: -3px -3px 7px rgba(47, 0, 255, 0.288), 3px 3px 7px rgba(0, 0, 255, 0.521);
+        /* box-shadow: -3px -3px 7px rgba(47, 0, 255, 0.288), 3px 3px 7px rgba(0, 0, 255, 0.521); */
+        border: var(--cardBorder)
     }
 
 

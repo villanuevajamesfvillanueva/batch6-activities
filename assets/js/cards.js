@@ -253,9 +253,15 @@ takenCards = [];
 let dealCards = (array, num = 1, identify = false) => {
     dealtCards = [];
     console.log(`\n\nDealing ${num} cards: `);
+    if (array.length === 0) {
+        console.log("No more cards in deck. Please restart.");
+        return;
+    }
+
     if (num >= array.length) {
         num = array.length;
     }
+    
     if (array.length > 0) {
         let indeces = [];
         for (let i = 0; i < num; i++) {
@@ -394,6 +400,9 @@ let displayDeal_DOM = (array) => {
     for (let i = 0; i < 52; i++) {
         //clearing old cardData
         cards[i].innerHTML = "";
+        cards[i].style.opacity = 0;
+        cards[i].style.boxShadow = "none";
+        
     }
 
     for (let i = 0; i < array.length; i++) {
@@ -425,12 +434,15 @@ let displayDeal_DOM = (array) => {
         else if (cardData[1] === 12) { face = "K"; }
         else { face = cardData[1] + 1; }
 
+        cards[i].style.opacity = 1;
+        cards[i].style.boxShadow = "-3px -3px 7px #ffffff73, 3px 3px 7px rgba(94, 104, 121, 0.666)";
         //highlight class makes the latest draw of cards standout
         cards[i].setAttribute("class", `card ${color} highlight`);
         cards[i].setAttribute("onmouseenter", `up(this, ${i});`);
         cards[i].setAttribute("onmouseleave", `down(this, ${i});`);
         cards[i].innerHTML =    `<div class="cardTopLeft"><p>${face}</p>${suite}<span>${printName(array)[i]}</span></div>
                                 <div class="cardContent"><p>${face}</p>${suite}</div>`;
+        
     }
     return array;
 }
@@ -521,8 +533,8 @@ deal1CardBtn.addEventListener("click", () => {
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
-
     instruct.style.display = "none";
+
     dealCards(deck, 1);
     displayDeal_DOM(takenCards);
     removeHighlights(1);
@@ -533,8 +545,8 @@ deal5CardsBtn.addEventListener("click", () => {
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
-
     instruct.style.display = "none";
+
     dealCards(deck, 5, true);
     displayDeal_DOM(takenCards);
     displayHand(identifyHand(dealtCards));
