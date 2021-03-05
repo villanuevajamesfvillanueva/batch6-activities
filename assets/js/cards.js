@@ -310,10 +310,15 @@ const displayDiv = document.querySelector(".display");
 const deck_DOM = document.querySelector(".deck");
 const cards = document.querySelectorAll(".card");
 const instruct = document.querySelector(".init-message");
+const drawOneAudio = document.getElementById("draw-one");
+const shuffleAudio = document.getElementById("shuffle-audio");
 
 const shuffleBtn = document.getElementById("shuffle");
 const sortBySuitBtn = document.getElementById("arrangeBySuit");
 const sortByValueBtn = document.getElementById("arrangeByValue");
+const ascending = document.getElementById("ascending");
+const descending = document.getElementById("descending");
+
 const deal1CardBtn = document.getElementById("deal1Card");
 const deal5CardsBtn = document.getElementById("deal5Cards");
 
@@ -430,13 +435,14 @@ let presentCards = anime({
         else if (index <39) { return -239; }
         else { return -31; }
     },
-    delay: anime.stagger(25),
+    delay: anime.stagger(30),
     autoplay: false
 });
 
 
 
 shuffleBtn.addEventListener("click", () => {
+    shuffleAudio.play();
     shuffle(deck);
     display_DOM(deck);
 
@@ -444,34 +450,53 @@ shuffleBtn.addEventListener("click", () => {
     cards.forEach(card => {
         card.style.transition = ``;
     });
-
+    instruct.style.display = "none";
     presentCards.play();
+    
+    
 });
+shuffleBtn.onclick = shuffleAudio.play;
 
 deck_DOM.addEventListener("click", () => {
+    shuffleAudio.play();
     //clearing unintended addition of easings
     cards.forEach(card => {
         card.style.transition = ``;
     })
     instruct.style.display = "none";
     presentCards.play();
+    
 });
 
 sortBySuitBtn.addEventListener("click", () => {
+    shuffleAudio.play();
     cards.forEach(card => {
         card.style.transition = ``;
     });
+    instruct.style.display = "none";
     display_DOM(arrangeBySuit(deck));
     presentCards.play();
+    
 });
 
-sortByValueBtn.addEventListener("click", () => {
+ascending.addEventListener("click", () => {
+    shuffleAudio.play();
     cards.forEach(card => {
         card.style.transition = ``;
     });
+    instruct.style.display = "none";
     display_DOM(arrangByFaceValue(deck));
     presentCards.play();
-})
+});
+descending.addEventListener("click", () => {
+    shuffleAudio.play();
+    cards.forEach(card => {
+        card.style.transition = ``;
+    });
+    instruct.style.display = "none";
+    display_DOM(arrangByFaceValue(deck, "descending"));
+    presentCards.play();
+});
 
 //removing highlights for old draws
 let removeHighlights = (num, array = takenCards) => {
@@ -484,27 +509,30 @@ let removeHighlights = (num, array = takenCards) => {
 }
 
 deal1CardBtn.addEventListener("click", () => {
+    drawOneAudio.play();
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
-    
+
+    instruct.style.display = "none";
     dealCards(deck, 1);
     displayDeal_DOM(takenCards);
     removeHighlights(1);
+
 });
 
 deal5CardsBtn.addEventListener("click", () => { 
+    drawOneAudio.play();
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
 
+    instruct.style.display = "none";
     dealCards(deck, 5, true);
     displayDeal_DOM(takenCards);
     displayHand(identifyHand(dealtCards));
     removeHighlights(5);
 });
-
-
 
 overlay.addEventListener("click", () => {
     overlay.style.transform = "scale(0)";

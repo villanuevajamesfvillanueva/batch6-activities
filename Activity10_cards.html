@@ -76,7 +76,13 @@
             <div class="buttons-container">
                 <div class="div-button" id="shuffle">Shuffle</div>
                 <div class="div-button" id="arrangeBySuit">Arrange by Suit</div>
-                <div class="div-button" id="arrangeByValue">Arrange by Value</div>
+                <div class="div-button" id="arrangeByValue">
+                    <p class="arrangeByValue-label">Arrange by Value</p>
+                    <div class="arrangeByValue-options">
+                        <div class="arrangeByValue" id="ascending">&#9650;</div>
+                        <div class="arrangeByValue" id="descending">&#9660;</div>
+                    </div>
+                </div>
                 <div class="div-button deal" id="deal1Card">Deal 1 Card</div>
                 <div class="div-button deal" id="deal5Cards">Deal 5 Cards</div>
                 <div class="div-button" id="newDeck" onClick="window.location.reload();">Reset</div>
@@ -89,6 +95,8 @@
     <div class="init-message">Click the deck to start!</div>
     <div class="overlay"></div>
     <div class="hand"></div>
+    <audio src="images/cards/drawOneCard.mp3" id="draw-one"></audio>
+    <audio src="images/cards/shuffle.mp3" id="shuffle-audio"></audio>
 
     <script src="assets/js/anime.min.js"></script>
     <script src="assets/js/cards.js"></script>

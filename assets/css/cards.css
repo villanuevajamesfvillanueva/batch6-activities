@@ -150,6 +150,7 @@ body {
         text-align: center;
     }
 
+
         .div-button {
             background-color: white;
             border-radius: 8px;
@@ -162,6 +163,31 @@ body {
             cursor: pointer;
             transition: all 0.2s ease;
         }
+
+        .arrangeByValue-label {
+            z-index: 2;
+            display: block;
+            transition: all 0.2s ease;
+        }
+    
+        .arrangeByValue-options {
+            transform: scale(0);
+            position: absolute;
+            font-size: 3rem;
+            color: var(--black);
+            display: flex;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+    
+        #arrangeByValue:hover .arrangeByValue-label {
+            transform: scale(0);
+        }
+        #arrangeByValue:hover .arrangeByValue-options {
+            transform: scale(1);
+        }
+
+        
 
 .overlay {
     position: absolute;
