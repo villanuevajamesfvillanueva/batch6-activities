@@ -42,6 +42,16 @@ let initDeck = () => {
     display(deck);
     return deck;
 }
+
+console.log("Available functions: ");
+console.log("\tinitDeck()");
+console.log("\tshuffle(array)");
+console.log("\tarrangeBySuit(array)");
+console.log("\tarrangeByFaceValue(array, order='ascending')");
+console.log("\tdealCards(array, num=1, identify=false)");
+console.log("\t\t*printName(array)");
+console.log("\t\t*identifyHand(array)\n\n");
+
 initDeck();
 
 
@@ -86,7 +96,7 @@ let arrangeBySuit = (array) => {
 
 
 
-let arrangByFaceValue = (array, order = "ascending") => {
+let arrangeByFaceValue = (array, order = "ascending") => {
     console.log(`\n\nSorting by face value: ${order}`);
     let container = [[],[],[],[],[],[],[],[],[],[],[],[],[]], sorted = [];
     //sorting by value
@@ -109,8 +119,8 @@ let arrangByFaceValue = (array, order = "ascending") => {
     display(sorted);
     return sorted;
 }
-arrangByFaceValue(deck, "descending");
-arrangByFaceValue(deck, "ascending");
+// arrangeByFaceValue(deck, "descending");
+// arrangeByFaceValue(deck, "ascending");
 
 
 
@@ -133,7 +143,7 @@ let printName = (array) => {
             printed[i] = `${value} of ${suite}`;
         }
     }
-    console.log(printed);
+    // console.log(printed);
     return printed;
 }
 
@@ -242,6 +252,7 @@ let identifyHand = (array) => {
 takenCards = [];
 let dealCards = (array, num = 1, identify = false) => {
     dealtCards = [];
+    console.log(`\n\nDealing ${num} cards: `);
     if (num >= array.length) {
         num = array.length;
     }
@@ -256,7 +267,7 @@ let dealCards = (array, num = 1, identify = false) => {
         // console.log(indeces);
     }
     display(dealtCards);
-    printName(dealtCards);
+    console.log(printName(dealtCards));
     display(takenCards);
 
     if ((num === 5) && (identify === true)) {
@@ -265,8 +276,6 @@ let dealCards = (array, num = 1, identify = false) => {
     display(deck);
     return array;
 }
-
-console.log("\n\nDealing N cards: ");
 // dealCards(deck, 5, true);
 
 
@@ -312,6 +321,11 @@ const cards = document.querySelectorAll(".card");
 const instruct = document.querySelector(".init-message");
 const drawOneAudio = document.getElementById("draw-one");
 const shuffleAudio = document.getElementById("shuffle-audio");
+
+let playAudio = (audio) => {
+    audio.currentTime = 0;
+    audio.play();
+}
 
 const shuffleBtn = document.getElementById("shuffle");
 const sortBySuitBtn = document.getElementById("arrangeBySuit");
@@ -442,7 +456,7 @@ let presentCards = anime({
 
 
 shuffleBtn.addEventListener("click", () => {
-    shuffleAudio.play();
+    playAudio(shuffleAudio);
     shuffle(deck);
     display_DOM(deck);
 
@@ -451,65 +465,59 @@ shuffleBtn.addEventListener("click", () => {
         card.style.transition = ``;
     });
     instruct.style.display = "none";
-    presentCards.play();
-    
-    
+    presentCards.restart();
 });
-shuffleBtn.onclick = shuffleAudio.play;
 
 deck_DOM.addEventListener("click", () => {
-    shuffleAudio.play();
+    playAudio(shuffleAudio);
     //clearing unintended addition of easings
     cards.forEach(card => {
         card.style.transition = ``;
     })
     instruct.style.display = "none";
-    presentCards.play();
-    
+    presentCards.restart();
 });
 
 sortBySuitBtn.addEventListener("click", () => {
-    shuffleAudio.play();
+    playAudio(shuffleAudio);
     cards.forEach(card => {
         card.style.transition = ``;
     });
     instruct.style.display = "none";
     display_DOM(arrangeBySuit(deck));
-    presentCards.play();
-    
+    presentCards.restart();
 });
 
 ascending.addEventListener("click", () => {
-    shuffleAudio.play();
+    playAudio(shuffleAudio);
     cards.forEach(card => {
         card.style.transition = ``;
     });
     instruct.style.display = "none";
-    display_DOM(arrangByFaceValue(deck));
-    presentCards.play();
+    display_DOM(arrangeByFaceValue(deck));
+    presentCards.restart();
 });
+
 descending.addEventListener("click", () => {
-    shuffleAudio.play();
+    playAudio(shuffleAudio);
     cards.forEach(card => {
         card.style.transition = ``;
     });
     instruct.style.display = "none";
-    display_DOM(arrangByFaceValue(deck, "descending"));
-    presentCards.play();
+    display_DOM(arrangeByFaceValue(deck, "descending"));
+    presentCards.restart();
 });
 
 //removing highlights for old draws
-let removeHighlights = (num, array = takenCards) => {
-    // if (num > 52 - takenCards.length) {
-    //     num = 52 - takenCards.length;
-    // }
+let removeHighlights = (num, array1 = takenCards, array2 = dealtCards) => {
+    if (num > dealtCards.length) { num = dealtCards.length; }
     for (let i = 0; i < takenCards.length - num; i++) {
         cards[i].classList.remove("highlight");
     }
 }
 
 deal1CardBtn.addEventListener("click", () => {
-    drawOneAudio.play();
+    playAudio(drawOneAudio);
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
@@ -518,11 +526,10 @@ deal1CardBtn.addEventListener("click", () => {
     dealCards(deck, 1);
     displayDeal_DOM(takenCards);
     removeHighlights(1);
-
 });
 
 deal5CardsBtn.addEventListener("click", () => { 
-    drawOneAudio.play();
+    playAudio(drawOneAudio);
     shuffleBtn.style.transform = "scale(0)";
     sortBySuitBtn.style.transform = "scale(0)";
     sortByValueBtn.style.transform = "scale(0)";
