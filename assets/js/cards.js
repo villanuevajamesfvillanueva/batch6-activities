@@ -152,6 +152,10 @@ let printName = (array) => {
 let identifyHand = (array) => {
     var cardData, cards = [], royal = false, straight = false, hand;
 
+    if (array.length === 0) {
+        hand = "";
+        return hand;
+    }
     for (let i = 0; i < array.length; i++) {
         cardData = array[i].match(/\d+/g).map(Number);
         cards.push(cardData.reverse());
@@ -257,7 +261,6 @@ let dealCards = (array, num = 1, identify = false) => {
         console.log("No more cards in deck. Please restart.");
         return;
     }
-
     if (num >= array.length) {
         num = array.length;
     }
@@ -466,7 +469,7 @@ let presentCards = anime({
 });
 
 
-
+//button event listeners; click interactions
 shuffleBtn.addEventListener("click", () => {
     playAudio(shuffleAudio);
     shuffle(deck);
@@ -482,7 +485,6 @@ shuffleBtn.addEventListener("click", () => {
 
 deck_DOM.addEventListener("click", () => {
     playAudio(shuffleAudio);
-    //clearing unintended addition of easings
     cards.forEach(card => {
         card.style.transition = ``;
     })
@@ -564,7 +566,7 @@ hand_DOM.addEventListener("click", () => {
 });
 
 let displayHand = (hand) => {
-    if (hand !== "High Card") {
+    if (hand !== "High Card" && hand !== "") {
         overlay.style.transform = "scale(1)";
         hand_DOM.innerHTML = hand;
         hand_DOM.style.transform = "translate(0, 40%)";
@@ -604,7 +606,7 @@ function down(target, index) {
     else {
         target.style.transform = `translateY(-31px) translateX(${xTranslate}px)`;  
     }
-    target.style.transition = `all 0.2s ease`;
+    target.style.transition = ``;
 }
 
 

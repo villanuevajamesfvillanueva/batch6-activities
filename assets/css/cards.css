@@ -3,7 +3,7 @@
     --black: #002232;
     --cardWidth: 120px;
     --cardHeight: 176px;
-    --cardBorder: 2px solid blue;
+    --cardBorder: 2px solid rgb(0, 0, 255);
     --backgroundColor: #dde1e7;
     /* --backgroundColor: #e8e8e8; */
 }
@@ -51,9 +51,10 @@ body {
 
         position: fixed;
         bottom: 30px;
-        right: 30px;       
+        right: 30px;
     }
 
+    
     .highlight {
         /* box-shadow: -3px -3px 7px rgba(47, 0, 255, 0.288), 3px 3px 7px rgba(0, 0, 255, 0.521); */
         border: var(--cardBorder)
@@ -160,7 +161,11 @@ body {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease;
+        }
+
+        .div-button:hover {
+            border: var(--cardBorder);
         }
 
         .arrangeByValue-label {
