@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Game</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+        }
+        .player {
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .score {
+            font-size: 10rem;
+        }
+        .current-score {
+            font-size: 5rem;
+        }
+        .button {
+            margin: 0.5rem;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+    <main>
+        <div class="player player1-container" id="player1-container">
+            <span>Player 1</span>
+            <span class="score" id="player1-score">0</span>
+            <div class="button" onclick="roll(0)">roll</div>
+            <div class="button" onclick="hold(0)">hold</div>
+            <span class="current-score" id="player1-currentscore">0</span>
+        </div>
+        <div class="player player2-container" id="player2-container">
+            <span>Player 2</span>
+            <span class="score" id="player2-score">0</span>
+            <div class="button" onclick="roll(1)">roll</div>
+            <div class="button" onclick="hold(1)">hold</div>
+            <span class="current-score" id="player2-currentscore">0</span>
+        </div>
+    </main>
+    
+
+<body>
+    <script>
+        const player1Score = document.querySelector("#player1-score");
+        const player1CurrentScore = document.querySelector("#player1-currentscore");
+        const player2Score = document.querySelector("#player2-score");
+        const player2CurrentScore = document.querySelector("#player2-currentscore");
+
+        let players = [
+            {
+                name: "Player 1",
+                score: 0,
+                accum: 0,
+                rollResult: 0,
+                rollHistory: []
+            },
+            {
+                name: "Player 2",
+                score: 0,
+                accum: 0,
+                rollResult: 0,
+                rollHistory: []
+            }
+        ];
+
+        let turn, winningScore = 50;   // turn = 0 for player1, turn = 1 for player2
+
+        let roll = (player) => { 
+            let result = Math.floor(Math.random()*6) + 1;
+
+            if (result !== 1) {
+                players[player].rollResult = result;
+                players[player].rollHistory.push(result); 
+                players[player].accum += result;
+            }
+
+            else {
+                players[player].accum = 0;
+                // players[player].rollHistory.length = 0;
+                turn = 1 - turn;
+            }
+            (player === 0) ? player1CurrentScore.innerHTML = players[player].accum : player2CurrentScore.innerHTML = players[player].accum;
+            console.log(players);
+        }
+
+        let hold = (player) => {
+            players[player].score += players[player].accum;
+            players[player].accum = 0;
+
+            if (player === 0) { 
+                player1Score.innerHTML = players[player].score;
+                player1CurrentScore.innerHTML = players[player].accum;
+            }
+        
+            else {
+                player2Score.innerHTML = players[player].score;
+                player2CurrentScore.innerHTML = players[player].accum;
+            }
+
+            //check for winners
+            if (players[0].score >= winningScore) {
+                console.log("Player 1 Wins!");
+            } 
+
+            else if (players[1].score >= winningScore) {
+                console.log("Player 2 Wins!");
+            }
+
+            turn = 1 - turn; 
+        }
+        
+        //--------------- roll dice to decide who goes first -----------------
+        // let whoGoesFirst = () => {
+        //     //players roll the dice onclick or whatever
+        //     let player1Roll = Math.floor(Math.random()*6) + 1;
+        //     let player2Roll = Math.floor(Math.random()*6) + 1;
+
+        //     if (player1Roll === player2Roll) { whoGoesFirst(); }
+        //     else if (player1Roll > player2Roll) { turn = 0; }
+        //     else { turn = 1; }
+        // }
+        // whoGoesFirst();
+
+        
+
+    </script>
+</body>
+</html>
