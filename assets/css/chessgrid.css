@@ -745,6 +745,26 @@ li {
             }
     }
 
+
+.clock {
+    position: absolute;
+    font-size: 5rem;
+    width: 12rem;
+    display: none;
+}
+    .black-clock {
+        top: 15rem;
+        left: 79rem;
+        /* background-color: red; */
+    }
+
+    .white-clock {
+        /* background-color: blue; */
+        left: 89rem;
+        top: 36rem;
+        
+    }
+
     @media (max-width: 480px) and (min-device-width: 321px) {
         body {
             height: 100vh;
