@@ -42,6 +42,10 @@ main {
     cursor: pointer;
 }
 
+    .disable {
+        pointer-events: none;
+    }
+
 
 
 body {

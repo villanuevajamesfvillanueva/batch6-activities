@@ -5,6 +5,8 @@ const player2Score = document.querySelector("#player2-score");
 const player2CurrentScore = document.querySelector("#player2-currentscore");
 const player2Container = document.querySelector("#player2-container");
 const dice = document.getElementById('dice');
+const rollButton = document.querySelector('.roll');
+const holdButton = document.querySelector('.hold');
 const turnDisplay = document.querySelector(".turn-display");
 const instruct = document.querySelector(".instruct");
 const restartButton = document.querySelector(".restart");
@@ -75,6 +77,8 @@ dice.addEventListener("click", roll);
 let gameOver = () => {
     turnDisplay.innerHTML = "";
     restartButton.style.opacity = 1;
+    rollButton.classList.add("disable")
+    holdButton.classList.add("disable");
 }
 
 
