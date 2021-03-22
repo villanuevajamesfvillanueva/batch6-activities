@@ -186,7 +186,7 @@ body {
 }
 
 
-@keyframes fadeUp {
+/* @keyframes fadeUp {
 	0% {
 		opacity: 0;
 		bottom: 0;
@@ -196,7 +196,7 @@ body {
 		opacity: 1;
 		bottom: 20px;
 	}
-}
+} */
 
 .turn-display {
     bottom: 5rem;

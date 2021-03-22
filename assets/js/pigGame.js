@@ -29,7 +29,7 @@ let players = [
     }
 ];
 
-let turn, winningScore = 100;   // turn = 0 for player1, turn = 1 for player2
+let turn, winningScore = 20;   // turn = 0 for player1, turn = 1 for player2
 
 instruct.innerHTML = `First to ${winningScore} wins!`;
 
@@ -79,6 +79,7 @@ let gameOver = () => {
     restartButton.style.opacity = 1;
     rollButton.classList.add("disable")
     holdButton.classList.add("disable");
+    dice.classList.add("disable");
 }
 
 
