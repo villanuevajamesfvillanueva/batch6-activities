@@ -29,7 +29,7 @@ let players = [
     }
 ];
 
-let turn, winningScore = 20;   // turn = 0 for player1, turn = 1 for player2
+let turn, winningScore = 100;   // turn = 0 for player1, turn = 1 for player2
 
 instruct.innerHTML = `First to ${winningScore} wins!`;
 
