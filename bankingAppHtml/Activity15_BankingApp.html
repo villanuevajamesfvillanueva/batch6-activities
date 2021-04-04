@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/bankingAppLogin.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <title>Banking App</title>
+</head>
+<body>
+    
+    <div class="login-page-main login-page">
+        <div class="company-name">
+
+            <div class="site-logo">
+                <figure id="logo">
+                    <svg width="150%" height="150%" viewBox="0 0 148 128">
+                        <defs>
+                            <mask id="circle-mask">
+                                <rect fill="white" width="100%" height="100%"></rect>
+                                <circle id="logo-mask" fill="black" cx="120" cy="96" r="28"></circle>
+                            </mask>
+                        </defs>
+                        <polygon id="logo-hexagon" fill="#6c5dd3" points="64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96" mask="url(#circle-mask)"></polygon>
+                        <circle id="logo-circle" fill="var(--orange2)" cx="120" cy="96" r="20"></circle>
+                    </svg> 
+                </figure>
+                <div class="site-title">
+                    <div id="logo-text" class="site-title-text">
+                    byte<span>cash</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="tagline">Your secure online bank managing app</p>
+
+            <img src="../images/bankingApp/human3.svg" alt="">
+
+        </div>
+        <div class="form-container">
+            <form action="">
+                <input class="input user" type="text" id="user" name="user" placeholder="User or Email">
+                <input class="input password" type="password" id="password" name="password" placeholder="Password">
+                <!-- We can also call this master key -->
+                <input class="input login-key not-avail-yet" type="password" id="login-key" name="login-key" placeholder="Login Key">
+                <div class="login button">Login</div>
+                <span class="failed-login">User or Password incorrect.</span>
+                <span class="forgot-password">Forgot Password?</span>
+                <span class="line">line</span>
+                <div class="create-account button">Create Account</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="bg-overlay"></div>
+    <div class="bg-overlay2"></div>
+
+    <div class="not-avail">
+        <img class="not-avail-x" src="../images/bankingApp/x-button.svg" alt="x button">
+        <span>Sorry. This feature is not available yet.</span>
+    </div>
+
+    
+        
+    <form class="forgot-pass-div" action="">
+        <span>Find Your Account</span>
+        <span>Please enter your email to search for your account.</span>
+        <input class="input forgot-email" type="email" id="forgot-email" name="forgot-email" placeholder="Email" required>
+        <div>
+            <div class="create-account forgot-pass-cancel button">Cancel</div>
+            <div class="create-account button not-avail-yet">Search</div>
+        </div>
+    </form>
+        
+    
+
+    <div class="create-account-div">
+        <form action="" class="create-account-form">
+            <img class="create-account-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <div class="create-msg">
+                <p>Sign Up<p>
+                <p>It's quick and easy.<p>
+            </div>
+            <span class="line-create">line</span>
+            <div class="complete-name">
+                <input class="input create-firstname" type="text" id="create-firstname" name="create-firstname" placeholder="Firstname" minlength="2" required>
+                <input class="input create-lastname" type="text" id="create-lastname" name="create-lastname" placeholder="Lastname" required>
+            </div>
+            <input class="input create-email" type="email" id="create-email" name="create-email" placeholder="Email" required>
+            <input class="input create-contact-num" type="number" id="create-contact-num" name="create-contact-num" placeholder="Mobile Number" pattern="^(?:[0][9]\d{9})$" required>
+            <input class="input create-password" type="password" id="create-password" name="create-password" placeholder="New password">
+            <div class="bday-and-gender">
+                <div class="birthdate-div">
+                    <input placeholder="Birthdate" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                </div>
+                <div class="gender-div">
+                    <select class="input" name="gender" id="gender">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="LGBTQ+">LGBTQ+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="signup-terms">
+                By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
+            </div>
+            <div class="create-account-err"></div>
+            <div class="create-account sign-up button">Sign Up</div>
+            
+        </form>
+    </div>
+    
+    
+
+    <footer class="login-page-footer login-page">
+        <div class="footer-details1 footer-details" >
+            <span>Not copyrighted 2021 bytecash</span>
+            <span class="not-avail-yet">support@bytecash.com</span>
+            <span class="not-avail-yet">Terms of Service</span>
+        </div>
+        <div class="footer-details2 footer-details"></div>
+        <div class="footer-details3 footer-details">
+            <img class="cards-accepted" src="../images/bankingApp/cardsAccepted.svg" alt="cards accepted">
+            <div class="lang">
+                <img class="globe" src="../images/bankingApp/earth-globe.svg" alt="earth-globe">
+                <select id="lang-dropdown" class="not-avail-yet" name="lang">
+                    <option value="english">English</option>
+                    <option value="mandarin">Mandarin</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="french">French</option>
+                    <option value="french">Arabic</option>
+                    <option value="french">Russian</option>
+                </select>
+            </div>
+        </div>
+    </footer> 
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+    <script src="../assets/js/bankingAppLogin.js"></script>
+</body>
+</html>

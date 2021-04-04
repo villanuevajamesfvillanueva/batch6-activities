@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/bankingAppMain.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <title>Banking App Main Page</title>
+</head>
+<body>
+    
+    <main>
+        
+        <div class="navbar">
+            <div class="site-logo">
+                <figure id="logo">
+                    <svg width="150%" height="150%" viewBox="0 0 148 128">
+                        <defs>
+                            <mask id="circle-mask">
+                                <rect fill="white" width="100%" height="100%"></rect>
+                                <circle id="logo-mask" fill="black" cx="120" cy="96" r="28"></circle>
+                            </mask>
+                        </defs>
+                        <polygon id="logo-hexagon" fill="#6c5dd3" points="64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96" mask="url(#circle-mask)"></polygon>
+                        <circle id="logo-circle" fill="var(--orange2)" cx="120" cy="96" r="20"></circle>
+                    </svg> 
+                </figure>
+                <div class="site-title">
+                    <div id="logo-text" class="site-title-text">
+                    byte<span>cash</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-set admin-tools">
+                <div class="nav-label">Hi <span class="user">James</span>, <span class="welcome">welcome!</span></div>
+                <input class="input search" type="text" id="search" name="search" placeholder="Search">
+                <div class="home nav-item">
+                    <img src="../images/bankingApp/home.svg" alt="home icon">
+                    <span>Home</span>
+                </div>
+                <div class="clients nav-item">
+                    <img src="../images/bankingApp/clients.svg" alt="clients icon">
+                    <span>Clients</span>
+                </div>
+                <div class="add-new-client nav-item">
+                    <img src="../images/bankingApp/addclient.svg" alt="enroll new client icon">
+                    <span>Enroll New Client</span>
+                </div>
+                <div class="delete-client nav-item">
+                    <img src="../images/bankingApp/deleteclient.svg" alt="delete client icon">
+                    <span>Delete Client</span>
+                </div>
+                <div class="withdrawdeposit nav-item">
+                    <img src="../images/bankingApp/depositwithdraw.svg" alt="fund transfer icon">
+                    <span>Withdraw/Deposit</span>
+                </div>
+                <div class="fund-transfer nav-item">
+                    <img src="../images/bankingApp/fundtransfer.svg" alt="fund transfer icon">
+                    <span>Fund Transfer</span>
+                </div>
+                <div class="transact-histories nav-item">
+                    <img src="../images/bankingApp/hist.svg" alt="transaction history icon">
+                    <span>History</span>
+                </div>
+                <div class="analytics nav-item">
+                    <img src="../images/bankingApp/analytics.svg" alt="analytics icon">
+                    <span>Analytics</span>
+                </div>
+                <div class="logout nav-item">
+                    <img src="../images/bankingApp/logout.svg" alt="logout icon">
+                    <span>Logout</span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="navbar-set insights">
+                <div class="nav-label">Insights</div>
+                <div class="fund-transfer nav-item">
+                    <img src="../images/bankingApp/inbox.svg" alt="inbox icon">
+                    <span>Inbox</span>
+                </div>
+                <div class="trasact-histories nav-item">
+                    <img src="../images/bankingApp/notifbell.svg" alt="inbox icon">
+                    <span>Notifications</span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="navbar-set darkmode">
+                <input type="checkbox" class="checkbox" id="chk" />
+                <label class="darkmode-label" for="chk">
+                    <img class="fas fa-moon" src="../images/bankingApp/moon.svg" alt="moon icon">
+                    <img class="fas fa-sun" src="../images/bankingApp/sun2.svg" alt="sun icon">
+                    <div class="ball"></div>
+                </label>
+            </div>
+            
+        </div>
+
+    
+        <div class="overflow-cover"></div>
+
+
+        <div class="home-div main-div">  
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Account Number</th>
+                        <th>Remaining Balance</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-clients"></tbody>
+            </table>
+        </div>
+
+
+        <div class="clients-div main-div">
+            <table class="content-table-complete">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Account Number</th>
+                        <th>Mobile Number</th>
+                        <th>Address</th>
+                        <th>Remaining Balance</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+    
+                <tbody class="tbody-clients-complete"></tbody>
+            </table>
+        </div>
+
+
+        <div class="enroll-div main-div inactive">
+            <h1 class="tool-title">Enroll New Client</h1>
+            <img class="x-button enroll-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <form action="" class="enroll-form">
+                <input class="input " type="text" id="firstname" name="firstname" placeholder="Firstname" required>
+                <input class="input " type="text" id="lastname" name="lastname" placeholder="Lastname" required>
+                <input class="input " type="number" id="contact-num" name="contact-num" placeholder="Mobile Number" pattern="^(?:[0][9]\d{9})$" required>
+                <input class="input " type="text" id="address" name="address" placeholder="Address" required>
+                <input class="input " type="number" id="starting-bal" name="starting-bal" placeholder="0.00" required>
+                <div class="enroll-client button">Enroll Client</div>
+            </form>
+        </div>
+
+
+        <div class="delete-div main-div inactive">
+            <h1 class="tool-title">Delete Client</h1>
+            <img class="x-button delete-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <form action="" class="delete-form">
+                <input class="input " type="number" id="deleting-acct" name="deleting-acct" placeholder="Account Number">
+                <!-- show client profile before asking confirmation question to delete -->
+                <div class="delete-client-actual button">Delete Client</div>
+                <span class="failed-delete"></span>
+                <span class="success-delete"></span>
+            </form>
+        </div>
+
+
+        <div class="withdrawdeposit-div main-div inactive">
+            <h1 class="tool-title">Withdraw/Deposit</h1>
+            <img class="x-button withdrawdeposit-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <form action="" class="withdrawdeposit-form">
+                <input class="input " type="number" id="withdrawdeposit-acct" name="withdrawdeposit-acct" placeholder="Account Number">
+                <input class="input " type="number" id="amount" name="amount" placeholder="0.00" required>
+                <div class="withdrawdeposit-buttons">
+                    <div class="withdraw button">Withdraw</div>
+                    <div class="deposit button">Deposit</div>
+                </div>
+                <span class="failed-withdrawdeposit"></span>
+                <span class="success-withdrawdeposit"></span>
+            </form>
+        </div>
+
+
+        <div class="fund-transfer-div main-div inactive">
+            <h1 class="tool-title">Fund Transfer</h1>
+            <img class="x-button transfer-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <form action="" class="fund-transfer-form">
+                <input class="input " type="number" id="transfer-from" name="transfer-from" placeholder="Account Number">
+                <input class="input " type="number" id="transfer-to" name="transfer-to" placeholder="Account Number">
+                <input class="input " type="number" id="transfer-amount" name="transfer-amount" placeholder="0.00">
+                <!-- should accept only up to 2 decimal places -->
+                <div class="amount-transfer button">Transfer</div>
+                <span class="failed-transfer"></span>
+                <span class="success-transfer"></span>
+            </form>
+        </div>
+
+        <div class="history-div main-div">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Receiver</th>
+                        <th>Amount</th>
+                        <!-- <th>Sender Running Bal</th>
+                        <th>Receiver Running Bal</th> -->
+                        <th>Date</th>
+                    </tr>
+                </thead>
+    
+                <tbody class="history-tbody">
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+    <script src="../assets/js/bankingAppMain.js"></script>
+</body>
+</html>
