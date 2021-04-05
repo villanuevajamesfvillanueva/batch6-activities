@@ -630,9 +630,8 @@ input[type="number"] {
     position: absolute;
     top: 0;
     left: 20vw;
-    /* background-color: red; */
+
     visibility: hidden;
-    /* transform: scale(1); */
 }
 
 
@@ -704,3 +703,47 @@ input[type="number"] {
             }
 
 
+/* -------------------------- analytics-div -------------------------- */
+.analytics-div {
+    width: 80vw;
+    height: 100vh;
+    z-index: 10;
+
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    /* background-color: red; */
+    visibility: hidden;
+}
+
+    .chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 5rem;
+    }
+
+    .chart1-container {
+        width: 40vw;
+        height: 50vh;
+  
+        /* background-color: blue; */
+    }
+
+    .chart2-container {
+        width: 40vw;
+        height: 50vh;
+     
+        /* background-color: green; */
+    }
+
+    .chart3-container {
+        z-index: 11;
+        position: absolute;
+        top: 0;
+        left: 40vw;
+        width: 40vw;
+        height: 100vh;
+        /* background-color: yellow; */
+    }

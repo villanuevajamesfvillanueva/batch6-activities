@@ -1,3 +1,4 @@
+
 const homeButton = document.querySelector(".home");
 const clientsButton = document.querySelector(".clients");
 const addNewClientButton = document.querySelector(".add-new-client");
@@ -131,12 +132,15 @@ loadData();
 const homeDiv = document.querySelector(".home-div");
 const clientsDiv = document.querySelector(".clients-div");
 const historyDiv = document.querySelector(".history-div");
+const analyticsDiv = document.querySelector(".analytics-div");
 
 
 homeButton.addEventListener("click", () => {
+    loadData();
     homeDiv.style.visibility = "visible";
     clientsDiv.style.visibility = "hidden";
     historyDiv.style.visibility = "hidden";
+    analyticsDiv.style.visibility = "hidden";
 });
 
 
@@ -145,11 +149,12 @@ homeButton.addEventListener("click", () => {
 
 //--------------------------------- loading complete data to html table (clients div) ---------------------------------
 clientsButton.addEventListener("click", () => {
-    //remove all other divs then:
+    loadCompleteData();
     homeDiv.style.visibility = "hidden";
     clientsDiv.style.visibility = "visible";
     historyDiv.style.visibility = "hidden";
-    loadCompleteData();
+    analyticsDiv.style.visibility = "hidden";
+    
 });
 
 let loadCompleteData = () => {
@@ -191,52 +196,6 @@ let loadCompleteData = () => {
         tbodyComplete.appendChild(tr);
     }
 }
-
-
-
-
-
-
-
-
-
-//--------------------------------- for draggable divs ---------------------------------
-function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    
-    elmnt.onmousedown = dragMouseDown;
-    
-    function dragMouseDown(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // get the mouse cursor position at startup:
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      // call a function whenever the cursor moves:
-      document.onmousemove = elementDrag;
-    }
-  
-    function elementDrag(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // calculate the new cursor position:
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      // set the element's new position:
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-  
-    function closeDragElement() {
-      /* stop moving when mouse button is released:*/
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
-  }
-
 
 
 
@@ -434,12 +393,18 @@ let deleteClient = () => {
 //-------------------------------------------- withdraw/deposit -------------------------------------------
 const withdrawDepositDiv = document.querySelector(".withdrawdeposit-div");
 const withdrawDepositX = document.querySelector(".withdrawdeposit-x");
+const failedChangeBal = document.querySelector(".failed-withdrawdeposit");
+const successChangeBal = document.querySelector(".success-withdrawdeposit");
+
 withdrawDepositX.addEventListener("click", () => {
+    successChangeBal.innerHTML = "";
+    failedChangeBal.innerHTML = "";
     withdrawDepositDiv.classList.toggle("active");
     withdrawDepositDiv.classList.toggle("inactive");
 });
 withdrawDepositButton.addEventListener("click", () => {
-    //display enroll new client div
+    successChangeBal.innerHTML = "";
+    failedChangeBal.innerHTML = "";
     withdrawDepositDiv.classList.toggle("active");
     withdrawDepositDiv.classList.toggle("inactive");
 });
@@ -448,25 +413,23 @@ withdraw.addEventListener("click", () => {
     // addToHistory();
     loadData();
     loadCompleteData();
+    loadHistory();
 });
 deposit.addEventListener("click", () => {
     changeBal(1);
     // addToHistory();
     loadData();
     loadCompleteData();
+    loadHistory();
 });
 
-const failedChangeBal = document.querySelector(".failed-withdrawdeposit");
-const successChangeBal = document.querySelector(".success-withdrawdeposit");
+
 let changeBal = (param) => {
     // param === 0: withdraw, param ==== 1:deposit
     const account = document.getElementById("withdrawdeposit-acct");
     const amount = document.getElementById("amount");
     var amt = Number(amount.value);
     
-    successChangeBal.innerHTML = "";
-    failedChangeBal.innerHTML = "";
-
     var validAccount = false;
     var sufficientBal = false;
 
@@ -552,6 +515,7 @@ amountTransfer.addEventListener("click", () => {
     // addToHistory();
     loadData();
     loadCompleteData();
+    loadHistory();
 });
 //reloading entire data from clientListCompleteData; can be optimized
 
@@ -651,8 +615,6 @@ let fundTrasfer = () => {
     transferFrom.value = "";
     transferTo.value = "";
     transferAmount.value = "";
-
-    loadHistory();
 }
 
 
@@ -663,6 +625,7 @@ transactHistButton.addEventListener("click", () => {
     homeDiv.style.visibility = "hidden";
     clientsDiv.style.visibility = "hidden";
     historyDiv.style.visibility = "visible";
+    analyticsDiv.style.visibility = "hidden";
 });
 
 
@@ -777,14 +740,147 @@ let runDarkmode = () => {
 }
 runDarkmode();
 
-
 chk.addEventListener('change', () => {
     darkmode = !darkmode;
     localStorage.setItem("darkmode", darkmode);
     runDarkmode();
-	// document.body.classList.toggle('dark');
-    // tableOverflowCover.classList.toggle('dark');
-    
-    console.log(chk.checked);
 });
+
+
+
+//----------------------------------------------- for analytics -----------------------------------------------
+let chart1 = document.getElementById("chart1").getContext("2d");
+let chart2 = document.getElementById("chart2").getContext("2d");
+let chart3 = document.getElementById("chart3").getContext("2d");
+
+//settings
+Chart.defaults.font.family = "Varela Round";
+Chart.defaults.font.size = "14";
+Chart.defaults.color = "#8081ad";
+
+let months = ["Jan", "Feb", "March", "April"];
+let colors = ["#1e64e4", "#88c148", "#FF7B7B", "#fe9b07"];
+
+let config1 = {
+    type: "bar",
+    data: {
+        labels: months,
+        datasets: [{
+            label: "Php",
+            data: [517594, 401045, 303060, 206519],
+            backgroundColor: colors,
+            borderWidth: 1,
+            borderColor: "gray",
+            hoverBorderWidth: 4,
+            hoverBorderColor: "red"
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: "First Quarter Monthly Total",
+                font: {
+                    size: 24
+                } 
+            },
+            legend: {
+                display: false
+            }
+        },
+        animation: {
+            duration: 1000,
+            easing: "easeInOutQuad"
+        }
+    }
+}
+
+
+let config2 = {
+    type: "line",
+    data: {
+        labels: months,
+        datasets: [{
+            label: "Php",
+            data: [17594, -116549, -97985, -96549],
+            backgroundColor: colors,
+            borderWidth: 1,
+            borderColor: "gray",
+            hoverBorderWidth: 4,
+            hoverBorderColor: "red"
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: "First Quarter Monthly Cashflow",
+                font: {
+                    size: 24
+                }
+            },
+            legend: {
+                display: false
+            }
+        },
+        animation: {
+            duration: 1000,
+            easing: "easeInOutQuad"
+        }
+    }
+}
+
+let config3 = {
+    type: "doughnut",  
+    data: {
+        labels: ["Platinum", "Gold", "Pro", "Basic"],
+        datasets: [{
+            label: "",
+            data: [7594, 14045, 21060, 40659],
+            backgroundColor: ["#C0C0C0", "#FFD700", "#1e64e4", "#88c148"],
+            borderWidth: 1,
+            borderColor: "gray",
+            hoverBorderWidth: 4,
+            hoverBorderColor: "red"
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: "Membership Proportions",
+                font: {
+                    size: 30
+                }
+            },
+        },
+        animation: {
+            duration: 1200,
+            easing: "easeInOutQuad"
+        }   
+    }
+}
+
+
+let firstChart = new Chart(chart1, config1);
+let secondChart = new Chart(chart2, config2);
+let thirdChart = new Chart(chart3, config3);
+
+
+analyticsButton.addEventListener("click", () => {
+    // function to load data goes here
+    homeDiv.style.visibility = "hidden";
+    clientsDiv.style.visibility = "hidden";
+    historyDiv.style.visibility = "hidden";
+    analyticsDiv.style.visibility = "visible";
+
+    firstChart.destroy();
+    secondChart.destroy();
+    thirdChart.destroy();
+
+    firstChart = new Chart(chart1, config1);
+    secondChart = new Chart(chart2, config2);
+    thirdChart = new Chart(chart3, config3);
+});
+
 

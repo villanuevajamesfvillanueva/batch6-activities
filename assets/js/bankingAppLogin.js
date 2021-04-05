@@ -275,3 +275,30 @@ let createAccount = () => {
 
 //actual creation of account
 signUpButton.addEventListener("click", inputFieldsCheck);
+
+
+
+
+//----------------------------------------------- for darkmode -----------------------------------------------
+//creating darkmode entry in localStorage
+if (localStorage.getItem("darkmode") === null) {
+    localStorage.setItem("darkmode", "false");
+}
+
+const companyNameDiv = document.querySelector(".company-name");
+
+let darkmode = JSON.parse(localStorage.getItem("darkmode"));
+let runDarkmode = () => {
+    if (darkmode === true) {
+        loginPageMain.classList.add('dark');
+        loginPageFooter.classList.add('dark');
+        companyNameDiv.classList.add('dark');
+    }
+    else {
+        loginPageMain.classList.remove('dark');
+        loginPageFooter.classList.remove('dark');
+        companyNameDiv.classList.remove('dark');
+    }
+}
+runDarkmode();
+
