@@ -453,6 +453,7 @@ deposit.addEventListener("click", () => {
 
 let changeBal = (param) => {
     // param === 0: withdraw, param ==== 1:deposit
+    failedChangeBal.innerHTML = "";
     const account = document.getElementById("withdrawdeposit-acct");
     const amount = document.getElementById("amount");
     var amt = Number(amount.value);
@@ -482,7 +483,7 @@ let changeBal = (param) => {
         console.log("Transaction failed. Invalid account number.");
         failedChangeBal.innerHTML += "Transaction failed. Invalid account number.";
         account.value = "";
-        amount.value = "";
+        // amount.value = "";
         return;
     }
 
@@ -577,8 +578,8 @@ let fundTrasfer = () => {
         }
     }
     if (!validAccntFrom) {
-        console.log("Transfer failed. Invalid account number for From");
-        failed.innerHTML += "Transfer failed. Invalid account number for From";
+        console.log("Transfer failed. Invalid sender account number");
+        failed.innerHTML += "Transfer failed. Invalid sender account number";
         transferFrom.value = "";
         return;
     }
@@ -590,8 +591,8 @@ let fundTrasfer = () => {
         }
     }
     if (!validAccntTo) {
-        console.log("Transfer failed. Invalid account number for To");
-        failed.innerHTML += "Transfer failed. Invalid account number for To";
+        console.log("Transfer failed. Invalid receiver account number");
+        failed.innerHTML += "Transfer failed. Invalid receiver account number";
         transferTo.value = "";
         return;
     }
