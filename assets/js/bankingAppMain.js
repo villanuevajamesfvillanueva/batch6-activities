@@ -145,8 +145,6 @@ homeButton.addEventListener("click", () => {
 
 
 
-
-
 //--------------------------------- loading complete data to html table (clients div) ---------------------------------
 clientsButton.addEventListener("click", () => {
     loadCompleteData();
@@ -198,7 +196,6 @@ let loadCompleteData = () => {
 }
 
 
-
 //--------------------------------- for generating unique account number ---------------------------------
 let uniqueAccntNum = () => {
     var unique = false;
@@ -215,38 +212,36 @@ let uniqueAccntNum = () => {
 }
 
 
-
-//-------------------------------------- for enrolling new client --------------------------------------
+// //-------------------------------------- for enrolling new client --------------------------------------
 const enrollDiv = document.querySelector(".enroll-div");
 const enrollX = document.querySelector(".enroll-x");
+const enrollErrMsg = document.querySelector(".enroll-err");
+
 enrollX.addEventListener("click", () => {
     enrollDiv.classList.toggle("active");
     enrollDiv.classList.toggle("inactive");
 });
 addNewClientButton.addEventListener("click", () => {
+    enrollErrMsg.innerHTML = "";
     enrollDiv.classList.toggle("active");
     enrollDiv.classList.toggle("inactive");
 });
-
 
 enrollClient.addEventListener("click", () => {
     addNewClient();
     loadData();
     loadCompleteData();
-    
-    // addNewClient();
-    // loadData();
 });
 //reloading entire data from clientListCompleteData; can be optimized
 
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("lastname");
+const accountName = firstname.value + " " + lastname.value;
+const contactNum = document.getElementById("contact-num");
+const address = document.getElementById("address");
+const startingBal = document.getElementById("starting-bal");
 
-let addNewClient = () => {
-    const firstname = document.getElementById("firstname");
-    const lastname = document.getElementById("lastname");
-    const accountName = firstname.value + " " + lastname.value;
-    const contactNum = document.getElementById("contact-num");
-    const address = document.getElementById("address");
-    const startingBal = document.getElementById("starting-bal");
+
 
         //-------------------------------------- input field tests
         function firstnameCheck() {
@@ -254,12 +249,14 @@ let addNewClient = () => {
             var test = nameFormat.test(firstname.value);
             return test;
         }
+        firstname.oninput = firstnameCheck;
 
         function lastnameCheck() {
             const nameFormat = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
             var test = nameFormat.test(lastname.value);
             return test;
         }
+        lastname.oninput = lastnameCheck;
 
         // function emailCheck() {
         //     const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -272,34 +269,35 @@ let addNewClient = () => {
             var test = numFormat.test(contactNum.value);
             return test;
         }
+        contactNum.oninput = numberCheck;
 
         function balCheck() {
             const numFormat = /^(\d+(\.\d{0,2})?|\.?\d{1,2})$/gm
             var test = numFormat.test(startingBal.value);
             return test;
         }
+        startingBal.oninput = balCheck;
 
 
-        function inputFieldsCheck() {
-            console.log("----------- checking create account input fields ----------");
-            let test1 = firstnameCheck();
-            let test2 = lastnameCheck();
-            // let test3 = emailCheck();
-            let test4 = numberCheck();
-            let test5 = balCheck();
+let addNewClient = () => {
+    enrollErrMsg.innerHTML = "";
+    enrollErrMsg.style.color = "red";
+    console.log("----------- checking create account input fields ----------");
+    let test1 = firstnameCheck();
+    let test2 = lastnameCheck();
+    // let test3 = emailCheck();
+    
+    let test4 = numberCheck();
+    let test5 = balCheck();
+    let test6 = address.value.length;
 
-            console.log("firstname valid = " + test1);
-            console.log("lastname valid = " + test2);
-            // console.log("email valid = " + test3);
-            console.log("phone-number valid = " + test4);
-            console.log("starting balance valid = " + test5);
+    console.log("firstname valid = " + test1);
+    console.log("lastname valid = " + test2);
+    // console.log("email valid = " + test3);
+    console.log("phone-number valid = " + test4);
+    console.log("starting balance valid = " + test5);
 
-            if (test1 && test2 && test4 && test5) { return true; }
-            else { return false; }
-        }
-
-    let inputTest = inputFieldsCheck();
-    if (inputTest) {
+    if (test1 && test2 && test4 && test5 && test6) {
         var rand = uniqueAccntNum();
 
         var today = new Date();
@@ -320,6 +318,8 @@ let addNewClient = () => {
 
         //adding new client data to localStorage
         localStorage.setItem(rand, JSON.stringify(newClient));
+        enrollErrMsg.style.color = "#88c148";
+        enrollErrMsg.innerHTML += "Client successfully enrolled. ";
         console.log("Client successfully enrolled.");
 
         //clearing input fields
@@ -328,12 +328,39 @@ let addNewClient = () => {
         contactNum.value = "";
         address.value = "";
         startingBal.value = "";
+
+        return true;
+    }
+
+    if (!test1 || !test2) {
+        console.log("\tInvalid name.");
+        enrollErrMsg.innerHTML += "Invalid name. ";
+        return;
+    }
+
+    if (!test4) {
+        console.log("\tInvalid contact number.");
+        enrollErrMsg.innerHTML += "Invalid contact number. ";
+        return;
+    }
+
+    if (!test5) {
+        console.log("\tInvalid amount.");
+        enrollErrMsg.innerHTML += "Invalid amount. ";
+        return;
+    }
+
+    if (!test6) {
+        console.log("\tInvalid address.");
+        enrollErrMsg.innerHTML += "Invalid address. ";
+        return;
     }
 
     else {
-        console.log("Client enrollment failed. Please try again");
+        console.log("\tClient enrollment failed. Please try again");
+        enrollErrMsg.innerHTML = "Client enrollment failed. Please try again";
+        return false;
     }
-    //all fields should be filled
 }
 
 
@@ -779,7 +806,7 @@ let config1 = {
         plugins: {
             title: {
                 display: true,
-                text: "First Quarter Monthly Total",
+                text: "Q1 Monthly Total",
                 font: {
                     size: 24
                 } 
@@ -814,7 +841,7 @@ let config2 = {
         plugins: {
             title: {
                 display: true,
-                text: "First Quarter Monthly Cashflow",
+                text: "Q1 Monthly Cashflow",
                 font: {
                     size: 24
                 }
@@ -884,3 +911,25 @@ analyticsButton.addEventListener("click", () => {
 });
 
 
+const notAvail = document.querySelectorAll(".not-avail-yet");
+const notAvailMsg = document.querySelector(".not-avail");
+const notAvailMsgX = document.querySelector(".not-avail-x");
+const bgOverlay = document.querySelector(".bg-overlay");
+// const bgOverlay2 = document.querySelector(".bg-overlay2");
+
+notAvail.forEach(button => {
+    button.addEventListener("click", () => {
+        notAvailMsg.style.transform = "translateX(-50%) translateY(-50%) scale(1)";
+        bgOverlay.style.transform = "scale(1)";
+    });
+});
+
+notAvailMsgX.addEventListener("click", () => {
+    notAvailMsg.style.transform = "translateX(-50%) translateY(-50%) scale(0)";
+    bgOverlay.style.transform = "scale(0)";
+});
+
+bgOverlay.addEventListener("click", () => {
+    notAvailMsg.style.transform = "translateX(-50%) translateY(-50%) scale(0)";
+    bgOverlay.style.transform = "scale(0)";
+});

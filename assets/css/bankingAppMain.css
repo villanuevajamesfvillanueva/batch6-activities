@@ -488,6 +488,10 @@ input[type="number"] {
             margin: 0.25rem 0;
         }
 
+        .enroll-err {
+            color: red;
+        }
+
 
 /* -------------------------- delete-div -------------------------- */
 .delete-div {
@@ -746,4 +750,44 @@ input[type="number"] {
         width: 40vw;
         height: 100vh;
         /* background-color: yellow; */
+    }
+
+
+
+
+.not-avail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0);
+    width: 40rem;
+    height: 10rem;
+    border-radius: 10px;
+    background-color: var(--white);
+    color: var(--lightslategray);
+    transition: transform 0.15s ease;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .not-avail-x {
+        width: 30px;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+    }
+
+    .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(128, 128, 128, 0.7);
+        transform: scale(0);
+        z-index: 99;
     }

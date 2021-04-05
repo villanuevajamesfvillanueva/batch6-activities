@@ -36,7 +36,7 @@
 
             <div class="navbar-set admin-tools">
                 <div class="nav-label">Hi <span class="user">James</span>, <span class="welcome">welcome!</span></div>
-                <input class="input search" type="text" id="search" name="search" placeholder="Search">
+                <input class="input search not-avail-yet" type="text" id="search" name="search" placeholder="Search">
                 <div class="home nav-item">
                     <img src="../images/bankingApp/home.svg" alt="home icon">
                     <span>Home</span>
@@ -79,11 +79,11 @@
 
             <div class="navbar-set insights">
                 <div class="nav-label">Insights</div>
-                <div class="fund-transfer nav-item">
+                <div class="fund-transfer nav-item not-avail-yet">
                     <img src="../images/bankingApp/inbox.svg" alt="inbox icon">
                     <span>Inbox</span>
                 </div>
-                <div class="trasact-histories nav-item">
+                <div class="trasact-histories nav-item not-avail-yet">
                     <img src="../images/bankingApp/notifbell.svg" alt="inbox icon">
                     <span>Notifications</span>
                 </div>
@@ -147,6 +147,7 @@
                 <input class="input " type="number" id="contact-num" name="contact-num" placeholder="Mobile Number" pattern="^(?:[0][9]\d{9})$" required>
                 <input class="input " type="text" id="address" name="address" placeholder="Address" required>
                 <input class="input " type="number" id="starting-bal" name="starting-bal" placeholder="0.00" required>
+                <div class="enroll-err"></div>
                 <div class="enroll-client button">Enroll Client</div>
             </form>
         </div>
@@ -222,6 +223,12 @@
             <div class="chart3-container chart-container">
                 <canvas id="chart3"></canvas>
             </div>
+        </div>
+
+        <div class="bg-overlay"></div>
+        <div class="not-avail">
+            <img class="not-avail-x" src="../images/bankingApp/x-button.svg" alt="x button">
+            <span>Sorry. This feature is not available yet.</span>
         </div>
 
 

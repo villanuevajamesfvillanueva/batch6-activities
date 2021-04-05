@@ -12,19 +12,49 @@ if (localStorage.getItem("validLoginDetails") === null) {
 }
 
 
+//login on pressing "enter" key
+const userInput = document.querySelector(".user");
+const passwordInput = document.querySelector(".password");
+userInput.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        loginButton.click();
+    }
+});
+passwordInput.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        loginButton.click();
+    }
+});
+
 var loginAttempts = 0;
+loginButton
+
 loginButton.addEventListener("click", () => {
+    loginErrorMsg.innerHTML = "";
+
     const user = document.querySelector(".user").value;
     const password = document.querySelector(".password").value;
     const loginKey = document.querySelector(".login-key").value;
 
     const users = JSON.parse(localStorage.getItem("validLoginDetails"));
 
+    var existingUser = false;
     for (var validUser of users) {
-        if (user === Object.keys(validUser)[0]) { break; }
+        if (user === Object.keys(validUser)[0]) {
+            existingUser = true;
+            break;
+        }
     }
 
-    if (password === validUser[user]) {
+    if (!existingUser) {
+        console.log("Error logging in. No such user in database.");
+        loginErrorMsg.innerHTML = "Error logging in. No such user in database."
+        return;
+    }
+
+    if (existingUser && password === validUser[user]) {
         console.log("Login successful.");
         console.log(`Account: ${user} is logged in.`);
         window.location.href = "mainPage.html";
@@ -32,13 +62,15 @@ loginButton.addEventListener("click", () => {
 
     else {
         console.log("Login error. User or Password is incorrect.");
-        loginErrorMsg.style.opacity = 1;
+        loginErrorMsg.innerHTML = "User or Password incorrect."
+        //animate forgot password
+        //forgotPassButton.
         loginAttempts += 1;
         console.log(`Incorrect login attempts: ${loginAttempts}`);
 
         if (loginAttempts > 3) {
             console.log(`Sus`);
-            //disable login
+            //do something
         }
     }
 });
@@ -188,7 +220,7 @@ validateEmail();
                 break;
             }
         }
-        return (test1 || test2);
+        return (test1 && test2);
     }
 
 
@@ -211,10 +243,14 @@ function validateNewPass() {
 validateNewPass();
 
     function passwordCheck() {
+        errMsg.innerHTML = "";
         const passFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm;
         //minimum eight characters, at least one letter and one number
         var test = passFormat.test(password.value);
-        if (!test) { console.log("\tInvalid password. Min of 8 characters, with at least 1 letter and 1 num"); }
+        if (!test) {
+            errMsg.innerHTML = "Invalid password. Min of 8 characters, with at least 1 letter and 1 num";
+            console.log("\tInvalid password. Min of 8 characters, with at least 1 letter and 1 num");
+        }
         return test;
     }
 
@@ -234,19 +270,38 @@ function inputFieldsCheck() {
     console.log("phone-number valid = " + test4);
     console.log("password valid = " + test5);
 
+    errMsg.innerHTML = "";
+    errMsg.style.color = "red";
     if (test1 && test2 && test3 && test4 && test5) {
         createAccount();
-        errMsg.innerHTML = "";
         errMsg.style.color = "green";
         errMsg.innerHTML = "Account successfully created.";
         console.log("Account successfully created.");
         return true;
     }
+    if (!test1 || !test2) {
+        errMsg.innerHTML += "Invalid name. ";
+        return;
+    }
+
+    if (!test3) {
+        errMsg.innerHTML += "Email is already in use. ";
+        return;
+    }
+
+    if (!test4) {
+        errMsg.innerHTML += "Invalid contact number. ";
+        return;
+    }
+
+    if (!test5) {
+        errMsg.innerHTML += "Invalid password ";
+        return;
+    }
     else {
         errMsg.innerHTML = "";
         errMsg.style.color = "red";
         errMsg.innerHTML = "Please accomplish all fields. ";
-        //need more comprehensive error message
         console.log("Signup failed. Please try again.");
     }
 }

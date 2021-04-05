@@ -137,7 +137,7 @@ footer {
     .failed-login {
         color: red;
         margin: 1rem 0;
-        opacity: 0;
+        /* opacity: 1; */
     }
 
     .forgot-password {
