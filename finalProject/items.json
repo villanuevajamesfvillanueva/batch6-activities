@@ -1,0 +1,26 @@
+{
+    "utilities": [
+        {
+            "id": 1,
+            "name": "Water",
+            "price": 40000
+        },
+        {
+            "id": 2,
+            "name": "Electricity",
+            "price": 700000
+        },
+        {
+            "id": 3,
+            "name": "Internet",
+            "price": 249900
+        }
+
+    ],
+    "loans": [
+
+    ],
+    "insurance": [
+
+    ]
+}
