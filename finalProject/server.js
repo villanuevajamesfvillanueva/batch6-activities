@@ -42,21 +42,21 @@ debug('end /payment_details render');
 const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Basic ${paymongoSecretKey}`
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${paymongoSecretKey}`
     },
     body: JSON.stringify({
-      data: {
-        attributes: {
-          amount: 10000,
-          payment_method_allowed: ['card'],
-          payment_method_options: {card: {request_three_d_secure: 'any'}},
-          currency: 'PHP',
-          description: 'for test create PaymentIntent'
+        data: {
+            attributes: {
+                amount: 10000,
+                payment_method_allowed: ['card'],
+                payment_method_options: {card: {request_three_d_secure: 'any'}},
+                currency: 'PHP',
+                description: 'for test create PaymentIntent'
+            }
         }
-      }
     })
-  };
+};
 
 var clientKey = undefined
 async function resp() {
@@ -81,7 +81,7 @@ app.listen(3000)
 
 
 
-//send order info to backend
+//send order info to backend (coming from /cart)
 //backend posts a payment intent to paymongo [PAYMENT INTENT]
 //paymongo returns a client key to backend
 //backend sends client key to frontend
