@@ -3,7 +3,6 @@ const cardNumInput = document.getElementById('card-num');
 const expMonthInput = document.getElementById('exp-month');
 const expYearInput = document.getElementById('exp-year');
 const cvcInput = document.getElementById('cvc');
-const psk = document.querySelector('.psk');
 const verifyBtn = document.querySelector('.verify-btn');
 
 //make sure this should only be clicked once bec clicking again creates new key
@@ -13,7 +12,7 @@ verifyBtn.addEventListener('click', function(event) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Basic ${psk.dataset.itemId}}`
+            Authorization: `Basic ${psk}`
         },
         body: JSON.stringify({
             data: {

@@ -15,7 +15,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/bills_payment', function(req, res) {
-    //using this routing, server can now send variables to the bills_payment page
+    //using this routing, server can now send variable items to the bills_payment page
     fs.readFile('items.json', function(err, data) {
         if (err) res.status(500).end();
         else res.render('bills_payment.ejs', {
@@ -26,17 +26,11 @@ app.get('/bills_payment', function(req, res) {
 
 
 app.get('/payment_details', function(req, res) {
-    //using this routing, server can now send variables to the payment_details page
-    fs.readFile('psk.json', function(err, data) {
-        if (err) res.status(500).end();
-        else res.render('payment_details.ejs', {
-            psk: JSON.parse(data)
-        })
+    //using this routing, server can now send variable psk to the payment_details page
+    res.render('payment_details.ejs', {
+        psk: paymongoSecretKey,
     })
 })
-
-
-
 
 
 

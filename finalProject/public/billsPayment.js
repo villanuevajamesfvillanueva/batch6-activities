@@ -18,7 +18,7 @@ addToCartBtns.forEach(btn => {
 
 //send user to payment details page, submit cart details to backend upon click
 checkoutBtn.addEventListener('click', function() {
-    
+    //send cart details to backend
 });
 
 
