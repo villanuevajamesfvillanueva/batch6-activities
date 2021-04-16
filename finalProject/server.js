@@ -17,13 +17,30 @@ app.use(express.static('public'))
 app.get('/bills_payment', function(req, res) {
     //using this routing, server can now send variables to the bills_payment page
     fs.readFile('items.json', function(err, data) {
-        if (err) res.status(500).end()
+        if (err) res.status(500).end();
         else res.render('bills_payment.ejs', {
             items: JSON.parse(data)
         })
     })
 })
 
+
+app.get('/payment_details', function(req, res) {
+    //using this routing, server can now send variables to the payment_details page
+    fs.readFile('psk.json', function(err, data) {
+        if (err) res.status(500).end();
+        else res.render('payment_details.ejs', {
+            psk: JSON.parse(data)
+        })
+    })
+})
+
+
+
+
+
+
+//this part should come from the front end as a result of cart checkout
 const options = {
     method: 'POST',
     headers: {

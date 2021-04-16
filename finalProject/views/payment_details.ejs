@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paymentDetails.css">
+    <title>Payment Details</title>
+</head>
+<body>
+    <h3>Payment details</h3>
+    <form action="">
+        <label for="payment-type">Payment type: </label>
+        <select name="payment-type" id="payment-type">
+            <option selected disabled></option>
+            <option value="card">Card</option>
+        </select>
+        <div class="card-details">
+            <label for="card-num">Card Number: </label>
+            <input type="num" id="card-num" name="card-num" required>
+            <label for="exp-month">Expiry Month: </label>
+            <input type="num" id="exp-month" name="exp-month" required>
+            <label for="exp-year">Expiry Year: </label>
+            <input type="num" id="exp-year" name="exp-year" required>
+            <label for="cvc">CVC: </label>
+            <input type="num" id="cvc" name="cvc" required>
+            <span class="psk" data-item-id="<%= psk.psk %>"></span>
+
+        </div>
+        <!-- <button type="submit" class="verify-btn">verify</button> -->
+        <button class="verify-btn">verify</button>
+    </form>
+    
+
+    <script src="paymentDetails.js"></script>
+</body>
+</html>
