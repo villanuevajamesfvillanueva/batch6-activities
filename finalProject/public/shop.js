@@ -8,18 +8,36 @@ const addToCartBtns = document.querySelectorAll('.add-to-cart');
 const cart = document.querySelector('.cart');
 const checkoutBtn = document.querySelector('.checkout-btn');
 
+
+
+function addToCartClicked(event) {
+    var btn = event.target;
+    var item = btn.parentElement;
+    var itemName = item.getElementsByClassName('item-name')[0].innerText;
+    var itemPrice = item.getElementsByClassName('item-price')[0].innerText;
+    var imageSrc = item.getElementsByClassName('item-image')[0].src
+    var itemId = item.dataset.itemId;
+    addItemToCart(itemName, itemPrice, imageSrc, itemId);
+    alert(`${itemName} added to cart`);
+}
+
+
+function addItemToCart(itemName, itemPrice, imageSrc, itemId) {
+    var cartItem = {}
+    cartItem.name = itemName;
+    cartItem.price = itemPrice;
+    cartItem.imageSrc = imageSrc;
+    cartItem.id = itemId;
+
+    localStorage.setItem(itemId, JSON.stringify(cartItem));
+}
+
+
 addToCartBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        const button = e.target;
-        const itemName = button.parentElement.querySelector(".item-name");
-        console.log(itemName);
-    })
+    btn.addEventListener('click', addToCartClicked)
 });
 
-//send user to payment details page, submit cart details to backend upon click
-checkoutBtn.addEventListener('click', function() {
-    //send cart details to backend
-});
+
 
 
 

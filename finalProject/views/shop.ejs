@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bills Payment</title>
+</head>
+<body>
+    
+    <header>
+        <div class="header-title">
+            <div class="icon">&#171;</div>
+            <span>Shop</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="items-container">
+            <% items.utilities.forEach(function(item) { %>
+                <div class="item" data-item-id="<%= item.id %>">
+                    <span class="item-name"><%= item.name %></span>
+                    <span class="item-price"><%= item.price / 100 %></span>
+                    <img class="item-image" src="">
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            <% }) %>
+        </section>
+        
+        <a href="cart.html"><div>Go to cart</div></a>
+        
+    </main>
+    
+
+
+    <script src="shop.js"></script>
+</body>
+</html>

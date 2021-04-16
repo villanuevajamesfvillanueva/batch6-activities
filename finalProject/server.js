@@ -1,37 +1,41 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+
 
 const paymongoPublicKey = Buffer.from(process.env.PAYMONGO_PUBLIC_KEY).toString('base64')
 const paymongoSecretKey = Buffer.from(process.env.PAYMONGO_SECRET_KEY).toString('base64')
 
 const fetch = require("node-fetch");
 const express = require('express');
-const fs = require('fs')
+const fs = require('fs');
+const debug = require('debug')('app_debug');
 // const { response } = require('express');
-const app = express()
+const app = express();
 
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-app.get('/bills_payment', function(req, res) {
+
+debug('init /shop render');
+app.get('/shop', function(req, res) {
     //using this routing, server can now send variable items to the bills_payment page
     fs.readFile('items.json', function(err, data) {
         if (err) res.status(500).end();
-        else res.render('bills_payment.ejs', {
+        else res.render('shop.ejs', {
             items: JSON.parse(data)
         })
     })
 })
+debug('end /shop render');
 
 
+debug('init /payment_details render');
 app.get('/payment_details', function(req, res) {
     //using this routing, server can now send variable psk to the payment_details page
     res.render('payment_details.ejs', {
         psk: paymongoSecretKey,
     })
 })
-
+debug('end /payment_details render');
 
 
 //this part should come from the front end as a result of cart checkout
@@ -62,13 +66,14 @@ async function resp() {
     return json
 }
 
+debug('init payment intent post');
 resp().then(resp => {
-    console.log(resp)
-    clientKey = resp.data.attributes.client_key
-    console.log(clientKey)
+    console.log(resp);
+    clientKey = resp.data.attributes.client_key;
+    console.log(clientKey);
     //send clientKey to frontend
-}).catch(err => console.error(err))
-
+}).catch(err => console.error(err));
+debug('end payment intent post');
 
 
 

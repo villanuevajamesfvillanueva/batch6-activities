@@ -1,5 +1,64 @@
-.cart {
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgba(0, 0, 255, 0.5);
+
+    display: flex;
+    align-items: center;
+    height: 7vh;
+    /* justify-content: space-around; */
+}
+
+    .header-title {
+        display: flex;
+        justify-content: space-around;
+        width: 80vw;
+    }
+
+        .header-title span {
+            /* background-color: green; */
+            width: 70vw;
+        }
+
+        .header-title .icon {
+            width: 10vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+    nav {
+        width: 20vw;
+        /* background-color: red; */
+
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+.container {
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+
+
+/* ------------------------------ cart.html ------------------------------*/
+.cart-container {
+    width: 100vw;
+    height: 50vh;
+    overflow-y: scroll;
     border: 2px solid black;
-    height: 200px;
-    width: 100%;
 }
