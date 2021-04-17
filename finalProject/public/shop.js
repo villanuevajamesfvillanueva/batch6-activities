@@ -38,7 +38,7 @@ addToCartBtns.forEach(btn => {
 });
 
 
-
+//add animation when adding to cart
 
 
 
