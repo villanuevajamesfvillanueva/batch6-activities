@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,800;0,900;1,200;1,300;1,600&display=swap');
+
+
+:root {
+    --white: #ffffff;
+    --lightgray: #e4e4e4;
+    --font-color1: #1c1b1b;
+    --font-color2: #6a6a6a;
+}
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Nunito Sans', sans-serif; */
+    color: var(--font-color1);
+    background-color: var(--white);
 }
 
 .test {
@@ -12,8 +24,12 @@
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
-    background-color: rgba(0, 0, 255, 0.5);
+    border-bottom: 1px solid var(--lightgray);
 
     display: flex;
     align-items: center;
@@ -61,7 +77,16 @@ header {
 
 /* ------------------------------ shop.ejs ------------------------------*/
 /* tiles for shop items */
+.add-to-cart {
+    /* background-color: red; */
+    /* border-radius: 5px; */
+    height: 1.5rem;
+    width: 6rem;
+    /* border: 2px solid var(--lightgray); */
+    color: #6a6a6a;
+    border: 1px solid rgba(106, 106, 106, 0.2);
 
+}
 
 /* ------------------------------ cart.html ------------------------------*/
 .cart-container {

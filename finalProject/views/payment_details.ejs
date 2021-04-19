@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="paymentDetails.css">
-    <title>Payment Details</title>
+<%- include('./partials/head.ejs') %>
 </head>
 <body>
-    <h3>Payment details</h3>
+    <%- include('./partials/nav.ejs') %>
+
     <form action="">
         <label for="payment-type">Payment type: </label>
         <select name="payment-type" id="payment-type">

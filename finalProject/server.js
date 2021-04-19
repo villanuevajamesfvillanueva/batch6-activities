@@ -1,8 +1,7 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
-
-const paymongoPublicKey = Buffer.from(process.env.PAYMONGO_PUBLIC_KEY).toString('base64')
-const paymongoSecretKey = Buffer.from(process.env.PAYMONGO_SECRET_KEY).toString('base64')
+const paymongoPublicKey = Buffer.from(process.env.PAYMONGO_PUBLIC_KEY).toString('base64');
+const paymongoSecretKey = Buffer.from(process.env.PAYMONGO_SECRET_KEY).toString('base64');
 
 const fetch = require("node-fetch");
 const express = require('express');
@@ -15,27 +14,35 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 
-debug('init /shop render');
-app.get('/shop', function(req, res) {
-    //using this routing, server can now send variable items to the bills_payment page
-    fs.readFile('items.json', function(err, data) {
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: "Home"
+    });
+});
+
+app.get('/shop', (req, res) => {
+    fs.readFile('items.json', (err, data) => {
         if (err) res.status(500).end();
-        else res.render('shop.ejs', {
+        else res.render('shop', {
+            title: "Shop",
             items: JSON.parse(data)
-        })
-    })
-})
-debug('end /shop render');
+        });
+    });
+});
 
 
-debug('init /payment_details render');
-app.get('/payment_details', function(req, res) {
-    //using this routing, server can now send variable psk to the payment_details page
-    res.render('payment_details.ejs', {
+app.get('/payment_details', (req, res) => {
+    res.render('payment_details', {
+        title: "Payment Details",
         psk: paymongoSecretKey,
-    })
-})
-debug('end /payment_details render');
+    });
+});
+
+app.get('/cart', (req, res) => {
+    res.render('cart', {
+        title: "Cart"
+    });
+});
 
 
 //this part should come from the front end as a result of cart checkout
@@ -58,27 +65,25 @@ const options = {
     })
 };
 
-var clientKey = undefined
+var clientKey = undefined;
 async function resp() {
-    let url = "https://api.paymongo.com/v1/payment_intents"
-    let response = await fetch(url, options)
-    let json = await response.json()
-    return json
+    let url = "https://api.paymongo.com/v1/payment_intents";
+    let response = await fetch(url, options);
+    let json = await response.json();
+    return json;
 }
 
-debug('init payment intent post');
 resp().then(resp => {
     console.log(resp);
     clientKey = resp.data.attributes.client_key;
     console.log(clientKey);
     //send clientKey to frontend
 }).catch(err => console.error(err));
-debug('end payment intent post');
 
 
-
-app.listen(3000)
-
+app.listen(3000, 'localhost', () => {
+    console.log('listening on port 3000...');
+})
 
 
 //send order info to backend (coming from /cart)
