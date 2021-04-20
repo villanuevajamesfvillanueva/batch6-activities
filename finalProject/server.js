@@ -7,18 +7,23 @@ const fetch = require("node-fetch");
 const express = require('express');
 const fs = require('fs');
 const debug = require('debug')('app_debug');
+const morgan = require('morgan');
 // const { response } = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
+//custom middleware; explore third party middlewares
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
     res.render('index', {
         title: "Home"
     });
 });
+
+//response acts as like a return but for the entire program
+//once the server sends a response, code below it doesn't get executed
 
 app.get('/shop', (req, res) => {
     fs.readFile('items.json', (err, data) => {
@@ -30,11 +35,11 @@ app.get('/shop', (req, res) => {
     });
 });
 
-
 app.get('/payment_details', (req, res) => {
     res.render('payment_details', {
         title: "Payment Details",
         psk: paymongoSecretKey,
+        clientKey: clientKey
     });
 });
 
@@ -44,6 +49,8 @@ app.get('/cart', (req, res) => {
     });
 });
 
+//app.use(func) runs for all type of request for all routes so should be put at the end
+//so order matters
 
 //this part should come from the front end as a result of cart checkout
 const options = {
@@ -65,7 +72,7 @@ const options = {
     })
 };
 
-var clientKey = undefined;
+
 async function resp() {
     let url = "https://api.paymongo.com/v1/payment_intents";
     let response = await fetch(url, options);
@@ -73,11 +80,13 @@ async function resp() {
     return json;
 }
 
+var clientKey = undefined;
 resp().then(resp => {
+    
     console.log(resp);
     clientKey = resp.data.attributes.client_key;
     console.log(clientKey);
-    //send clientKey to frontend
+    //export clientKey to frontend
 }).catch(err => console.error(err));
 
 

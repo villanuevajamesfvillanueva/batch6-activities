@@ -5,9 +5,10 @@ const expYearInput = document.getElementById('exp-year');
 const cvcInput = document.getElementById('cvc');
 const verifyBtn = document.querySelector('.verify-btn');
 
-//make sure this should only be clicked once bec clicking again creates new key
-verifyBtn.addEventListener('click', function(event) {
-    event.preventDefault(); //to keep page from reloading while waiting for the paymongo data
+
+let createPaymentMethod = (event) => {
+    //to keep page from reloading while waiting for the paymongo data
+    event.preventDefault(); 
     const options = {
         method: 'POST',
         headers: {
@@ -37,9 +38,18 @@ verifyBtn.addEventListener('click', function(event) {
     }
 
     resp().then(resp => {
-        console.log(resp);
-        console.log(resp.data.id);
-        console.log("payment details verified");
-    }).catch(err => console.error(err));
+        // console.log(resp);
+        console.log(`paymentMethod id: ${resp.data.id}`);
+        console.log('----- payment details verified -----');
+        console.log(`clientKey (from BE): ${clientKey}`);
 
-});
+
+        // Get the payment intent id from the client key
+        // var paymentIntentId = clientKey.split('_client')[0];
+
+
+    }).catch(err => console.error(err));
+}
+
+//make sure this should only be clicked once bec clicking again creates new key
+verifyBtn.addEventListener('click', createPaymentMethod);
