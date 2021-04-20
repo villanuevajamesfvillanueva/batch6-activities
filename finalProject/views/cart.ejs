@@ -8,20 +8,16 @@
     <title>Cart</title>
 </head>
 <body>
-    <header>
-        <div class="header-title">
-            <div class="icon">&#171;</div>
-            <span>Cart</span>
-        </div>
-        <nav>
-            <a href="/">Home</a>
-        </nav>
-    </header>
+    <%- include('./partials/nav.ejs')%>
     
-    <div class="cart-container">
+    <main>
+        <div class="cart-container">
 
-    </div>
-    <a href="payment_details"><button class="checkout">Checkout</button></a>
+        </div>
+        <a href="payment_details"><button class="checkout">Checkout</button></a>
+    </main>
+    
     <script src="cart.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

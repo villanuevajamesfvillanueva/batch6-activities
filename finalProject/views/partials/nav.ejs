@@ -1,9 +1,39 @@
-<header>
-    <div class="header-title">
-        <div class="icon">&#171;</div>
-        <span><%= title %></span>
+
+<nav class="nav-bar">
+    <button class="hamburger">
+        <div class="bar"></div>
+    </button>
+    <a href="/">
+        <img class="logo" src="../images/lion2.svg" alt="lion logo">
+    </a>
+    <div class="search-and-bag">
+        <img class="search-icon" src="../images/search.svg" alt="search icon">
+        <a href="/cart">
+            <img class="bag-icon" src="../images/bag2.svg" alt="bag icon">
+        </a>
     </div>
-    <nav>
-        <a href="/">Home</a>
-    </nav>
-</header>
+</nav>
+
+<div class="ext-hamburger">
+    <div class="nav-items close-nav" style='font-size:20px;'>&#10005;</div>
+    <div class="nav-items">
+            <a href="/">Home</a>
+            <a href="/shop">All Products</a>
+            <a href="#">Clothing</a>
+            <a href="#">Gear</a>
+    </div>
+    <div class="nav-items2">
+            <a href="#">Shipping</a>
+            <a href="#">Customs and Duty Fees</a>
+            <a href="#">Return Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Account</a>
+    </div>
+</div>
+
+
+<div class="searchbar">
+    <img src="../images/search.svg" alt="search icon">
+    <input type="text" placeholder="SEARCH..." id="search" name="seach">
+    <div class="close-searchbar" style='font-size:20px;'>&#10005;</div>
+</div>

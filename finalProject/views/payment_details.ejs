@@ -4,28 +4,31 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
+    <main>
+        <form action="">
+            <label for="payment-type">Payment type: </label>
+            <select name="payment-type" id="payment-type">
+                <option selected disabled></option>
+                <option value="card">Card</option>
+            </select>
+            <div class="card-details">
+                <label for="card-num">Card Number: </label>
+                <input type="num" id="card-num" name="card-num" required>
+                <label for="exp-month">Expiry Month: </label>
+                <input type="num" id="exp-month" name="exp-month" required>
+                <label for="exp-year">Expiry Year: </label>
+                <input type="num" id="exp-year" name="exp-year" required>
+                <label for="cvc">CVC: </label>
+                <input type="num" id="cvc" name="cvc" required>
+                <!-- <span class="psk" data-item-id=""></span> -->
+    
+            </div>
+            <!-- <button type="submit" class="verify-btn">verify</button> -->
+            <button class="verify-btn">verify</button>
+        </form>
 
-    <form action="">
-        <label for="payment-type">Payment type: </label>
-        <select name="payment-type" id="payment-type">
-            <option selected disabled></option>
-            <option value="card">Card</option>
-        </select>
-        <div class="card-details">
-            <label for="card-num">Card Number: </label>
-            <input type="num" id="card-num" name="card-num" required>
-            <label for="exp-month">Expiry Month: </label>
-            <input type="num" id="exp-month" name="exp-month" required>
-            <label for="exp-year">Expiry Year: </label>
-            <input type="num" id="exp-year" name="exp-year" required>
-            <label for="cvc">CVC: </label>
-            <input type="num" id="cvc" name="cvc" required>
-            <!-- <span class="psk" data-item-id=""></span> -->
-
-        </div>
-        <!-- <button type="submit" class="verify-btn">verify</button> -->
-        <button class="verify-btn">verify</button>
-    </form>
+    </main>
+    
     
     <script>
         var psk = '<%= psk %>';
@@ -33,5 +36,6 @@
     </script>
     
     <script src="paymentDetails.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

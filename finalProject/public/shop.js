@@ -1,7 +1,3 @@
-//receive clientKey (result of payment intent) from backend
-
-//collect credit card info through credit card form
-//send credit card info to paymongo
 
 
 const addToCartBtns = document.querySelectorAll('.add-to-cart');
@@ -15,17 +11,19 @@ function addToCartClicked(event) {
     var item = btn.parentElement;
     var itemName = item.getElementsByClassName('item-name')[0].innerText;
     var itemPrice = item.getElementsByClassName('item-price')[0].innerText;
-    var imageSrc = item.getElementsByClassName('item-image')[0].src
+    var quantity = item.getElementsByClassName('item-quantity')[0].value;
+    var imageSrc = item.getElementsByClassName('item-image')[0].src;
     var itemId = item.dataset.itemId;
-    addItemToCart(itemName, itemPrice, imageSrc, itemId);
+    addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId);
     alert(`${itemName} added to cart`);
 }
 
 
-function addItemToCart(itemName, itemPrice, imageSrc, itemId) {
+function addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId) {
     var cartItem = {}
     cartItem.name = itemName;
     cartItem.price = itemPrice;
+    cartItem.quantity = quantity;
     cartItem.imageSrc = imageSrc;
     cartItem.id = itemId;
 
@@ -39,6 +37,7 @@ addToCartBtns.forEach(btn => {
 
 
 //add animation when adding to cart
+//show cart after each addition of item
 
 
 

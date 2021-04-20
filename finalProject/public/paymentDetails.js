@@ -43,7 +43,6 @@ let createPaymentMethod = (event) => {
         console.log('----- payment details verified -----');
         console.log(`clientKey (from BE): ${clientKey}`);
 
-
         // Get the payment intent id from the client key
         // var paymentIntentId = clientKey.split('_client')[0];
 

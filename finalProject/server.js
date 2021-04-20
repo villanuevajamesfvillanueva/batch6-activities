@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
     res.render('index', {
-        title: "Home"
+        title: "Nemeán"
     });
 });
 

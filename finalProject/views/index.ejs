@@ -2,17 +2,13 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 <body>
-    <header>
-        <div class="header-title">
-            <span><a href="/"><%= title %></a></span>
-        </div>
-        <nav>
-            <a href="shop">Shop</a>
-        </nav>
-    </header>
-
-    <h1 class="test">Wassup welcome to my Shop</h1>
-
+    <%- include('./partials/nav.ejs')%>
+    
+    <main>
+        <h1 class="test">Wassup welcome to my Shop</h1>
+    </main>
+    
     <script src="app.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>
