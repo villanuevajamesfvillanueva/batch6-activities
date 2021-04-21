@@ -1,20 +1,26 @@
 
+import { openCart } from './nav.js';
 
-const addToCartBtns = document.querySelectorAll('.add-to-cart');
+const addToCartBtn = document.querySelector('.add-to-cart');
+const decQuantity = document.querySelector('.input-prev');
+const incQuantity = document.querySelector('.input-next');
 const cart = document.querySelector('.cart');
 const checkoutBtn = document.querySelector('.checkout-btn');
 
 
 
 function addToCartClicked(event) {
-    var btn = event.target;
-    var item = btn.parentElement;
-    var itemName = item.getElementsByClassName('item-name')[0].innerText;
-    var itemPrice = item.getElementsByClassName('item-price')[0].innerText;
-    var quantity = item.getElementsByClassName('item-quantity')[0].value;
-    var imageSrc = item.getElementsByClassName('item-image')[0].src;
-    var itemId = item.dataset.itemId;
+    event.preventDefault(); 
+    var itemName = document.getElementsByClassName('item-name')[0].innerText;
+    var itemPrice = document.getElementsByClassName('item-price')[0].innerText;
+    var quantity = document.getElementsByClassName('item-quantity')[0].value;
+    var imageSrc = document.getElementsByClassName('item-image')[0].src;
+
+    var itemId = document.getElementsByClassName('item-name')[0].dataset.itemId;
     addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId);
+
+    openCart();
+
     alert(`${itemName} added to cart`);
 }
 
@@ -30,10 +36,27 @@ function addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId) {
     localStorage.setItem(itemId, JSON.stringify(cartItem));
 }
 
+function addOneQuantity() {
+    var inputQuantity = document.getElementsByClassName('item-quantity')[0];
+    var newquantity = parseInt(inputQuantity.value);
+    newquantity += 1;
+    if (newquantity >= 99) newquantity = 99;
+    inputQuantity.value = newquantity;
+}
 
-addToCartBtns.forEach(btn => {
-    btn.addEventListener('click', addToCartClicked)
-});
+function subtOneQuantity() {
+    var inputQuantity = document.getElementsByClassName('item-quantity')[0];
+    var newquantity = parseInt(inputQuantity.value);
+    newquantity -= 1;
+    if (newquantity <= 0) newquantity = 1;
+    inputQuantity.value = newquantity;
+}
+
+incQuantity.addEventListener('click', addOneQuantity);
+decQuantity.addEventListener('click', subtOneQuantity);
+
+addToCartBtn.addEventListener('click', addToCartClicked)
+
 
 
 //add animation when adding to cart

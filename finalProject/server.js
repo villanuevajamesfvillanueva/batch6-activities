@@ -39,6 +39,25 @@ app.get('/payment_details', (req, res) => {
 });
 
 
+
+fs.readFile('items.json', (err, data) => {
+    if (err) res.status(500).end();
+    else {
+        var contents = JSON.parse(data);
+        contents.products.forEach(product => {
+            app.get(product.route, (req, res) => {
+                res.render('./products/item', {
+                    title: "Products",
+                    item: product
+                });
+            });
+        });
+    }
+});
+
+
+
+
 //app.use(func) runs for all type of request for all routes so should be put at the end
 //so order matters
 

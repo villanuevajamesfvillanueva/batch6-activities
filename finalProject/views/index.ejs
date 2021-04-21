@@ -14,11 +14,13 @@
             <h2 class="section-header">OUR FAVORITES</h2>
             <div class="cards-container">
                 <% items.favorites.forEach(function(item) { %>
-                    <div class="card-item" data-item-id="<%= item.id %>">
-                        <img class="item-image" src="<%= item.src %>">
-                        <span class="item-name"><%= item.name %></span>
-                        <span class="item-price">Php <%= item.price / 100 %></span>
-                    </div>
+                    <a href="<%= item.route%>">
+                        <div class="card-item" data-item-id="<%= item.id %>">
+                            <img class="item-image" src="<%= item.src %>">
+                            <span class="item-name"><%= item.name %></span>
+                            <span class="item-price">Php <%= item.price / 100 %></span>
+                        </div>
+                    </a>
                 <% }) %>
             </div>
         </section>
@@ -28,7 +30,6 @@
         </section>
     </main>
     
-    <script src="app.js"></script>
-    <script src="nav.js"></script>
+    <script type="module" src="nav.js"></script>
 </body>
 </html>

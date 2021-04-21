@@ -89,3 +89,5 @@ let closeCart = () => {
 
 bagIcon.addEventListener('click', openCart);
 closeCartBtn.addEventListener('click', closeCart);
+
+export {activateOverlay, openCart};
