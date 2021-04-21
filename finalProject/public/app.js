@@ -20,8 +20,6 @@ function addToCartClicked(event) {
     addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId);
 
     openCart();
-
-    alert(`${itemName} added to cart`);
 }
 
 

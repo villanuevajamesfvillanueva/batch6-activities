@@ -31,6 +31,14 @@ body {
     overflow-y: scroll;
 }
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 a, ul, li, ol {
     text-decoration: none;
 }
@@ -375,7 +383,97 @@ nav {
     .cart {
         width: 100%;
         height: 70vh;
+        color: var(--font-color2);
+        padding: 30px 20px;
+        overflow-y: scroll;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
+
+        .cartItem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+            .cartItem-image-container {
+                width: 25%;
+            }
+
+                .cartItem-image-container .cartItem-image{
+                    width: 100%;
+                }
+
+            .cartItem-details {
+                width: 75%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 25px;
+            }
+
+                .cartItem-details1 .cartItem-name, .cartItem-details1 .cartItem-price{
+                    font-family: 'Nunito Sans', sans-serif;
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                }
+
+                .cartItem-details1 .cartItem-price {
+                    color: var(--font-color2);
+                }
+
+                .cartItem-details2 {
+                    width: 100%;
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                    .cartItem-quantity {
+                        height: 35px;
+                        border: 1px solid var(--lightgray);
+
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                        .cartItem-quantity input {
+                            width: 40px;
+                            height: 20px;
+                            text-align: center;
+                            outline: none;
+                            border: none;
+
+                        }
+
+                        .cartItem-quantity span {
+                            cursor: pointer;
+                            width: 20px;
+                            height: 20px;
+                            text-align: center;
+                            padding: auto;
+                            font-size: 1.2rem;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                    .cartItem-details2 .remove-from-cart {
+                        cursor: pointer;
+                        font-size: 10px;
+                        font-weight: 600;
+                        color: var(--font-color2);
+                    }
+
+
 
     .checkout-div {
         width: 100%;
@@ -408,7 +506,7 @@ nav {
 
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
         }
 
             .checkout-btn span {
@@ -418,6 +516,10 @@ nav {
                 font-weight: 500;
                 letter-spacing: 2px;
             }
+
+                .total {
+                    margin-left: 7px;
+                }
     
 /* ------------------------------ item.ejs ------------------------------*/
 .product-page {
@@ -483,13 +585,6 @@ nav {
         }
 
 
-        .product-page input::-webkit-outer-spin-button, .product-page input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-        }
-
-        .product-page input[type=number] {
-            -moz-appearance: textfield;
-        }
     
     .add-to-cart, .buy-it-now {
         display: flex;
