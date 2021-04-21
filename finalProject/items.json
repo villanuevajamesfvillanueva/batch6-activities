@@ -1,19 +1,28 @@
 {
-    "utilities": [
+    "favorites": [
         {
-            "id": 1,
-            "name": "Water",
-            "price": 40000
+            "id": "f1",
+            "name": "Bottled Water",
+            "price": 999000,
+            "src": "../images/bottledwater.jpg"
         },
         {
-            "id": 2,
-            "name": "Electricity",
-            "price": 700000
+            "id": "f2",
+            "name": "Plain White Shirt",
+            "price": 4550000,
+            "src": "../images/whiteshirtmens.jpg"
         },
         {
-            "id": 3,
-            "name": "Internet",
-            "price": 249900
+            "id": "f3",
+            "name": "White Slip-ons",
+            "price": 2499000,
+            "src": "../images/slippers.jpg"
+        },
+        {
+            "id": "f4",
+            "name": "Asian Indigenous Bag",
+            "price": 36000000,
+            "src": "../images/bag.jpg"
         }
     ],
     "loans": [

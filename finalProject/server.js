@@ -17,23 +17,18 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: "Nemeán"
+    fs.readFile('items.json', (err, data) => {
+        if (err) res.status(500).end();
+        else res.render('index', {
+            title: "Champs-Élysées",
+            items: JSON.parse(data)
+        });
     });
 });
 
 //response acts as like a return but for the entire program
 //once the server sends a response, code below it doesn't get executed
 
-app.get('/shop', (req, res) => {
-    fs.readFile('items.json', (err, data) => {
-        if (err) res.status(500).end();
-        else res.render('shop', {
-            title: "Shop",
-            items: JSON.parse(data)
-        });
-    });
-});
 
 app.get('/payment_details', (req, res) => {
     res.render('payment_details', {
@@ -43,11 +38,6 @@ app.get('/payment_details', (req, res) => {
     });
 });
 
-app.get('/cart', (req, res) => {
-    res.render('cart', {
-        title: "Cart"
-    });
-});
 
 //app.use(func) runs for all type of request for all routes so should be put at the end
 //so order matters

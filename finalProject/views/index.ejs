@@ -5,7 +5,27 @@
     <%- include('./partials/nav.ejs')%>
     
     <main>
-        <h1 class="test">Wassup welcome to my Shop</h1>
+        <section class="cta">
+            <img src="../images/model3.jpg" alt="model 1">
+            <div class="cta-buynow"><span>BUY NOW</span></div>
+        </section>
+        
+        <section class="our-favorites">
+            <h2 class="section-header">OUR FAVORITES</h2>
+            <div class="cards-container">
+                <% items.favorites.forEach(function(item) { %>
+                    <div class="card-item" data-item-id="<%= item.id %>">
+                        <img class="item-image" src="<%= item.src %>">
+                        <span class="item-name"><%= item.name %></span>
+                        <span class="item-price">Php <%= item.price / 100 %></span>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section class="all-products">
+
+        </section>
     </main>
     
     <script src="app.js"></script>
