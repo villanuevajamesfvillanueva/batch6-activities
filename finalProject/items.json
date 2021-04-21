@@ -6,28 +6,28 @@
             "price": 999000,
             "src": "../images/bottledwater.jpg",
             "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "route": "/products/bottled_water"
+            "route": "/bottled_water"
         },
         {
             "id": "che_pws1",
             "name": "Plain White Shirt",
             "price": 4550000,
             "src": "../images/whiteshirtmens.jpg",
-            "route": "/products/plain_white_shirt"
+            "route": "/plain_white_shirt"
         },
         {
             "id": "che_wso1",
             "name": "White Slip-ons",
             "price": 2499000,
             "src": "../images/slippers.jpg",
-            "route": "/products/white_slip-ons"
+            "route": "/white_slip-ons"
         },
         {
             "id": "che_aib1",
             "name": "Asian Indigenous Bag",
             "price": 36000000,
             "src": "../images/bag.jpg",
-            "route": "/products/asian_indigenous_bag"
+            "route": "/asian_indigenous_bag"
         }
     ],
     "products": [
@@ -37,28 +37,31 @@
             "price": 999000,
             "src": "../images/bottledwater.jpg",
             "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "route": "/products/bottled_water"
+            "route": "/bottled_water"
         },
         {
             "id": "che_pws1",
             "name": "Plain White Shirt",
             "price": 4550000,
             "src": "../images/whiteshirtmens.jpg",
-            "route": "/products/plain_white_shirt"
+            "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem doloremque, quaerat eos culpa ad similique aliquam dolores animi officia in?",
+            "route": "/plain_white_shirt"
         },
         {
             "id": "che_wso1",
             "name": "White Slip-ons",
             "price": 2499000,
             "src": "../images/slippers.jpg",
-            "route": "/products/white_slip-ons"
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, eos? Nostrum facilis aperiam ipsam. Reiciendis deleniti illo animi harum alias? Fuga magni nesciunt id quisquam voluptatem. Aut molestias consectetur sapiente.",
+            "route": "/white_slip-ons"
         },
         {
             "id": "che_aib1",
             "name": "Asian Indigenous Bag",
             "price": 36000000,
             "src": "../images/bag.jpg",
-            "route": "/products/asian_indigenous_bag"
+            "desc": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, eos? Nostrum facilis aperiam ipsam. Reiciendis deleniti illo animi harum alias? Fuga magni nesciunt id quisquam voluptatem. Aut molestias consectetur sapiente.",
+            "route": "/asian_indigenous_bag"
         }
 
     ],

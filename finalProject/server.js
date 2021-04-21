@@ -46,7 +46,7 @@ fs.readFile('items.json', (err, data) => {
         var contents = JSON.parse(data);
         contents.products.forEach(product => {
             app.get(product.route, (req, res) => {
-                res.render('./products/item', {
+                res.render('item', {
                     title: "Products",
                     item: product
                 });

@@ -453,6 +453,7 @@ nav {
     }
 
     .product-page .quantity {
+        margin-top: 20px;
         height: 5vh;
         text-align: center;
         outline: none;
@@ -505,7 +506,7 @@ nav {
     }
 
     .add-to-cart {
-        margin-top: 30px;
+        margin-top: 20px;
         border: 1px solid var(--lightgray);
     }
 
