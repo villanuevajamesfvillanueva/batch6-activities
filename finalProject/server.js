@@ -8,10 +8,12 @@ const express = require('express');
 const fs = require('fs');
 const debug = require('debug')('app_debug');
 const morgan = require('morgan');
+const { json } = require('express');
 // const { response } = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.json());
 app.use(express.static('public'));
 //custom middleware; explore third party middlewares
 app.use(morgan('dev'));
@@ -33,10 +35,10 @@ app.get('/', (req, res) => {
 app.get('/payment_details', (req, res) => {
     res.render('payment_details', {
         title: "Payment Details",
-        psk: paymongoSecretKey,
-        clientKey: clientKey
+        psk: paymongoSecretKey
     });
 });
+
 
 
 
@@ -56,47 +58,76 @@ fs.readFile('items.json', (err, data) => {
 });
 
 
+app.post('/checkout', (req, res) => {
+    fs.readFile('items.json', (err, data) => {
+        if (err) res.status(500).end();
+        else {
+            const fromItemsDotJSON = JSON.parse(data);
+            const itemsArr = fromItemsDotJSON.products;
+            //computing checkout total again in the backend
+            var total = 0;
+            req.body.shoppingList.forEach(item => {
+                console.log(item);
+                //finding price of purchased items in the ''database'
+                const purchasedJSON = itemsArr.find(i => { return i.id == item.id; });
+                total +=  purchasedJSON.price * item.quantity;
+            });
+            total = total/100;
+            
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Basic ${paymongoSecretKey}`
+                },
+                body: JSON.stringify({
+                    data: {
+                        attributes: {
+                            amount: total,
+                            payment_method_allowed: ['card'],
+                            payment_method_options: {card: {request_three_d_secure: 'any'}},
+                            currency: 'PHP',
+                            description: 'for test create PaymentIntent'
+                        }
+                    }
+                })
+            };
 
+            // console.log('options: ', options);
+
+            async function resp() {
+                let url = "https://api.paymongo.com/v1/payment_intents";
+                let response = await fetch(url, options);
+                let json = await response.json();
+                return json;
+            }
+    
+            resp().then(resp => {
+                // console.log(resp);
+                var clientKey = resp.data.attributes.client_key;
+                console.log(`clientKey: ${clientKey}`);
+                res.json({ clientKey: clientKey });
+            }).catch(err => console.error(err));
+        }
+    });
+});
+
+
+
+
+app.get('/post_payment', (req, res) => {
+    res.render('post_payment', {
+        title: "Payment",
+    });
+});
 
 //app.use(func) runs for all type of request for all routes so should be put at the end
 //so order matters
 
-//this part should come from the front end as a result of cart checkout
-const options = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${paymongoSecretKey}`
-    },
-    body: JSON.stringify({
-        data: {
-            attributes: {
-                amount: 10000,
-                payment_method_allowed: ['card'],
-                payment_method_options: {card: {request_three_d_secure: 'any'}},
-                currency: 'PHP',
-                description: 'for test create PaymentIntent'
-            }
-        }
-    })
-};
 
 
-async function resp() {
-    let url = "https://api.paymongo.com/v1/payment_intents";
-    let response = await fetch(url, options);
-    let json = await response.json();
-    return json;
-}
 
-var clientKey = undefined;
-resp().then(resp => {
-    
-    console.log(resp);
-    clientKey = resp.data.attributes.client_key;
-    console.log(clientKey);
-    //export clientKey to frontend
-}).catch(err => console.error(err));
+
 
 
 app.listen(3000, 'localhost', () => {

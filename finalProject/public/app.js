@@ -57,6 +57,10 @@ addToCartBtn.addEventListener('click', addToCartClicked)
 
 
 
+
+
+
+
 //add animation when adding to cart
 //show cart after each addition of item
 

@@ -194,4 +194,14 @@ let closeCart = () => {
 bagIcon.addEventListener('click', openCart);
 closeCartBtn.addEventListener('click', closeCart);
 
+
+
+
+// const checkoutBtn = document.querySelector('.checkout-btn');
+// checkoutBtn.addEventListener('click', sendTotaltoBE);
+
+
+
+
+
 export {activateOverlay, openCart};
