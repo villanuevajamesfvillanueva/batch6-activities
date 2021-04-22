@@ -2,9 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,800;0,900;1,200;1,300;1,600&display=swap');
 
 
+/* @font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('./fonts/Segoe\ UI.woff') format('woff');
+} */
+
+@font-face {
+    font-family: 'Segoe UI Regular';
+    src: url('./fonts/Segoe\ UI.woff');
+}
+
+
 :root {
     --white: #ffffff;
-    --lightgray: #e4e4e4;
+    /* --lightgray: #e4e4e4; */
+    --lightgray: #d8d8d8ee;
     --font-color1: #1c1b1b;
     --font-color2: #6a6a6a;
     --nav-height: 8.5vh;
@@ -45,8 +59,26 @@ a, ul, li, ol {
 
 main {
     margin-top: var(--nav-height);
-    
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 
 .overlay {
     position: fixed;
@@ -179,17 +211,13 @@ nav {
     justify-content: space-around;
     align-items: center;
     height: var(--nav-height);
-
 }
-
 
     .search-and-bag {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 60px;
-
-        margin-left: 70px;
     }
 
     .search-icon {
@@ -204,11 +232,12 @@ nav {
     }
 
     .logo {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        width: 40px;
+        width: 42vw;
         cursor: pointer;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-align: center;
     }
 
     .close-searchbar {
@@ -224,30 +253,36 @@ nav {
     flex-direction: column;
 }
 
-.hamburger {
-    margin-right: 70px;
+.hamburger-container {
+    width: 60px;
 
-    position: relative;
-    display: block;
-    width: 20px;
-    /* height: 35px; */
-    cursor: pointer;
-
-    appearance: none;
-    background: none;
-    outline: none;
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-    .hamburger .bar, .hamburger::after, .hamburger::before {
-        content: '';
+    .hamburger { 
+        position: relative;
         display: block;
-        width: 100%;
-        height: 1px;
-        background-color: var(--font-color2);
-        margin: 6px 0px;
-        transition: 0.4s;
+        width: 20px;
+        
+        cursor: pointer;
+
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
     }
+
+        .hamburger .bar, .hamburger::after, .hamburger::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--font-color2);
+            margin: 6px 0px;
+            transition: 0.4s;
+        }
 
 
 .ext-hamburger, .x-btn-nav {
@@ -501,13 +536,17 @@ nav {
 
         .checkout-btn {
             width: 65vw;
-            height: 7vh;
+            height: 5vh;
             background-color: var(--font-color1);
             cursor: pointer;
 
             display: flex;
             align-items: center;
             justify-content: space-around;
+        }
+
+        .checkout-btn:hover, .checkout-btn:hover > span, .checkout-btn:hover > span > span {
+            background-color: black;
         }
 
             .checkout-btn span {
@@ -606,9 +645,215 @@ nav {
         border: 1px solid var(--lightgray);
     }
 
+    .add-to-cart:hover {
+        background-color: var(--lightgray);
+    }
+
     .buy-it-now {
         background-color: var(--font-color1);
         color: var(--white);
     }
 
-   
+    .buy-it-now:hover {
+        background-color: black;
+    }
+
+/* ------------------------------ footer.ejs ------------------------------*/
+footer {
+    width: 100vw;
+    height: 30vh;
+
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+}
+
+    .footer-container p {
+        cursor: pointer;
+        margin: 5px 0 0 0;
+    }
+
+    .footer-container p:hover {
+        color: var(--lightgray);
+        border-bottom: 1px solid var(--lightgray);
+    }
+
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        
+        font-size: 12px;
+        height: 14vh;
+    }
+
+    footer h5 {
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 2px;
+        height: 20px;
+        text-align: center;
+        border-bottom: 1px solid var(--lightgray);
+        width: 100%;
+    }
+
+    footer img {
+        width: 40px;
+    }
+
+    .not-copyright {
+        font-size: 7px;
+        text-transform: uppercase;
+    }
+
+    footer .company-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-company-name {
+        margin-top: 5px;
+    }
+
+    
+
+/* ------------------------------ payment_details.ejs ------------------------------*/
+main.payment_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI Regular';
+    /* padding-top: 40px; */
+}
+
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 7vw;
+    background-color: #fafafa;
+    border-bottom: 1px solid var(--lightgray);
+    width: 100vw;
+    height: 7vh;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+    .order-summary div, .order-summary span {
+        background-color: #fafafa;
+    }
+
+        .order-summary-total {
+            margin-left: 3px;
+        }
+
+.payment_details form {
+    margin-bottom: 40px;
+}
+
+.payment_details h4, .payment_details .form-label-desc {
+    width: 92vw;
+    text-align: left;
+    font-family: inherit;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+    .payment_details h4 {
+        font-size: 1.2rem;
+    }
+
+    .payment_details .form-label-desc {
+        font-size: 13px;
+        margin-bottom: 10px;
+        color: var(--font-color2);
+    }
+
+    
+.payment-details-form, .address-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    border: 1px solid var(--lightgray);
+    border-radius: 5px;
+    width: 92vw;
+    background-color: #fafafa;
+}
+
+    .card-details, .address-details {
+        font-family: 'Segoe UI Regular';
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 92%;
+        background-color: #fafafa;
+    }
+
+    .card-date {
+        background-color: #fafafa;
+    }
+
+    .card-details input, .address-details input {
+        font-family: 'Segoe UI Regular';
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid var(--lightgray);
+        padding: 0 15px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        /* font-weight: 600; */
+        margin: 6px 0;
+        color: var(--font-color2);
+        
+    }
+
+        .card-date {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+            .card-date input {
+                width: 48%;
+            }
+
+    .verify-btn {
+        font-family: 'Segoe UI Regular';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 92vw;
+        height: 7vh;
+        /* font-size: 12px; */
+        /* letter-spacing: 2px; */
+        font-weight: 500;
+        cursor: pointer;
+
+        margin-bottom: 20px;
+        background-color: var(--font-color1);
+        color: var(--white);
+    }
+
+    .verify-btn:hover {
+        background-color: black;
+    }

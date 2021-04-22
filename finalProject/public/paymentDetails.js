@@ -6,6 +6,17 @@ const cvcInput = document.getElementById('cvc');
 const verifyBtn = document.querySelector('.verify-btn');
 
 
+const closeCartButton = document.querySelector('.close-cart');
+function updateOrderSummary() {
+    const orderSummaryTotal = document.querySelector('.order-summary-total');
+    console.log(localStorage.getItem("total"));
+    orderSummaryTotal.innerHTML = localStorage.getItem("total");
+}
+updateOrderSummary();
+closeCartButton.addEventListener('click', updateOrderSummary);  //updating cart total display in payment page for changes in cart
+
+
+
 let  paymentResult = (status = "failed") => {
     if (status === "success") {
         
@@ -26,6 +37,7 @@ let sendCartDetailsToBE = (event) => {
     event.preventDefault();
     var shoppingList = [];
     for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) === "total") continue;
         var item = JSON.parse(localStorage.getItem(localStorage.key(i)));
         var purchased = {};
         purchased.id = item.id;
@@ -56,6 +68,8 @@ let sendCartDetailsToBE = (event) => {
 }
 
 window.onload = sendCartDetailsToBE;
+closeCartButton.addEventListener('click', sendCartDetailsToBE);     //updating post request for changes in cart
+
 
 
 var paymentMethodID = 'yow';

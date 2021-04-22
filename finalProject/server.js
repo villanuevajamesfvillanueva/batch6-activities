@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     fs.readFile('items.json', (err, data) => {
         if (err) res.status(500).end();
         else res.render('index', {
-            title: "Champs-Élysées",
+            title: "Montaigne-Élysées",
             items: JSON.parse(data)
         });
     });
@@ -73,7 +73,9 @@ app.post('/checkout', (req, res) => {
                 total +=  purchasedJSON.price * item.quantity;
             });
             total = total/100;
-            
+
+            console.log(`cart total: ${total}`);
+
             const options = {
                 method: 'POST',
                 headers: {
@@ -115,11 +117,6 @@ app.post('/checkout', (req, res) => {
 
 
 
-app.get('/post_payment', (req, res) => {
-    res.render('post_payment', {
-        title: "Payment",
-    });
-});
 
 //app.use(func) runs for all type of request for all routes so should be put at the end
 //so order matters

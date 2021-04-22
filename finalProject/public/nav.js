@@ -118,11 +118,12 @@ function subtOneQuantity(event) {
 
 
 let updateCart = () => {
-    if (localStorage.length <= 0) cart.innerHTML = 'Your cart is empty';
+    if (localStorage.length <= 1) cart.innerHTML = 'Your cart is empty';
     else {
         cart.innerHTML = "";
 
         for (var i = 0; i < localStorage.length; i++) {
+            if (localStorage.key(i) === "total") continue;
             var item = JSON.parse(localStorage.getItem(localStorage.key(i)));
             
             var cartItem = document.createElement('div');
@@ -168,10 +169,14 @@ let updateCart = () => {
 let updateTotal = () => {
     let sum = 0;
     for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) === "total") continue;
         var item = JSON.parse(localStorage.getItem(localStorage.key(i)));
         var num = /\d+/g;
         sum += item.price.match(num)[0] * parseInt(item.quantity);
     }
+
+    localStorage.setItem("total", sum);
+    
     const spanTotal = document.querySelector('.total');
     spanTotal.innerHTML = sum;
 }

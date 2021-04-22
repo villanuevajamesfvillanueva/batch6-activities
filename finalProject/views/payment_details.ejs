@@ -4,27 +4,54 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <main>
-        <form action="">
+    <main class="payment_details">
+        <div class="order-summary">
+            <div>Cart Total</div>
+            <div>PHP<span class="order-summary-total">0</span></div>
+        </div>
+
+        <!-- payment -->
+        <h4 class="form-label">Payment</h4>
+        <p class="form-label-desc">All transactions are secure and encrypted.</p>
+        <form action="" class="payment-details-form">
             <label for="payment-type">Payment type: </label>
             <select name="payment-type" id="payment-type">
                 <option selected disabled></option>
                 <option value="card">Card</option>
             </select>
             <div class="card-details">
-                <label for="card-num">Card Number: </label>
-                <input type="num" id="card-num" name="card-num" required>
-                <label for="exp-month">Expiry Month: </label>
-                <input type="num" id="exp-month" name="exp-month" required>
-                <label for="exp-year">Expiry Year: </label>
-                <input type="num" id="exp-year" name="exp-year" required>
-                <label for="cvc">CVC: </label>
-                <input type="num" id="cvc" name="cvc" required>
-    
+                <input type="num" id="card-num" name="card-num" placeholder="Card number" required>
+                <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Name on card" required>
+                <div class="card-date">
+                    <input type="num" id="exp-month" name="exp-month" placeholder="Expiry month (MM)" required>
+                    <input type="num" id="exp-year" name="exp-year" placeholder="Expiry year (YYYY)" required>
+                </div>
+                <input type="num" id="cvc" name="cvc" placeholder="CVC" required>
             </div>
-            <button class="verify-btn">verify</button>
+        
+        </form>
+        
+        <!-- shipping address -->
+        <h4 class="form-label">Shipping</h4>
+        <p class="form-label-desc">Address for item destination</p>
+        <form action="" class="address-form">
+            <div class="address-details">
+                <input type="text" id="firstname" name="firstname" placeholder="First name">
+                <input type="text" id="lasttname" name="lastname" placeholder="Last name">
+                <input type="text" id="address" name="address" placeholder="Address">
+                <input type="text" id="address-line2" name="address-line2" placeholder="Apartment, suite, etc. (optional)">
+                <input type="text" id="postalcode" name="postalcode" placeholder="Postal code" >
+                <input type="text" id="city" name="city" placeholder="City">
+                <input type="number" name="contact-num" id="contact-num" placeholder="Phone">
+            </div> 
         </form>
 
+
+        <!-- remember me, for faster checkout -->
+
+        <!-- paynow button -->
+        <button class="verify-btn">Pay now</button>
+        <!-- footer -->
     </main>
     
     

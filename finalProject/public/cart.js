@@ -1,8 +1,9 @@
 const cartContainer = document.querySelector('.cart-container');
 
-if (localStorage.length <= 0) console.log('No items in cart');
+if (localStorage.length <= 1) console.log('No items in cart');
 else {
     for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) === "total") continue;
         var item = JSON.parse(localStorage.getItem(localStorage.key(i)));
         var cartItem = document.createElement('div');
         var nameSpan = document.createElement('span');
