@@ -95,8 +95,6 @@ app.post('/checkout', (req, res) => {
                 })
             };
 
-            // console.log('options: ', options);
-
             async function resp() {
                 let url = "https://api.paymongo.com/v1/payment_intents";
                 let response = await fetch(url, options);
@@ -105,7 +103,7 @@ app.post('/checkout', (req, res) => {
             }
     
             resp().then(resp => {
-                // console.log(resp);
+                console.log(resp);
                 var clientKey = resp.data.attributes.client_key;
                 console.log(`clientKey: ${clientKey}`);
                 res.json({ clientKey: clientKey });

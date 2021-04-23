@@ -166,6 +166,10 @@ main {
         height: 40vw;
         margin: 45px 0;
         cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 
         .card-item img {
@@ -173,13 +177,8 @@ main {
             height: 40vw;
         }
 
-        .card-item {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
 
-        .item-name, .item-price {
+        .card-item .item-name, .card-item .item-price {
             text-transform: uppercase;
             font-size: 10px;
             font-weight: 500;
@@ -188,9 +187,9 @@ main {
             text-align: center;
         }
 
-        .item-price {
+        .card-item .item-price {
             color: var(--font-color2);
-            /* margin-top: 3px; */
+            margin-top: 3px;
         }
 
 .all-products {
@@ -338,6 +337,10 @@ nav {
             padding-bottom: 0px;
         }
 
+        .nav-items2 a:hover {
+            color: white;
+        }
+
         .close-nav {
             cursor: pointer;
         }
@@ -461,6 +464,7 @@ nav {
 
                 .cartItem-details1 .cartItem-price {
                     color: var(--font-color2);
+                    margin-bottom: 10px;
                 }
 
                 .cartItem-details2 {
@@ -584,6 +588,7 @@ nav {
         width: 80%;
         height: 50px;
         border-bottom: 1px solid var(--lightgray);
+        text-align: center;
     }
 
     .product-page .product-desc {
@@ -722,6 +727,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     .footer-company-name {
@@ -928,4 +934,52 @@ main.payment_details {
 
     .verify-btn:hover {
         background-color: black;
+    }
+
+.payment-status {
+    z-index: 20;
+    position: absolute;
+    /* background-color: #555; */
+    top: 100%;
+    left: 50%;
+    width: 80vw;
+    height: 30vh;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--lightgray);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .payment-status .msg-container {
+        height: 25vh;
+        width: 75vw;
+        padding: 30px 0;
+        font-size: 1.2rem;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .msg-container img {
+        width: 60px;
+    }
+
+    .overlay2 {
+        position: fixed;
+        background-color: var(--font-color1);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -10;
+        opacity: 0;
+    
+        transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     }

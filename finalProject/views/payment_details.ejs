@@ -10,7 +10,6 @@
             <div>PHP<span class="order-summary-total">0</span></div>
         </div>
 
-        <!-- payment -->
         <h4 class="form-label">Payment</h4>
         <p class="form-label-desc">All transactions are secure and encrypted.</p>
         <form action="" class="payment-details-form">
@@ -21,42 +20,48 @@
             <div class="card-details">
                 <img class="secure-icon" src="../images/locked.svg" alt="secure icon">
                 <div class="bubble bubble-secure">All transactions are secure and encrypted.</div>
-                <input type="num" id="card-num" name="card-num" placeholder="Card number" required>
-                <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Name on card" required>
+                <input type="num" class="payment-input" id="card-num" name="card-num" placeholder="Card number" required>
+                <input type="text" class="payment-input" id="cardholder-name" name="cardholder-name" placeholder="Name on card" required>
                 <div class="card-date">
-                    <input type="num" id="exp-month" name="exp-month" placeholder="Expiry month (MM)" required>
-                    <input type="num" id="exp-year" name="exp-year" placeholder="Expiry year (YYYY)" required>
+                    <input type="num" class="payment-input" id="exp-month" name="exp-month" placeholder="Expiry month (MM)" required>
+                    <input type="num" class="payment-input" id="exp-year" name="exp-year" placeholder="Expiry year (YYYY)" required>
                 </div>
                 <img class="question-icon" src="../images/question.svg" alt="question icon">
                 <div class="bubble bubble-question">The 3-digit code usually found on the back of your card.</div>
-                <input type="num" id="cvc" name="cvc" placeholder="CVC" required>
+                <input type="num" class="payment-input" id="cvc" name="cvc" placeholder="CVC" required>
             </div>
         
         </form>
         
-        <!-- shipping address -->
         <h4 class="form-label">Shipping</h4>
         <p class="form-label-desc">Address for item destination</p>
         <form action="" class="address-form">
             <div class="address-details">
-                <input type="text" id="firstname" name="firstname" placeholder="First name">
-                <input type="text" id="lasttname" name="lastname" placeholder="Last name">
-                <input type="text" id="address" name="address" placeholder="Address">
-                <input type="text" id="address-line2" name="address-line2" placeholder="Apartment, suite, etc. (optional)">
-                <input type="text" id="postalcode" name="postalcode" placeholder="Postal code" >
-                <input type="text" id="city" name="city" placeholder="City">
-                <input type="number" name="contact-num" id="contact-num" placeholder="Phone">
+                <input type="text" class="shipping-input" id="firstname" name="firstname" placeholder="First name">
+                <input type="text" class="shipping-input" id="lasttname" name="lastname" placeholder="Last name">
+                <input type="text" class="shipping-input" id="address" name="address" placeholder="Address">
+                <input type="text" class="shipping-input" id="address-line2" name="address-line2" placeholder="Apartment, suite, etc. (optional)">
+                <input type="text" class="shipping-input" id="postalcode" name="postalcode" placeholder="Postal code" >
+                <input type="text" class="shipping-input" id="city" name="city" placeholder="City">
+                <input type="number" class="shipping-input" name="contact-num" id="contact-num" placeholder="Phone">
             </div> 
         </form>
 
 
         <!-- remember me, for faster checkout -->
 
-        <!-- paynow button -->
         <button class="verify-btn">Pay now</button>
         <!-- footer -->
+        
     </main>
-    
+    <div class="payment-status">
+        <div class="msg-container">
+            <img class="payment-status-img" src="./images/check.svg" alt="">
+            <span class="payment-status-msg">Payment Successful</span>
+            
+        </div>
+    </div>
+    <div class="overlay2"></div>
     
     <script>
         var psk = '<%= psk %>';

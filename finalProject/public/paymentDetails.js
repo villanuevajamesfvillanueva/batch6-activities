@@ -2,29 +2,56 @@ const paymentTypeSelect = document.getElementById('payment-type');
 const cardNumInput = document.getElementById('card-num');
 const expMonthInput = document.getElementById('exp-month');
 const expYearInput = document.getElementById('exp-year');
+const cardHolderName = document.getElementById('cardholder-name');
 const cvcInput = document.getElementById('cvc');
 const verifyBtn = document.querySelector('.verify-btn');
 
+const paymentInput = document.querySelectorAll('.payment-input');
+const shippingInput = document.querySelectorAll('.shipping-input');
 
 const closeCartButton = document.querySelector('.close-cart');
 function updateOrderSummary() {
     const orderSummaryTotal = document.querySelector('.order-summary-total');
-    console.log(localStorage.getItem("total"));
     orderSummaryTotal.innerHTML = localStorage.getItem("total");
 }
 updateOrderSummary();
 closeCartButton.addEventListener('click', updateOrderSummary);  //updating cart total display in payment page for changes in cart
 
 
+const paymentStatusDiv = document.querySelector('.payment-status');
+const paymentStatusMsg = document.querySelector('.payment-status-msg');
+const paymentStatusImg = document.querySelector('.payment-status-img');
+const overlay2 = document.querySelector('.overlay2');
 
-let  paymentResult = (status = "failed") => {
-    if (status === "success") {
-        
+overlay2.addEventListener('click', () => {
+    overlay2.style.opacity = 0;
+    overlay2.style.zIndex = -10;
+    paymentStatusDiv.style.transform  = 'translate(-50%, -50%) scale(0)';
+});
+
+let  paymentResult = (status = 'failed') => {
+    if (status === 'success') {
+        paymentStatusMsg.innerHTML = 'Payment Successful';
+        paymentStatusImg.src = './images/check.svg';
+
+        //clearing fields and cart
+        localStorage.clear();
+        const orderSummaryTotal = document.querySelector('.order-summary-total');
+        orderSummaryTotal.innerHTML = 0;
+        paymentInput.forEach(item => {
+            item.value = '';
+        });
+        shippingInput.forEach(item => {
+            item.value = '';
+        });
     }
     else {
-
+        paymentStatusMsg.innerHTML = 'Sorry. Transaction Failed';
+        paymentStatusImg.src = './images/failed.svg';
     }
-    
+    overlay2.style.opacity = 0.7
+    overlay2.style.zIndex = 19;
+    paymentStatusDiv.style.transform  = 'translate(-50%, -50%) scale(1)';
 }
 
 
@@ -59,8 +86,8 @@ let sendCartDetailsToBE = (event) => {
     .then(data => {
         console.log(data);
         clientKey = data.clientKey;
-        console.log(clientKey);
         paymentIntentId = clientKey.split('_client')[0];
+        console.log(`paymentIntentId: ${paymentIntentId}`)
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -110,9 +137,8 @@ let createPaymentMethod = (event) => {
         return paymentMethodID;
     })
     .then(data => {
-        console.log(data);
-
         console.log('--- attaching paymentIntentID to paymentMethodID ---');
+        console.log('--- sending post request to process payment ---');
 
         const options = {
             method: 'POST',
@@ -135,9 +161,9 @@ let createPaymentMethod = (event) => {
             // for (var item in resp) {
             //     console.log(item, JSON.stringify(resp[item]));
             // }
-            console.log(resp["status"]);
-            console.log(resp["ok"]);
-            console.log(resp["statusText"]);
+            console.log(`response status: ${resp["status"]}`);
+            console.log(`response ok: ${resp["ok"]}`);
+            console.log(`response statusText: ${resp["statusText"]}`);
             if (resp["status"] === 200 || resp["ok"] === true) paymentResult("success");
             else paymentResult();
         })
