@@ -1,0 +1,14 @@
+fix buttons in: 
+	1. enroll client
+	2. delete client
+	3. withdraw/deposit
+	4. fund transfer
+
+change welcome message (should depend on the account logged in)
+
+searchbar
+
+history table: newest to oldest
+
+
+auto-login after account creation
