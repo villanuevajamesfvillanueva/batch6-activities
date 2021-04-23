@@ -33,6 +33,9 @@
     </main>
     
     <%- include('./partials/footer.ejs')%>
+    <script>
+        if (localStorage.getItem("total") === null) localStorage.setItem("total", 0);
+    </script>
     <script type="module" src="nav.js"></script>
 </body>
 </html>

@@ -782,6 +782,25 @@ main.payment_details {
         color: var(--font-color2);
     }
 
+    #payment-type {
+        background-color: #fafafa;
+    }
+
+    .cards {
+        background-color: #fafafa;
+        width: 92%;
+        height: 40px;
+        margin-bottom: 5px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .cards img {
+            height: 30px;
+        }
+
     
 .payment-details-form, .address-form {
     display: flex;
@@ -824,6 +843,59 @@ main.payment_details {
         color: var(--font-color2);
         
     }
+
+    .secure-icon {
+        position: absolute;
+        top: 35vh;
+        left: 84vw;
+
+        height: 30px;
+        cursor: pointer;
+    }
+
+        .secure-icon:hover + .bubble-secure {
+            opacity: 1;
+        }
+
+    .question-icon {
+        position: absolute;
+        top: 55.5vh;
+        left: 85vw;
+        height: 20px;
+        cursor: pointer;
+    }
+
+        .question-icon:hover + .bubble-question {
+            opacity: 1;
+        }
+
+    .bubble {
+        position: absolute;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+        color: white;
+        font-size: 10px;
+        width: 150px;
+        height: 50px;
+        border-radius: 3px;
+        text-align: center;
+        padding: 5px 0;
+        transition: opacity 0.2s ease;
+    }
+
+        .bubble-secure {
+            padding-top: 10px;
+            top: 270px;
+            left: 310px;
+        }
+
+        .bubble-question {
+            height: 60px;
+            padding-top: 10px;
+            top: 450px;
+            left: 315px;
+        }
+
 
         .card-date {
             display: flex;

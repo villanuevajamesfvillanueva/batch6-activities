@@ -90,7 +90,7 @@ let createPaymentMethod = (event) => {
                         exp_year: parseInt(expYearInput.value),
                         cvc: cvcInput.value
                     },
-                    type: paymentTypeSelect.value
+                    type: paymentTypeSelect.innerHTML.toLowerCase()
                 }
             }
         })

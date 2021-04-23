@@ -14,18 +14,21 @@
         <h4 class="form-label">Payment</h4>
         <p class="form-label-desc">All transactions are secure and encrypted.</p>
         <form action="" class="payment-details-form">
-            <label for="payment-type">Payment type: </label>
-            <select name="payment-type" id="payment-type">
-                <option selected disabled></option>
-                <option value="card">Card</option>
-            </select>
+            <div class="cards">
+                <span id="payment-type">Card</span>
+                <img src="../images/cardsAccepted.svg" alt="cards accepted">
+            </div>
             <div class="card-details">
+                <img class="secure-icon" src="../images/locked.svg" alt="secure icon">
+                <div class="bubble bubble-secure">All transactions are secure and encrypted.</div>
                 <input type="num" id="card-num" name="card-num" placeholder="Card number" required>
                 <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Name on card" required>
                 <div class="card-date">
                     <input type="num" id="exp-month" name="exp-month" placeholder="Expiry month (MM)" required>
                     <input type="num" id="exp-year" name="exp-year" placeholder="Expiry year (YYYY)" required>
                 </div>
+                <img class="question-icon" src="../images/question.svg" alt="question icon">
+                <div class="bubble bubble-question">The 3-digit code usually found on the back of your card.</div>
                 <input type="num" id="cvc" name="cvc" placeholder="CVC" required>
             </div>
         
