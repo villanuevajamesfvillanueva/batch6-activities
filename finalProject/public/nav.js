@@ -12,6 +12,14 @@ const searchIcon = document.querySelector('.search-icon');
 const searchbar = document.querySelector('.searchbar');
 const closesearchbarBtn = document.querySelector('.close-searchbar');
 
+
+let updateBagIcon = () => {
+    const bagIcon = document.querySelector('.bag-icon');
+    if (localStorage.length <= 1) bagIcon.src = "../images/bag.svg";
+    else bagIcon.src = "../images/bag2.svg";
+}
+updateBagIcon();
+
 let activateOverlay = (zIndex) => {
     overlay.style.zIndex = zIndex;
     overlay.style.opacity = 0.7
@@ -117,7 +125,6 @@ function subtOneQuantity(event) {
 
 function removeFromCart(event) {
     var targetBtn = event.target;
-    console.log(`clicked ${targetBtn}`);
     var cartItem = targetBtn.parentElement.parentElement.parentElement;
     var itemId = cartItem.className.split(' ')[1];
 
@@ -126,6 +133,7 @@ function removeFromCart(event) {
     if (localStorage.length <= 1) cart.innerHTML = 'Your cart is empty';
 
     updateTotal();
+    updateBagIcon();
 }
 
 
@@ -204,13 +212,9 @@ let updateTotal = () => {
 
 
 
-
-
 let openCart = () => {
     activateOverlay('9');
     cartContainer.style.transform = 'translateX(0)';
-
-    
 
     updateCart();
     updateTotal();
@@ -234,4 +238,4 @@ closeCartBtn.addEventListener('click', closeCart);
 
 
 
-export {activateOverlay, openCart};
+export { activateOverlay, openCart, updateBagIcon };

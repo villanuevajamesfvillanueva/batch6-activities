@@ -1,3 +1,5 @@
+import { updateBagIcon } from './nav.js';
+
 const paymentTypeSelect = document.getElementById('payment-type');
 const cardNumInput = document.getElementById('card-num');
 const expMonthInput = document.getElementById('exp-month');
@@ -53,9 +55,6 @@ let  paymentResult = (status = 'failed') => {
     overlay2.style.zIndex = 19;
     paymentStatusDiv.style.transform  = 'translate(-50%, -50%) scale(1)';
 }
-
-
-
 
 
 var clientKey = '';
@@ -164,7 +163,10 @@ let createPaymentMethod = (event) => {
             console.log(`response status: ${resp["status"]}`);
             console.log(`response ok: ${resp["ok"]}`);
             console.log(`response statusText: ${resp["statusText"]}`);
-            if (resp["status"] === 200 || resp["ok"] === true) paymentResult("success");
+            if (resp["status"] === 200 || resp["ok"] === true) {
+                paymentResult("success");
+                updateBagIcon();
+            }
             else paymentResult();
         })
         .catch(err => console.error(err));

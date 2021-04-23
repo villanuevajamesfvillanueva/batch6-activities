@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+<body>
+    <%- include('./partials/nav.ejs')%>
+    <main>
+        <section class="all-products">
+            <h2 class="section-header">ALL PRODUCTS</h2>
+            <div class="cards-container">
+                <% allProducts.forEach(item => { %>
+                    <a href="<%= item.route%>">
+                        <div class="card-item" data-item-id="<%= item.id %>">
+                            <img class="item-image" src="<%= item.src %>">
+                            <span class="item-name"><%= item.name %></span>
+                            <span class="item-price">Php
+                                <span ><%= item.price / 100 %></span>
+                            </span>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs')%>
+    <script type="module" src="nav.js"></script>
+</body>
+
+</html>

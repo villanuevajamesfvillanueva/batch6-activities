@@ -95,6 +95,7 @@ main {
     transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+
 /* ------------------------------ index.ejs ------------------------------*/
 .cta {
     width: 100vw;
@@ -113,8 +114,6 @@ main {
         justify-content: center;
         align-items: center;
         margin: 40px 0 0 0;
-    }
-    .our-favorites .section-header {
         font-size: 1.2rem;
         letter-spacing: 4px;
         font-weight: 500;
@@ -663,6 +662,18 @@ nav {
         background-color: black;
     }
 
+
+/* ------------------------------ all_products.ejs ------------------------------*/
+.all-products {
+    width: 100vw;
+    border-bottom: 1px solid var(--lightgray);
+}
+
+    .all-products .section-header {
+        margin-top: 120px;
+    }
+
+
 /* ------------------------------ footer.ejs ------------------------------*/
 footer {
     width: 100vw;
@@ -940,7 +951,7 @@ main.payment_details {
     z-index: 20;
     position: absolute;
     /* background-color: #555; */
-    top: 100%;
+    top: 75%;
     left: 50%;
     width: 80vw;
     height: 30vh;

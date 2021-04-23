@@ -1,5 +1,5 @@
 
-import { openCart } from './nav.js';
+import { openCart, updateBagIcon } from './nav.js';
 
 const addToCartBtn = document.querySelector('.add-to-cart');
 const decQuantity = document.querySelector('.input-prev');
@@ -20,6 +20,7 @@ function addToCartClicked(event) {
     addItemToCart(itemName, itemPrice, quantity, imageSrc, itemId);
 
     openCart();
+    updateBagIcon();
 }
 
 
