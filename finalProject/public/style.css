@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,800;0,900;1,200;1,300;1,600&display=swap');
 
-
-/* @font-face {
-    font-family: 'Segoe UI Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Segoe UI Regular'), url('./fonts/Segoe\ UI.woff') format('woff');
-} */
-
 @font-face {
     font-family: 'Segoe UI Regular';
     src: url('./fonts/Segoe\ UI.woff');
@@ -191,8 +183,8 @@ main {
             margin-top: 3px;
         }
 
-.all-products {
-    height: 200vh;
+.index.all-products {
+    height: 50vh;
 }
 /* ------------------------------ nav.ejs ------------------------------*/
 nav {
@@ -663,9 +655,146 @@ nav {
     }
 
 
+
+    #slider {
+        width: 100vw;
+        text-align: center;
+     }
+
+        #slider input[type=radio] {
+            display: none;
+        }
+
+        #slider label {
+            cursor:pointer;
+            text-decoration: none;
+        }
+
+     #slides {
+        background: #fff;
+        position: relative;
+        z-index: 1;
+        width: 100vw;
+     }
+
+     #overflow {
+        width: 100%;
+        overflow: hidden;
+     }
+     #slide1:checked ~ #slides .inner {
+        margin-left: 0;
+     }
+     #slide2:checked ~ #slides .inner {
+        margin-left: -100%;
+     }
+     #slide3:checked ~ #slides .inner {
+        margin-left: -200%;
+     }
+     #slide4:checked ~ #slides .inner {
+        margin-left: -300%;
+     }
+
+     #slides .inner {
+        transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        width: 400%;
+        line-height: 0;
+        height: 100%;
+     }
+
+     #slides .slide {
+        width: 25%;
+        float:left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: #fff;
+     }
+
+     #controls {
+        top: 5px;
+        width: 100%;
+        height: 15px;
+        z-index: 1;
+        position: relative;
+     }
+
+     #controls label {
+        transition: opacity 0.2s ease-out;
+        display: none;
+        width: 15px;
+        height: 15px;
+        opacity: .4;
+     }
+     #controls label:hover {
+        opacity: 1;
+     }
+     
+     #slide1:checked ~ #controls label:nth-child(2),
+     #slide2:checked ~ #controls label:nth-child(3),
+     #slide3:checked ~ #controls label:nth-child(4),
+     #slide4:checked ~ #controls label:nth-child(1) {
+        background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+        float:right;
+        margin: 0 150px 0 0;
+        display: block;
+     }
+     #slide1:checked ~ #controls label:nth-last-child(2),
+     #slide2:checked ~ #controls label:nth-last-child(3),
+     #slide3:checked ~ #controls label:nth-last-child(4),
+     #slide4:checked ~ #controls label:nth-last-child(1) {
+        background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+        float:left;
+        margin: 0 0 0 150px;
+        display: block;
+     }
+
+     #bullets {
+        z-index: 3;
+        margin: 0 0;
+        text-align: center;
+     }
+
+     #bullets label {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius:100%;
+        background: #ccc;
+        margin: 0 10px;
+     }
+     #slide1:checked ~ #bullets label:nth-child(1),
+     #slide2:checked ~ #bullets label:nth-child(2),
+     #slide3:checked ~ #bullets label:nth-child(3),
+     #slide4:checked ~ #bullets label:nth-child(4) {
+        background: #444;
+     }
+
+     /* @media screen and (max-width: 900px) {
+        #slide1:checked ~ #controls label:nth-child(2),
+        #slide2:checked ~ #controls label:nth-child(3),
+        #slide3:checked ~ #controls label:nth-child(4),
+        #slide4:checked ~ #controls label:nth-child(1),
+        #slide1:checked ~ #controls label:nth-last-child(2),
+        #slide2:checked ~ #controls label:nth-last-child(3),
+        #slide3:checked ~ #controls label:nth-last-child(4),
+        #slide4:checked ~ #controls label:nth-last-child(1) {
+           margin: 0;
+        }
+        #slides {
+           max-width: calc(100% - 140px);
+           margin: 0 auto;
+        }
+     } */
+
+
+
+
+
 /* ------------------------------ all_products.ejs ------------------------------*/
 .all-products {
     width: 100vw;
+    height: 200vh;
     border-bottom: 1px solid var(--lightgray);
 }
 

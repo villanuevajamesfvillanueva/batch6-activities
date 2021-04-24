@@ -7,8 +7,41 @@
     <%- include('./partials/nav.ejs')%>
     <main>
         <div class="product-page">
-            <img class="item-image" src="<%= item.src %>" alt="<%= item.name %>">
-            <div>o o o o o o</div>
+          
+            <div id="slider">
+                <% for (var i = 0; i < item.carousel_src.length; i++) { %>
+                    <% if (i <= 0) { %>
+                        <input type="radio" name="slider" id="slide<%= i%>" checked>
+                    <% } else {%>
+                        <input type="radio" name="slider" id="slide<%= i%>">
+                    <% } %>
+                <% }; %>
+                <div id="slides">
+                    <div id="overflow">
+                        <div class="inner">  
+                            <% for (var i = 0; i < item.carousel_src.length; i++) { %>
+                                <div class="slide slide_<%= i%>">
+                                    <img class="item-image" src="<%= item.carousel_src[i] %>" alt="product image">
+                                </div>
+                            <% }; %>
+                        </div>
+                    </div>
+                </div>
+                <div id="controls">
+                    <% for (var i = 0; i < item.carousel_src.length; i++) { %>
+                        <label for="slide<%= i%>"></label>
+                    <% }; %>
+                </div>
+                <div id="bullets">
+                    <% for (var i = 0; i < item.carousel_src.length; i++) { %>
+                        <label for="slide<%= i%>"></label>
+                    <% }; %>       
+                </div>
+            </div>
+
+
+
+
             <span class="item-name" data-item-id="<%= item.id %>"><%= item.name %></span>
             <span class="item-price">Php <%= item.price / 100 %></span>
             <p class="product-desc"><%= item.desc%></p>

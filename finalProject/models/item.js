@@ -20,6 +20,10 @@ const itemSchema = new Schema({
         type: String,
         required: true
     },
+    carousel_src: {
+        type: Array,
+        required: false
+    },
     desc: {
         type: String,
         required: true
