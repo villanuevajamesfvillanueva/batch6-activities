@@ -6,14 +6,39 @@
     
     <main>
         <section class="cta">
-            <img src="../images/model3.jpg" alt="model 1">
-            <div class="cta-buynow"><span>BUY NOW</span></div>
+            <div class="slider">
+                <% for (var i = 0; i < buyNow.length; i++) { %>
+                    <% if (i <= 0) { %>
+                        <input type="radio" name="slider" id="cta_slide<%= i+1%>" checked>
+                    <% } else {%>
+                        <input type="radio" name="slider" id="cta_slide<%= i+1%>">
+                    <% } %>
+                <% }; %>
+                <div class="slides">
+                    <div class="overflow">
+                        <div class="inner">  
+                            <% for (var i = 0; i < buyNow.length; i++) { %>
+                                <div class="slide slide_<%= i+1%>">
+                                    <img class="item-image" src="<%= buyNow[i].src %>" alt="product image">
+                                    <div class="cta-buynow"><span>BUY NOW</span></div>
+                                </div>
+                            <% }; %>
+                        </div>
+                    </div>
+                </div>
+                <div class="bullets">
+                    <% for (var i = 0; i < buyNow.length; i++) { %>
+                        <label for="cta_slide<%= i+1%>"></label>
+                    <% }; %>       
+                </div>
+            </div>
+
         </section>
         
         <section class="our-favorites">
             <h2 class="section-header">OUR FAVORITES</h2>
             <div class="cards-container">
-                <% items.forEach(function(item) { %>
+                <% favorites.forEach(function(item) { %>
                     <a href="<%= item.route%>">
                         <div class="card-item" data-item-id="<%= item.id %>">
                             <img class="item-image" src="<%= item.src %>">

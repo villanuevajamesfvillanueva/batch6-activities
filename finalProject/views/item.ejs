@@ -8,7 +8,7 @@
     <main>
         <div class="product-page">
           
-            <div id="slider">
+            <div class="slider">
                 <% for (var i = 0; i < item.carousel_src.length; i++) { %>
                     <% if (i <= 0) { %>
                         <input type="radio" name="slider" id="slide<%= i+1%>" checked>
@@ -16,8 +16,8 @@
                         <input type="radio" name="slider" id="slide<%= i+1%>">
                     <% } %>
                 <% }; %>
-                <div id="slides">
-                    <div id="overflow">
+                <div class="slides">
+                    <div class="overflow">
                         <div class="inner">  
                             <% for (var i = 0; i < item.carousel_src.length; i++) { %>
                                 <div class="slide slide_<%= i+1%>">
@@ -27,20 +27,13 @@
                         </div>
                     </div>
                 </div>
-                <div id="controls">
-                    <% for (var i = 0; i < item.carousel_src.length; i++) { %>
-                        <label for="slide<%= i+1%>"></label>
-                    <% }; %>
-                </div>
-                <div id="bullets">
+                
+                <div class="bullets">
                     <% for (var i = 0; i < item.carousel_src.length; i++) { %>
                         <label for="slide<%= i+1%>"></label>
                     <% }; %>       
                 </div>
             </div>
-
-
-
 
             <span class="item-name" data-item-id="<%= item.id %>"><%= item.name %></span>
             <span class="item-price">Php <%= item.price / 100 %></span>

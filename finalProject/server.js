@@ -72,16 +72,57 @@ app.get('/one_product', (req, res) => {
 });
 
 
+// app.get('/', (req, res) => {
+//     Item.find()
+//     .then(result => {
+//         res.render('index', {
+//             title: "Montaigne-Élysées",
+//             // favorites: result.slice(0, 4),
+//             favorites: result.slice(0, 4),
+//             buyNow: result.slice(5, 9)
+//         });
+//     })
+//     .catch(err => console.error(err));
+// });
+
+
+
+
 app.get('/', (req, res) => {
-    Item.find()
-    .then(result => {
+    var favorites_ids = ['6082d60ac07ee9c55523f73c', '6082d6dec07ee9c55523f73d', '6082d700c07ee9c55523f73e', '6082d71fc07ee9c55523f73f'];
+    //favorites = [bottled water, plain white shirt, white slip-ons, asian indigenous bag]
+    var favorites = [];
+
+    var buyNow_ids = ['6082ed79c07ee9c55523f744', '6082ea62c07ee9c55523f742', '6082eac7c07ee9c55523f743'];
+    //buyNow = [gold mug, black and yellow glasses, red face towel]
+    var buyNow = [];
+
+    (async function loop() {
+        for (let i = 0; i < favorites_ids.length; i++) {
+            await Item.findById(favorites_ids[i])
+            .then(result => { favorites.push(result); })
+            .catch(err => console.error(err))
+        }
+
+        for (let i = 0; i < buyNow_ids.length; i++) {
+            await Item.findById(buyNow_ids[i])
+            .then(result => { buyNow.push(result); })
+            .catch(err => console.error(err))
+        }
+
+        return [favorites, buyNow]
+    })().then(result => { 
         res.render('index', {
             title: "Montaigne-Élysées",
-            items: result.slice(0, 4)
+            favorites: result[0],
+            buyNow: result[1]
         });
-    })
-    .catch(err => console.error(err));
+     })
+    .catch(err => console.error(err))
+
 });
+
+
 
 
 app.get('/payment_details', (req, res) => {

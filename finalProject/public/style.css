@@ -91,10 +91,9 @@ main {
 /* ------------------------------ index.ejs ------------------------------*/
 .cta {
     width: 100vw;
-    height: 100vw;
+    height: 105vw;
     background-color: #d9ddde;
     overflow: hidden;
-    cursor: grab;
     
     display: flex;
     justify-content: center;
@@ -113,12 +112,14 @@ main {
 
     .cta img {
         width: 100%;
+        cursor: grab;
+        margin-bottom: 10px;
     }
 
     .cta-buynow {
         position: absolute;
-        top: 90vw;
-        left: 5vw;
+        top: 80%;
+        left: 10%;
         background-color: black;
         cursor: pointer;
         
@@ -137,6 +138,28 @@ main {
             font-weight: 500;
             letter-spacing: 2px;
         }
+
+
+     #cta_slide1:checked ~ .slides .inner {
+        margin-left: 0;
+     }
+     #cta_slide2:checked ~ .slides .inner {
+        margin-left: -100%;
+     }
+     #cta_slide3:checked ~ .slides .inner {
+        margin-left: -200%;
+     }
+     #cta_slide4:checked ~ .slides .inner {
+        margin-left: -300%;
+     }
+
+     #cta_slide1:checked ~ .bullets label:nth-child(1),
+     #cta_slide2:checked ~ .bullets label:nth-child(2),
+     #cta_slide3:checked ~ .bullets label:nth-child(3),
+     #cta_slide4:checked ~ .bullets label:nth-child(4) {
+        background: #444;
+     }
+
 
 .our-favorites {
     width: 100vw;
@@ -656,52 +679,61 @@ nav {
 
 
 
-    #slider {
+    /* #slider { */
+    .slider {
         width: 100vw;
         text-align: center;
-     }
+    }
 
-        #slider input[type=radio] {
+        .slider input[type=radio] {
             display: none;
         }
 
-        #slider label {
+        .slider label {
             cursor:pointer;
             text-decoration: none;
         }
 
-     #slides {
+
+    /* #slides { */
+    .slides {
         background: #fff;
         position: relative;
         z-index: 1;
         width: 100vw;
-     }
+    }
 
-     #overflow {
+    /* #overflow { */
+    .overflow {
         width: 100%;
         overflow: hidden;
-     }
-     #slide1:checked ~ #slides .inner {
+    }
+
+     /* #slide1:checked ~ #slides .inner {
+        margin-left: 0;
+     } */
+
+     #slide1:checked ~ .slides .inner {
         margin-left: 0;
      }
-     #slide2:checked ~ #slides .inner {
+     #slide2:checked ~ .slides .inner {
         margin-left: -100%;
      }
-     #slide3:checked ~ #slides .inner {
+     #slide3:checked ~ .slides .inner {
         margin-left: -200%;
      }
-     #slide4:checked ~ #slides .inner {
+     #slide4:checked ~ .slides .inner {
         margin-left: -300%;
      }
 
-     #slides .inner {
+     .slides .inner {
         transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
         width: 400%;
         line-height: 0;
         height: 100%;
      }
 
-     #slides .slide {
+     .slides .slide {
         width: 25%;
         float:left;
         display: flex;
@@ -711,7 +743,7 @@ nav {
         color: #fff;
      }
 
-     #controls {
+     /* .controls {
         top: 5px;
         width: 100%;
         height: 15px;
@@ -719,16 +751,16 @@ nav {
         position: relative;
      }
 
-     #controls label {
+     .controls label {
         transition: opacity 0.2s ease-out;
         display: none;
         width: 15px;
         height: 15px;
         opacity: .4;
      }
-     #controls label:hover {
+     .controls label:hover {
         opacity: 1;
-     }
+     } */
      
      /* #slide1:checked ~ #controls label:nth-child(2),
      #slide2:checked ~ #controls label:nth-child(3),
@@ -750,13 +782,13 @@ nav {
         display: block;
      } */
 
-     #bullets {
+     .bullets {
         z-index: 3;
         margin: 0 0;
         text-align: center;
      }
 
-     #bullets label {
+     .bullets label {
         display: inline-block;
         width: 8px;
         height: 8px;
@@ -764,10 +796,10 @@ nav {
         background: #ccc;
         margin: 0 10px;
      }
-     #slide1:checked ~ #bullets label:nth-child(1),
-     #slide2:checked ~ #bullets label:nth-child(2),
-     #slide3:checked ~ #bullets label:nth-child(3),
-     #slide4:checked ~ #bullets label:nth-child(4) {
+     #slide1:checked ~ .bullets label:nth-child(1),
+     #slide2:checked ~ .bullets label:nth-child(2),
+     #slide3:checked ~ .bullets label:nth-child(3),
+     #slide4:checked ~ .bullets label:nth-child(4) {
         background: #444;
      }
 
