@@ -11,16 +11,16 @@
             <div id="slider">
                 <% for (var i = 0; i < item.carousel_src.length; i++) { %>
                     <% if (i <= 0) { %>
-                        <input type="radio" name="slider" id="slide<%= i%>" checked>
+                        <input type="radio" name="slider" id="slide<%= i+1%>" checked>
                     <% } else {%>
-                        <input type="radio" name="slider" id="slide<%= i%>">
+                        <input type="radio" name="slider" id="slide<%= i+1%>">
                     <% } %>
                 <% }; %>
                 <div id="slides">
                     <div id="overflow">
                         <div class="inner">  
                             <% for (var i = 0; i < item.carousel_src.length; i++) { %>
-                                <div class="slide slide_<%= i%>">
+                                <div class="slide slide_<%= i+1%>">
                                     <img class="item-image" src="<%= item.carousel_src[i] %>" alt="product image">
                                 </div>
                             <% }; %>
@@ -29,12 +29,12 @@
                 </div>
                 <div id="controls">
                     <% for (var i = 0; i < item.carousel_src.length; i++) { %>
-                        <label for="slide<%= i%>"></label>
+                        <label for="slide<%= i+1%>"></label>
                     <% }; %>
                 </div>
                 <div id="bullets">
                     <% for (var i = 0; i < item.carousel_src.length; i++) { %>
-                        <label for="slide<%= i%>"></label>
+                        <label for="slide<%= i+1%>"></label>
                     <% }; %>       
                 </div>
             </div>

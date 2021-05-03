@@ -224,7 +224,7 @@ nav {
     .logo {
         width: 42vw;
         cursor: pointer;
-        font-size: 1.2rem;
+        font-size: min(3.85vw, 1.2rem);
         letter-spacing: 1px;
         font-weight: 500;
         text-align: center;
@@ -248,7 +248,7 @@ nav {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
     .hamburger { 
@@ -730,7 +730,7 @@ nav {
         opacity: 1;
      }
      
-     #slide1:checked ~ #controls label:nth-child(2),
+     /* #slide1:checked ~ #controls label:nth-child(2),
      #slide2:checked ~ #controls label:nth-child(3),
      #slide3:checked ~ #controls label:nth-child(4),
      #slide4:checked ~ #controls label:nth-child(1) {
@@ -738,8 +738,9 @@ nav {
         float:right;
         margin: 0 150px 0 0;
         display: block;
-     }
-     #slide1:checked ~ #controls label:nth-last-child(2),
+     } */
+
+     /* #slide1:checked ~ #controls label:nth-last-child(2),
      #slide2:checked ~ #controls label:nth-last-child(3),
      #slide3:checked ~ #controls label:nth-last-child(4),
      #slide4:checked ~ #controls label:nth-last-child(1) {
@@ -747,7 +748,7 @@ nav {
         float:left;
         margin: 0 0 0 150px;
         display: block;
-     }
+     } */
 
      #bullets {
         z-index: 3;
@@ -770,24 +771,7 @@ nav {
         background: #444;
      }
 
-     /* @media screen and (max-width: 900px) {
-        #slide1:checked ~ #controls label:nth-child(2),
-        #slide2:checked ~ #controls label:nth-child(3),
-        #slide3:checked ~ #controls label:nth-child(4),
-        #slide4:checked ~ #controls label:nth-child(1),
-        #slide1:checked ~ #controls label:nth-last-child(2),
-        #slide2:checked ~ #controls label:nth-last-child(3),
-        #slide3:checked ~ #controls label:nth-last-child(4),
-        #slide4:checked ~ #controls label:nth-last-child(1) {
-           margin: 0;
-        }
-        #slides {
-           max-width: calc(100% - 140px);
-           margin: 0 auto;
-        }
-     } */
-
-
+  
 
 
 
@@ -825,12 +809,14 @@ footer {
 
     .footer-container p {
         cursor: pointer;
-        margin: 5px 0 0 0;
+        margin: 10px 0 0 0;
+        transition: transform 0.2s ease;
     }
 
     .footer-container p:hover {
-        color: var(--lightgray);
         border-bottom: 1px solid var(--lightgray);
+        transform: translateY(-5px);
+        
     }
 
     .footer-info {

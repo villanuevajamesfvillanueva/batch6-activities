@@ -161,11 +161,6 @@ app.post('/checkout', (req, res) => {
 
 
 
-
-
-
-
-
 //send order info to backend (coming from /cart)
 //backend posts a payment intent to paymongo [PAYMENT INTENT]
 //paymongo returns a client key to backend
