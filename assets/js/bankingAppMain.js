@@ -308,7 +308,7 @@ let addNewClient = () => {
 
         //adding new client data to clientListCompleteData array
         let newClient = {};
-        newClient.accountName = accountName;
+        newClient.accountName = firstname.value + " " + lastname.value;
         newClient.mobileNumber = contactNum.value;
         newClient.address = address.value;
         newClient.accountNum = rand;
